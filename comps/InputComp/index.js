@@ -15,7 +15,7 @@ const FormInput = styled.input`
 width: ${props => props.width ? props.width :"384"};
 height: ${props => props.height ? props.height :"45"};
 margin:.5em;
-border-radius:7px;
+border-radius:3.75%;
 
 `;
 

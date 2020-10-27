@@ -1,7 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
+import {View} from "react-native";
 
-const FilterContainer = styled.div`
+const FilterContainer = styled.View`
     width: 21px;
     height: 21px;
     background-color: #EBEBEB;
@@ -16,8 +17,8 @@ const FilterContainer = styled.div`
 
 
  const Filter = ({}) => {
-       return <FilterContainer style ={{}}>
-              </FilterContainer>
+       return <View><FilterContainer style ={{}}>
+              </FilterContainer></View>
     
     }
 

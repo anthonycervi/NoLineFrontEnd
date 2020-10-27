@@ -10,10 +10,10 @@ export default {
 
 
 
-export const DefaultInputBox = () => <InputBox/>
+export const DefaultInputBox = () => <InputBox text="test"/>
 
-export const NameInputBox = () => <InputBox/>
+export const NameInputBox = () => <InputBox text="Name"/>
 
-export const EmailInputBox = () => <InputBox/>
+export const EmailInputBox = () => <InputBox text="Email"/>
 
-export const PasswordInputBox = () => <InputBox/>
+export const PasswordInputBox = () => <InputBox text="Password"/>

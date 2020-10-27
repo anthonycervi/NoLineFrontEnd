@@ -1,7 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
+import {View, TextInput, Text} from "react-native";
 
-const InputBoxContainer = styled.input`
+const InputBoxContainer = styled.TextInput`
     width: 289px;
     height: 49px;
     background-color: #EBEBEB;
@@ -20,9 +21,9 @@ const InputBoxContainer = styled.input`
      `;
 
 
- const InputBox = ({}) => {
-       return <InputBoxContainer placeholder="text">
-              </InputBoxContainer>
+ const InputBox = ({text}) => {
+       return <View><InputBoxContainer placeholder={text}>
+       </InputBoxContainer></View>
               
     
     }

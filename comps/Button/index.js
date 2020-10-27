@@ -1,7 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
+import {View,} from "react-native";
 
-const ButtonContainer = styled.div`
+const ButtonContainer = styled.View`
     width: ${props => props.buttonwidth ? props.buttonwidth :"289px"};
     height: ${props => props.buttonheight ? props.buttonheight :"49px"};
     background-color: ${props => props.buttonbgcolor ? props.buttonbgcolor : "#FFD25B" };
@@ -21,7 +22,7 @@ const ButtonContainer = styled.div`
      `;
 
  const Button = ({buttonwidth, buttonheight, buttonbgcolor, buttoncolor, buttonfontstyle, buttonfontweight, buttonfontsize, text}) => {
-       return <ButtonContainer style ={{backgroundColor: buttonbgcolor, 
+       return <View><ButtonContainer style ={{backgroundColor: buttonbgcolor, 
                                         color: buttoncolor, 
                                         width: buttonwidth, 
                                         height: buttonheight, 
@@ -30,7 +31,7 @@ const ButtonContainer = styled.div`
                                         fontWeight: buttonfontweight,
                                         fontSize: buttonfontsize}}>
                 {text}
-              </ButtonContainer>
+              </ButtonContainer></View>
     
     }
 

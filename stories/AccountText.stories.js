@@ -16,4 +16,4 @@ export const CreateNow = () => <AccountText text="Don't have an account? &nbsp;"
 
 export const SignIn = () => <AccountText text="Have an account? &nbsp;" text2=" Sign In"/>
 
-export const ForgotPassword = () => <AccountText text="Forgot Password?"/>
+export const ForgotPassword = () => <AccountText text2="Forgot Password?"/>

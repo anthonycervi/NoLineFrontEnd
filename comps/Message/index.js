@@ -13,11 +13,11 @@ const MessageContainer = styled.div`
     font-family: Montserrat;
     font-style: normal;
 
-//   .Heading { grid-area: 1 / 2 / 2 / 3; }
-// .Review { grid-area: 1 / 3 / 2 / 4; }
-// .ProfilePic { grid-area: 1 / 1 / 3 / 2; }
-// .Username { grid-area: 3 / 1 / 4 / 2; }
-// .Message { grid-area: 2 / 2 / 4 / 4; }
+// .Heading { grid-area: 1 / 2 / 2; }
+// .Review { grid-area: 1 / 3 / 2; }
+// .ProfilePic { grid-area: 1 / 1 / 3; }
+// .Username { grid-area: 3 / 1 / 4; }
+// .Message { grid-area: 2 / 2 / 4; }
 `;
 
 const MessageHeading = styled.div`

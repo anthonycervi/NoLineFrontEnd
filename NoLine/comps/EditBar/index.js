@@ -5,14 +5,14 @@ import {View, Text} from 'react-native';
 const BarContainer = styled.View`
     display: flex;
     align-items: stretch;
+    flex-direction:row;
 `;
 
 const BarItem = styled.Text`
     background-color: #fff;
     color: #9D9D9D;
     text-align: center;
-    width: 10%; //width 100%
-    font-family: Montserrat;
+    width: 50%;
     font-style: normal;
     font-weight: 500;
     font-size: 13px;

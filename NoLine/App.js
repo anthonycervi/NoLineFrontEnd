@@ -17,6 +17,8 @@ import {
 } from 'react-native';
 import EditBar from './comps/EditBar';
 
+//import HomePage from './pages/Homepage';
+
 const App = () =>{
   return <View>
     <EditBar />

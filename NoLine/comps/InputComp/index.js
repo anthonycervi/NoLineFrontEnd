@@ -34,6 +34,7 @@ InputComp.defaultProps= {
    color:"#686868",
    width:"384px",
    height:"45px"
+   //TEST
  }
 
 export default InputComp

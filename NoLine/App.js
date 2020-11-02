@@ -15,13 +15,12 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-import EditBar from './comps/EditBar';
+import InputComp from '../../comps/InputComp';
 
 const App = () =>{
   return <View>
-    <EditBar />
+    <InputComp />
   </View>
 }
 
-//export default App;
-export {default} from './storybook';
+export default App;

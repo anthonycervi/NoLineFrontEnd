@@ -1,34 +1,35 @@
 import React from 'react';
-import styled, {css} from 'styled-components';
+import styled, {css} from 'styled-components/native';
+import {View, Text, Image} from 'react-native';
 import ProfilePic from '../../public/ProfilePic.svg';
 
-const ProfileContainer = styled.div`
+const ProfileContainer = styled.View`
     text-align: center;
     font-family: Montserrat;
     font-style: normal;
+`;
 
-    h2 {
-        font-weight: 500;
-        font-size: 24px;
-        line-height: 29px;
-        margin-bottom: 0px;
-    }
+const HeadingTwo = styled.Text`
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 0px;
+`;
 
-    p {
-        height: 13px;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 13px;
-        color: #ccc;
-        margin-top: 4px;
-    }
+const Paragraph = styled.Text`
+    height: 13px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 13px;
+    color: #ccc;
+    margin-top: 4px;
+`;
 
-    h1 {
-        font-weight: 500;
-        font-size: 32px;
-        line-height: 39px;
-        color: #8486D1;
-    }
+const HeadingOne = styled.Text`
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 39px;
+    color: #8486D1;
 `;
 
 const ProfileSVG = {
@@ -37,10 +38,10 @@ const ProfileSVG = {
 
 const Profile = ({fname, lname, city, province, score}) => {
     return <ProfileContainer>
-        <img src={ProfileSVG.src}/>
-        <h2>{fname} {lname}</h2>
-        <p>{city}, {province}</p>
-        <h1>{score} Points</h1>
+        <Image src={ProfileSVG.src}/>
+        <HeadingTwo>{fname} {lname}</HeadingTwo>
+        <Paragraph>{city}, {province}</Paragraph>
+        <HeadingOne>{score} Points</HeadingOne>
     </ProfileContainer>
 }
 

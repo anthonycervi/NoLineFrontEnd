@@ -1,9 +1,10 @@
 import React from 'react';
-import styled, {css} from 'styled-components';
+import styled, {css} from 'styled-components/native';
+import {View, Text, Image} from 'react-native';
 
 import ProfilePic from '../../public/MessageProfile.svg';
 
-const MessageContainer = styled.div`
+const MessageContainer = styled.View`
     display: grid;
     grid-template-columns: 1fr 1.2fr 0.8fr 1fr;
     grid-template-rows: 1fr 1fr 1.4fr;
@@ -20,29 +21,24 @@ const MessageContainer = styled.div`
 // .Message { grid-area: 2 / 2 / 4; }
 `;
 
-const MessageHeading = styled.div`
+const MessageHeading = styled.View`
     grid-area: 1 / 2 / 2;
     font-weight: normal;
     font-size: 16px;
     line-height: 16px;
 `;
 
-const Review = styled.div`
+const Review = styled.View`
     grid-area: 1 / 3 / 2;
-
-    span {
-        color: #FAD744;
-        display: block;
-    }
 `;
 
-const UserPic = styled.div`
+const UserPic = styled.View`
     grid-area: 1 / 1 / 3;
     align-self: center;
     text-align: center;
 `;
 
-const Username = styled.div`
+const Username = styled.View`
     grid-area: 3 / 1 / 4; 
     font-weight: normal;
     font-size: 12px;
@@ -50,11 +46,16 @@ const Username = styled.div`
     color: #ccc;
 `;
 
-const MessageBody = styled.div`
+const MessageBody = styled.View`
     grid-area: 2 / 2 / 4; 
     font-weight: normal;
     font-size: 12px;
     color: #ccc;
+`;
+
+const SpannedView = styled.View`
+    color: #FAD744;
+    display: block;
 `;
 
 const ProfileSVG = {
@@ -64,8 +65,8 @@ const ProfileSVG = {
 const Message = ({title, messageBody, timestamp, username}) => {
     return <MessageContainer>
         <MessageHeading>{title}</MessageHeading>
-        <Review><span>&#9733; &#9733; &#9733; &#9733; &#9733;</span></Review>
-        <UserPic><img src={ProfileSVG.src}/></UserPic>
+        <Review><SpannedView>&#9733; &#9733; &#9733; &#9733; &#9733;</SpannedView></Review>
+        <UserPic><Image src={ProfileSVG.src}/></UserPic>
         <Username>{username}<br/>{timestamp}</Username>
         <MessageBody>{messageBody}</MessageBody>
     </MessageContainer>

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, {css} from 'styled-components/native';
-//import {View} from 'react-native';
+import {View, Text} from 'react-native';
 
 const BarContainer = styled.View`
     display: flex;

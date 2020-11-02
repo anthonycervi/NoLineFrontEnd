@@ -1,11 +1,11 @@
 import React from 'react';
-import styled, {css} from 'styled-components';
-//import {View} from 'react-native';
+import styled, {css} from 'styled-components/native';
+import {View, Text, TextInput, Image} from 'react-native';
 
 import searchIcon from '../../public/searchIcon.svg';
 import sendIcon from '../../public/sendIcon.svg';
 
-const IconBarContainer = styled.div`
+const IconBarContainer = styled.View`
     // width: 100%; 
     // margin-bottom: 10px
 
@@ -25,14 +25,14 @@ const IconBarContainer = styled.div`
     input:focus {
         border: 1px solid #8486D1;
     }
+`;
 
-    span {
-        position: absolute;
-        padding: 10px;
-        line-height: 30px;
-        left: 19%;
-        top: 20px;
-    }
+const SpanView = styled.View`
+    position: absolute;
+    padding: 10px;
+    line-height: 30px;
+    left: 19%;
+    top: 20px;
 `;
 
 const searchSVG = {
@@ -45,10 +45,10 @@ const sendSVG = {
 
 const InputIconBar = ({text, image}) => {
     return <IconBarContainer>
-            <input type="text" placeholder={text}/>
-            <span>
-                <img src={image}/>
-            </span>
+            <TextInput type="text" placeholder={text}/>
+            <SpanView>
+                <Image src={image}/>
+            </SpanView>
         </IconBarContainer>
 }
 

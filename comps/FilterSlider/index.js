@@ -1,7 +1,8 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled, { css } from "styled-components/native";
+import { View, Text, TextInput } from 'react-native';
 
-const SliderContainer = styled.div`
+const SliderContainer = styled.View`
   width: 100%;
   display: flex;
   align-items: center;
@@ -9,7 +10,7 @@ const SliderContainer = styled.div`
   flex-direction:column;   
 `;
 
-const TextContainer = styled.div`
+const TextContainer = styled.Text`
   font-size: 13px;
   display: flex;
   align-items: center;
@@ -17,14 +18,14 @@ const TextContainer = styled.div`
   width: 100%;
 `;
 
-const SliderConst = styled.div`
+const SliderConst = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
 `;
 
-const MainSlider = styled.input`
+const MainSlider = styled.TextInput`
   display: flex;
   align-items: center;
   color: #ffd25b;
@@ -57,7 +58,7 @@ const MainSlider = styled.input`
   }
 `;
 
-const SliderNumber = styled.div`
+const SliderNumber = styled.Text`
 font-size:13px;
 display: flex;
 align-items: center;
@@ -65,7 +66,7 @@ justify-content: center;
 width: 100%;
 `;
 
-const NumberContainer = styled.div`
+const NumberContainer = styled.Text`
   display: flex;
   align-items:center;
   justify-content: flex-end;
@@ -75,6 +76,7 @@ const NumberContainer = styled.div`
 
 const FilterSlider = ({text, number, slidenumber}) => {
     return (
+        <View>
         <SliderContainer>
             <TextContainer>
                 {text}
@@ -89,6 +91,7 @@ const FilterSlider = ({text, number, slidenumber}) => {
                 {number}
             </NumberContainer>
         </SliderContainer>
+        </View>
     );
 };
 

@@ -1,14 +1,15 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled, { css } from "styled-components/native";
+import { View, Text } from 'react-native';
 
-const IconContainer = styled.div`
+const IconContainer = styled.View`
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-const IconBorder = styled.div`
+const IconBorder = styled.View`
 display: flex;
 justify-content: center;
 align-items: center;
@@ -19,7 +20,7 @@ height: 22px;
 box-shadow: 1px 4px 4px #888888;
 `;
 
-const IconImg = styled.img`
+const IconImg = styled.View`
 display: flex;
 align-items: center;
 justify-content: center;
@@ -29,11 +30,13 @@ height: 9px;
 
 const CheckIcon = () => {
     return (
+        <View>
         <IconContainer>
             <IconBorder>
             <IconImg img src="Check.svg"/>
             </IconBorder>
         </IconContainer>
+        </View>
     );
 };
 

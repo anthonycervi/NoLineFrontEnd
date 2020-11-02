@@ -1,7 +1,8 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled, { css } from "styled-components/native";
+import { View, Text } from 'react-native';
 
-const IconContainer = styled.div`
+const IconContainer = styled.View`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -9,7 +10,7 @@ const IconContainer = styled.div`
   flex-direction: column;
 `;
 
-const Icon = styled.div`
+const Icon = styled.View`
 display: flex;
 align-items: center;
 justify-content: center;
@@ -19,7 +20,7 @@ width: 77px;
 height: 77px;
 `;
 
-const IconImg = styled.img`
+const IconImg = styled.View`
 display: flex;
 align-items: center;
 justify-content: center;
@@ -27,14 +28,14 @@ width: 50px;
 height: 50px;
 `;
 
-const TextContainer = styled.div`
+const TextContainer = styled.View`
   font-size: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-const TextContainer2 = styled.div`
+const TextContainer2 = styled.View`
   font-size: 12px;
   color: #cbcbcb;
   display: flex;
@@ -44,6 +45,7 @@ const TextContainer2 = styled.div`
 
 const AchievementIcon = ({ image, text, text2 }) => {
     return (
+        <View>
         <IconContainer>
             <Icon>
                 <IconImg img src={image} />
@@ -55,6 +57,7 @@ const AchievementIcon = ({ image, text, text2 }) => {
                 {text2}
             </TextContainer2>
         </IconContainer>
+        </View>
     );
 };
 

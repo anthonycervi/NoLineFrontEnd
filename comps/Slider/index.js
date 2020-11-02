@@ -1,7 +1,8 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled, { css } from "styled-components/native";
+import { View, Text, TextInput } from 'react-native';
 
-const SliderContainer = styled.div`
+const SliderContainer = styled.View`
   width: 100%;
   display: flex;
   align-items: center;
@@ -9,7 +10,7 @@ const SliderContainer = styled.div`
   flex-direction:column;   
 `;
 
-const TextContainer = styled.div`
+const TextContainer = styled.View`
   font-size: 18px;
   display: flex;
   align-items: center;
@@ -18,7 +19,7 @@ const TextContainer = styled.div`
   margin: 5px;
 `;
 
-const MainMinute = styled.div`
+const MainMinute = styled.View`
   font-size: 16px;
   display: flex;
   align-items: center;
@@ -26,14 +27,14 @@ const MainMinute = styled.div`
   width: 100%;
 `;
 
-const SliderConst = styled.div`
+const SliderConst = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
 `;
 
-const Decrease = styled.div`
+const Decrease = styled.View`
   width: 20px;
   height: 20px;
   border-radius: 20px;
@@ -41,12 +42,12 @@ const Decrease = styled.div`
   margin: 10px;
 `;
 
-const MinusIcon = styled.img`
+const MinusIcon = styled.View`
 width:100%;
 height:8px;
 `;
 
-const MainSlider = styled.input`
+const MainSlider = styled.TextInput`
   display: flex;
   align-items: center;
   color: #ffd25b;;
@@ -77,7 +78,7 @@ const MainSlider = styled.input`
 
 `;
 
-const Increase = styled.div`
+const Increase = styled.View`
   width: 20px;
   height: 20px;
   border-radius: 20px;
@@ -85,30 +86,31 @@ const Increase = styled.div`
   margin: 10px;
 `;
 
-const PlusIcon = styled.img`
+const PlusIcon = styled.View`
 width:100%;
 height:8px;
 `;
 
-const NumberContainer = styled.div`
+const NumberContainer = styled.View`
   display: flex;
   align-items:center;
   justify-content: space-between;
   width: 100%;
 `;
 
-const MinuteContainer = styled.div`
+const MinuteContainer = styled.View`
   font-size: 13px;
   width:13%;
 `;
 
-const HourContainer = styled.div`
+const HourContainer = styled.View`
   font-size: 13px;
   display: flex;
 `;
 
 const Slider = ({text}) => {
     return (
+        <View>
         <SliderContainer>
             <TextContainer>
                 Report the current wait time!
@@ -127,13 +129,14 @@ const Slider = ({text}) => {
             </SliderConst>
             <NumberContainer>
                 <MinuteContainer>
-                    0 min
+                    <Text>0 min</Text>
         </MinuteContainer>
                 <HourContainer>
-                    2+ hours
+                    <Text>2+ hours</Text>
         </HourContainer>
             </NumberContainer>
         </SliderContainer>
+        </View>
     );
 };
 

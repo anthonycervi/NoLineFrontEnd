@@ -1,7 +1,8 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled, { css } from "styled-components/native";
+import { View, Text } from 'react-native';
 
-const IconContainer = styled.div`
+const IconContainer = styled.View`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -9,7 +10,7 @@ const IconContainer = styled.div`
   flex-direction: column;
 `;
 
-const IconImg = styled.img`
+const IconImg = styled.View`
 display: flex;
 align-items: center;
 justify-content: center;
@@ -17,7 +18,7 @@ width: 60px;
 height: 60px;
 `;
 
-const TextContainer = styled.div`
+const TextContainer = styled.View`
   font-size: 15px;
   display: flex;
   justify-content: center;
@@ -26,12 +27,14 @@ const TextContainer = styled.div`
 
 const FoodIcon = ({ image, text }) => {
     return (
-        <IconContainer>
-            <IconImg img src={image} />
-            <TextContainer>
-                {text}
-            </TextContainer>
-        </IconContainer>
+        <View>
+            <IconContainer>
+                <IconImg img src={image} />
+                <TextContainer>
+                    {text}
+                </TextContainer>
+            </IconContainer>
+        </View>
     );
 };
 

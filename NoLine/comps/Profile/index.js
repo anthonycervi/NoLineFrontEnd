@@ -38,7 +38,7 @@ const ProfileSVG = {
 
 const Profile = ({fname, lname, city, province, score}) => {
     return <ProfileContainer>
-        <Image src={ProfileSVG.src}/>
+        <Image source={ProfileSVG.src}/>
         <HeadingTwo>{fname} {lname}</HeadingTwo>
         <Paragraph>{city}, {province}</Paragraph>
         <HeadingOne>{score} Points</HeadingOne>

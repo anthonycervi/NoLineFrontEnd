@@ -12,7 +12,7 @@ const BarItem = styled.Text`
     background-color: #fff;
     color: #9D9D9D;
     text-align: center;
-    width: 50%;
+    width: 40%;
     font-style: normal;
     font-weight: 500;
     font-size: 13px;

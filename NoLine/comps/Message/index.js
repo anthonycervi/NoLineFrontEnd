@@ -13,12 +13,6 @@ const MessageContainer = styled.View`
 
     font-family: Montserrat;
     font-style: normal;
-
-// .Heading { grid-area: 1 / 2 / 2; }
-// .Review { grid-area: 1 / 3 / 2; }
-// .ProfilePic { grid-area: 1 / 1 / 3; }
-// .Username { grid-area: 3 / 1 / 4; }
-// .Message { grid-area: 2 / 2 / 4; }
 `;
 
 const MessageHeading = styled.View`
@@ -66,7 +60,7 @@ const Message = ({title, messageBody, timestamp, username}) => {
     return <MessageContainer>
         <MessageHeading>{title}</MessageHeading>
         <Review><SpannedView>&#9733; &#9733; &#9733; &#9733; &#9733;</SpannedView></Review>
-        <UserPic><Image src={ProfileSVG.src}/></UserPic>
+        <UserPic><Image source={ProfileSVG.src}/></UserPic>
         <Username>{username}<br/>{timestamp}</Username>
         <MessageBody>{messageBody}</MessageBody>
     </MessageContainer>

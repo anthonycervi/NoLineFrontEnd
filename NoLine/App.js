@@ -16,14 +16,16 @@ import {
   StatusBar,
 } from 'react-native';
 import EditBar from './comps/EditBar';
+import Profile from './comps/Profile';
 
-//import HomePage from './pages/Homepage';
+import ProfilePage from './pages/profile.js';
 
 const App = () =>{
   return <View>
     <EditBar />
+    <Profile/>
   </View>
 }
 
-//export default App;
-export {default} from './storybook';
+export default App;
+//export {default} from './storybook';

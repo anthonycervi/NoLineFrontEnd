@@ -2,9 +2,9 @@ import React from 'react';
 import styled, {css} from 'styled-components/native';
 import {View, Text, TextInput, Image} from 'react-native';
 
-//import searchIcon from '../../public/searchIcon.svg';
-//import sendIcon from '../../public/sendIcon.svg';
-const searchIcon = require("")
+import searchIcon from '../../public/searchIcon.svg';
+import sendIcon from '../../public/sendIcon.svg';
+// const searchIcon = require("");
 
 const IconBarContainer = styled.View`
     input {
@@ -45,7 +45,7 @@ const InputIconBar = ({text, image}) => {
     return <IconBarContainer>
             <TextInput type="text" placeholder={text}/>
             <SpanView>
-                <Image src={image}/>
+                <Image source={image}/>
             </SpanView>
         </IconBarContainer>
 }

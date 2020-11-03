@@ -1,14 +1,12 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-import Filter from '../comps/Filter';
-
+import Filter from '../../comps/Filter';
 
 
 storiesOf('Filter', module)
-.add('DefaultFilter', () => (
-<Filter />
-))
-
+  .add('Basic EditBar', () => (
+    <Filter />
+  ))
 // export default {
 //     title: 'Example/Filter',
 //     component: Filter

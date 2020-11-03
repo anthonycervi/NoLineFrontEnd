@@ -10,15 +10,14 @@ const FilterContainer = styled.View`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url(/Filter.svg); 
-    background-repeat: no-repeat;
      `;
 
 
 
  const Filter = ({}) => {
        return <View><FilterContainer style ={{}}>
-              </FilterContainer></View>
+              </FilterContainer>
+              </View>
     
     }
 

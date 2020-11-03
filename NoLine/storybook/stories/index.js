@@ -2,3 +2,4 @@
 //import './Welcome/Welcome.stories';
 
 import './EditBar.stories';
+import './Filter.stories';

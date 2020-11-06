@@ -89,7 +89,7 @@ const SearchTitle = ({text,color,width,height,stars,h1text,username,time,revnum}
 <RecentUpdate>Last updated by {username} {time} ago</RecentUpdate>
 </WaitDiv>
    </SearchDiv>
-   </View>
+   </View> 
 }
 
 SearchTitle.defaultProps= {

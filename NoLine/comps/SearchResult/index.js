@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import React from 'react';
+import styled, {css} from 'styled-components/native';
+import {View,Text,TextInput} from 'react-native';
 
-const OverlayDiv = styled.div`
+const OverlayDiv = styled.View`
 width: ${props => props.width ? props.width :"390px"};
 height: ${props => props.height ? props.height :"110px"};
 backgroundColor: ${props => props.backgroundColor ? props.backgroundColor :"blue"};
@@ -11,7 +14,7 @@ border-radius:7px;
 
 `;
 
-const SearchImg = styled.div`
+const SearchImg = styled.View`
 width: 71px;
 height:69px;
 border-radius:11px;
@@ -23,14 +26,14 @@ top:12%;
 
 `;
 
-const Header = styled.h1`
+const Header = styled.Text`
 position:relative;
 font-size:20px;
 text-align:left;
 
 `;
 
-const Star = styled.div`
+const Star = styled.View`
 width:13.4px;
 height:11.55px;
 position:relative;
@@ -38,7 +41,7 @@ margin:2px;
 `;
 
 
-const WaitTime = styled.h1`
+const WaitTime = styled.Text`
 color: ${props => props.color ? props.color : "#25D22C" };
 position:relative;
 font-size:18px;
@@ -46,43 +49,43 @@ margin-left:10px;
 top:-18px;
 `;
 
-const Distance = styled.h1`
+const Distance = styled.Text`
 color: ${props => props.color ? props.color : "black" };
 position:relative;
 font-size:18px;
 margin-left:10px;
 `;
 
-const RecentUpdate = styled.p`
+const RecentUpdate = styled.Text`
 color: ${props => props.color ? props.color : "#999999" };
 position:relative;
 left:1.25em;
 top:-.45em;
 `;
 
-const ReviewNumber = styled.p`
+const ReviewNumber = styled.Text`
 color: ${props => props.color ? props.color : "#999999" };
 position:relative;
 top:-.9em;
 left:.5em;
 `;
 
-const HeaderDiv = styled.div`
+const HeaderDiv = styled.View`
 width:149px;
 height:16;
 display:block;
 
 `;
 
-const StarDiv = styled.div`
+const StarDiv = styled.View`
 display:flex;
 `;
 
-const InfoDiv = styled.div`
+const InfoDiv = styled.View`
 display:block;
 `;
 
-const TopLine = styled.div`
+const TopLine = styled.View`
 width:1.68px;
 height:64px;
 background-color:#c4c4c4;
@@ -91,7 +94,7 @@ margin-left:1em;
 top:.8em;
 `;
 
-const SideLine = styled.div`
+const SideLine = styled.View`
 width:58.68px;
 height:1.68px;
 background-color:#c4c4c4;
@@ -100,7 +103,7 @@ margin-left:10px;
 top:-8px;
 `;
 
-const ProfilePic = styled.div`
+const ProfilePic = styled.View`
 width:7.22px;
 height:7px;
 position:relative;
@@ -108,21 +111,21 @@ top:-2em;
 left:.75em;
 `;
 
-const UserDiv = styled.div`
+const UserDiv = styled.View`
 display:flex;
 position:relative;
 top:-2.5em;
 left:-.7em;
 `;
 
-const TimeDiv = styled.div`
+const TimeDiv = styled.View`
 color: ${props => props.color ? props.color : "#999999" };
 position:relative;
 left:-2.5em;
 top:1.8em;
 `;
 
-const SeperatingDiv = styled.div`
+const SeperatingDiv = styled.View`
 width:350px;
 height:2px;
 background-color:#c4c4c4;
@@ -130,12 +133,12 @@ position:relative;
 left:.7em;
 `;
 
-const Main = styled.div`
+const Main = styled.View`
 
 `;
 
 const SearchResult = ({textDistance,color,width,height,stars,h1text,username,time,revnum,textWait}) => {
-   return <Main><OverlayDiv>
+   return <View> <Main><OverlayDiv>
      
 <SearchImg color={color}> <img src="RestImg.png"/></SearchImg>
 <HeaderDiv>
@@ -166,6 +169,7 @@ const SearchResult = ({textDistance,color,width,height,stars,h1text,username,tim
    </OverlayDiv>
    <SeperatingDiv></SeperatingDiv>
    </Main>
+   </View>
 }
 
 SearchResult.defaultProps= {

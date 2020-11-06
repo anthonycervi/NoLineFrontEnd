@@ -8,7 +8,6 @@
 
 import React from 'react';
 import Button from '../comps/Button';
-import React from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -17,7 +16,7 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-import EditBar from './comps/EditBar';
+//import EditBar from './comps/EditBar';
 
 const startScreen = () =>{
   return <View>

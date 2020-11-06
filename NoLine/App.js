@@ -15,13 +15,21 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-import EditBar from './comps/EditBar';
+import Page from './pages/startScreen';
 
 const App = () =>{
-  return <View>
-    <EditBar />
+  return <View style={styles.cont}>
+    <Page />
   </View>
 }
 
-//export default App;
-export {default} from './storybook';
+const styles = StyleSheet.create({
+  cont:{
+    flex:1,
+    justifyContent:"center",
+    alignItems:"center"
+  }
+})
+
+export default App;
+//export {default} from './storybook';

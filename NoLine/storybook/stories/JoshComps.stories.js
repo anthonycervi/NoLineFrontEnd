@@ -1,24 +1,21 @@
+import { storiesOf } from '@storybook/react-native';
 import React from 'react';
+import CenterView from './CenterView';
 import InputComp from '../comps/InputComp'
 import SearchTitle from '../comps/SearchTitle'
 import UserPage from '../comps/UserPage'
 import MapOverlay from '../comps/MapOverlay'
 import SearchResult from '../comps/SearchResult'
+// import Message from '../../comps/Message';
 
-
-export default {
-    title: 'Example/FormButtons',
-    component: InputCompForm, SearchTitleTop,UserPageTop,GoogleMapOverlay,SearchResultOverlay
-}
-
-
-
-export const InputCompForm = () => <InputComp/> 
-
-export const SearchTitleTop = () => <SearchTitle/>
-
-export const UserPageTop = () => <UserPage/>
-
-export const GoogleMapOverlay = () => <MapOverlay/>
-
-export const SearchResultOverlay = () => <SearchResult/>
+storiesOf('InputComp', module)
+.addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
+  .add('Basic EditBar', () => (
+    <InputComp/> 
+  ))
+  .add('Profile', () => (
+    <SearchTitle/>
+  ))
+  .add('IconBar', () => (
+    <UserPage/>
+  ))

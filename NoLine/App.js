@@ -15,21 +15,23 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-import Page from './pages/startScreen';
+
+//import Page from './pages/searchFilters';
+import Page from './pages/reviews';
 
 const App = () =>{
-  return <View style={styles.cont}>
+  return <View>
     <Page />
   </View>
 }
 
-const styles = StyleSheet.create({
-  cont:{
-    flex:1,
-    justifyContent:"center",
-    alignItems:"center"
-  }
-})
+// const styles = StyleSheet.create({
+//   cont:{
+//     flex:1,
+//     justifyContent:"center",
+//     alignItems:"center"
+//   }
+// })
 
 export default App;
 //export {default} from './storybook';

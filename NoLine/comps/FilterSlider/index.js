@@ -11,7 +11,7 @@ const SliderContainer = styled.View`
 `;
 
 const TextContainer = styled.Text`
-  font-size: 13px;
+  font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -31,16 +31,16 @@ const MainSlider = styled.TextInput`
   color: #ffd25b;
   margin:15px;
 
-    -webkit-appearance: none;
+ 
     width: 100%;
     height: 6px;
     border-radius: 5px;
     background: #ffd25b;
-    -webkit-transition: 0.2s;
-    transition: opacity 0.2s;
+
+
     }
     &::-webkit-slider-thumb{
-        -webkit-apperance:none;
+     
         apperance:none;
         height: 15px;
         width: 15px;
@@ -79,16 +79,16 @@ const FilterSlider = ({text, number, slidenumber}) => {
         <View>
         <SliderContainer>
             <TextContainer>
-                {text}
+                <Text>{text}</Text>
             </TextContainer>
             <SliderConst>
                 <MainSlider input type="range" min="0" max="120" step="0"/>
             </SliderConst>
             <SliderNumber>
-                {slidenumber}
+                <Text>{slidenumber}</Text>
             </SliderNumber>
             <NumberContainer>
-                {number}
+                <Text>{number}</Text>
             </NumberContainer>
         </SliderContainer>
         </View>

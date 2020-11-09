@@ -4,7 +4,7 @@ import CenterView from './CenterView';
 import EditBar from '../../comps/EditBar';
 import Profile from '../../comps/Profile';
 import InputIconBar from '../../comps/InputIconBar';
-// import Message from '../../comps/Message';
+import Message from '../../comps/Message';
 
 storiesOf('EditBar', module)
 .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
@@ -17,9 +17,9 @@ storiesOf('EditBar', module)
   .add('IconBar', () => (
     <InputIconBar />
   ))
-  // .add('Message', () => (
-  //   <Message />
-  // ))
+  .add('Message', () => (
+    <Message />
+  ))
 
 
   // storiesOf('InputIconBar', module).add('Basic InputIconBar', () => (

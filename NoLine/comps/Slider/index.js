@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components/native";
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, TextInput, Sl } from 'react-native';
 
 const SliderContainer = styled.View`
   width: 100%;
@@ -51,13 +51,13 @@ const MainSlider = styled.TextInput`
   display: flex;
   align-items: center;
   color: #ffd25b;;
-    -webkit-appearance: none;
+   
     width: 100%;
     height: 6px;
     border-radius: 5px;
     background: #ffd25b;
-    -webkit-transition: 0.2s;
-    transition: opacity 0.2s;
+    
+   
     }
     &::-webkit-slider-thumb{
         -webkit-apperance:none;
@@ -113,16 +113,18 @@ const Slider = ({text}) => {
         <View>
         <SliderContainer>
             <TextContainer>
-                Report the current wait time!
+                {/* <Text>Report the current wait time!</Text> */}
       </TextContainer>
             <MainMinute>
-                {text}
+                <Text>{text}</Text>
       </MainMinute>
             <SliderConst>
                 <Decrease>
                     <MinusIcon img src="Minus.svg" />
                 </Decrease>
-                <MainSlider input type="range" min="0" max="120" step="5"/>
+                <MainSlider>
+                  <TextInput type="range" min="0" max="120" step="5"/>
+                  </MainSlider> 
                 <Increase>
                     <PlusIcon img src="Plus.svg" />
                 </Increase>

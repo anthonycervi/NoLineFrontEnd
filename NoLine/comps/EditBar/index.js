@@ -6,6 +6,7 @@ const BarContainer = styled.View`
     display: flex;
     align-items: stretch;
     flex-direction:row;
+    align-items: center;
 `;
 
 const BarItem = styled.Text`
@@ -40,7 +41,7 @@ const Right = styled.Text`
 
 const EditBar = ({left, middle, right}) => {
     return <BarContainer>
-        <BarItem>{left}</BarItem>
+        <BarItem><Left>{left}</Left></BarItem>
         <BarItem><HeadingMiddle>{middle}</HeadingMiddle></BarItem>
         <BarItem><Right>{right}</Right></BarItem>
 

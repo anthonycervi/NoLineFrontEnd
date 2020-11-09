@@ -31,7 +31,7 @@ const FoodIcon = ({ image, text }) => {
             <IconContainer>
                 <IconImg img src={image} />
                 <TextContainer>
-                    {text}
+                    <Text>{text}</Text>
                 </TextContainer>
             </IconContainer>
         </View>

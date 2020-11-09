@@ -1,68 +1,105 @@
 import React from 'react';
-import styled, {css} from 'styled-components/native';
-import {View, Text, Image} from 'react-native';
+import styled, { css } from 'styled-components/native';
+import { View, Text, Image } from 'react-native';
 
-import ProfilePic from '../../public/MessageProfile.svg';
+import ProfilePic from '../../public/MessageProfile.png';
 
 const MessageContainer = styled.View`
-    display: grid;
-    grid-template-columns: 1fr 1.2fr 0.8fr 1fr;
-    grid-template-rows: 1fr 1fr 1.4fr;
-    gap: 0px 0px;
-    width: 40%;
 
     font-family: Montserrat;
     font-style: normal;
 `;
 
-const MessageHeading = styled.View`
-    grid-area: 1 / 2 / 2;
+const Row = styled.View`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+`;
+
+const Column = styled.View`
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1
+`;
+
+const MessageHeading = styled.Text`
+
     font-weight: normal;
     font-size: 16px;
     line-height: 16px;
 `;
 
 const Review = styled.View`
-    grid-area: 1 / 3 / 2;
+
 `;
 
 const UserPic = styled.View`
-    grid-area: 1 / 1 / 3;
-    align-self: center;
-    text-align: center;
+    align-items: center;
 `;
 
-const Username = styled.View`
-    grid-area: 3 / 1 / 4; 
+const Username = styled.Text`
+   
     font-weight: normal;
     font-size: 12px;
     text-align: center;
     color: #ccc;
 `;
 
-const MessageBody = styled.View`
-    grid-area: 2 / 2 / 4; 
+const MessageBody = styled.Text`
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 2   
+
     font-weight: normal;
     font-size: 12px;
     color: #ccc;
 `;
 
-const SpannedView = styled.View`
+const SpannedView = styled.Text`
     color: #FAD744;
-    display: block;
+    display: flex;
 `;
 
-const ProfileSVG = {
+const ProfilePNG = {
     src: ProfilePic
 }
 
-const Message = ({title, messageBody, timestamp, username}) => {
+const Message = ({ title, messageBody, timestamp, username }) => {
     return <MessageContainer>
-        <MessageHeading>{title}</MessageHeading>
-        <Review><SpannedView>&#9733; &#9733; &#9733; &#9733; &#9733;</SpannedView></Review>
-        <UserPic><Image source={ProfileSVG.src}/></UserPic>
-        <Username>{username}<br/>{timestamp}</Username>
-        <MessageBody>{messageBody}</MessageBody>
+    <Row>
+        <Column>
+            <UserPic>
+                <Text><Image source={ProfilePNG.src}/></Text>
+            </UserPic>
+        </Column>
+
+        <Column>
+            <MessageHeading>
+                <Text>{title}</Text>
+            </MessageHeading>
+        </Column>
+
+        <Column>
+            <Review>
+                <SpannedView><Text>&#9733;&#9733;&#9733;&#9733;&#9733;</Text></SpannedView>
+            </Review>
+        </Column>
+    </Row>
+
+    <Row>
+        <Column>
+            <Username>
+                <Text>{"\n"}@{username}</Text><Text>{"\n"}{timestamp} ago</Text>
+            </Username>
+        </Column>
+
+        <MessageBody>
+            <Text>{messageBody}</Text>
+        </MessageBody>
+    </Row>
     </MessageContainer>
 }
 

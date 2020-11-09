@@ -1,6 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-import React from 'react';
+//import styled from 'styled-components';
 import styled, {css} from 'styled-components/native';
 import {View,Text,TextInput} from 'react-native';
 
@@ -149,7 +148,7 @@ const SearchResult = ({textDistance,color,width,height,stars,h1text,username,tim
 <Star> <img src="Star.png"/></Star>
 <Star> <img src="Star.png"/></Star>
 <Star> <img src="Star.png"/></Star>
-<ReviewNumber>({revnum})</ReviewNumber>
+<ReviewNumber>{revnum}</ReviewNumber>
 </StarDiv>
 </HeaderDiv>
 <TopLine></TopLine>

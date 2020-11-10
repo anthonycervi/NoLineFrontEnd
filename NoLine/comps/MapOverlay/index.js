@@ -1,87 +1,98 @@
 import React from 'react';
 import styled, {css} from 'styled-components/native';
-import {View,Text,TextInput} from 'react-native';
+import {View,Text,TextInput,Image} from 'react-native';
+import '../../public/Star.png';
 
 const OverlayDiv = styled.View`
-width: ${props => props.width ? props.width :"390px"};
+width: ${props => props.width ? props.width :"375px"};
 height: ${props => props.height ? props.height :"110px"};
-backgroundColor: ${props => props.backgroundColor ? props.backgroundColor :"blue"};
-border:1px solid #c4c4c4;
+backgroundColor: ${props => props.backgroundColor ? props.backgroundColor :"white"};
+margin:8px;
 display:flex;
-box-shadow: -3px 7px #c4c4c4;
-border-radius:7px;
-
+border-radius:12px;
+position:relative;
 `;
 
 const SearchImg = styled.View`
-width: 71px;
-height:69px;
+
 border-radius:11px;
 color: ${props => props.color ? props.color : "#c4c4c4" };
-margin-right:1em;
-margin-left:.75em;
+margin-right:16px;
+margin-left:12px;
 position:relative;
 top:12%;
-
+top:4px;
+left:-7px;
 `;
 
 const Header = styled.Text`
 position:relative;
 font-size:20px;
 text-align:left;
-
+top:-65px;
+left:85px;
 `;
 
 const Star = styled.View`
 width:13.4px;
 height:11.55px;
 position:relative;
-margin:2px;
+margin:3px;
+flexDirection:row;
+left:89px;
+top:-60px;
 `;
 
 
 const WaitTime = styled.Text`
 color: ${props => props.color ? props.color : "#25D22C" };
 position:relative;
-font-size:18px;
+font-size:20px;
 margin-left:10px;
-top:-18px;
+top:-140px;
+left:280px;
+
 `;
 
 const Distance = styled.Text`
 color: ${props => props.color ? props.color : "black" };
 position:relative;
-font-size:18px;
+font-size:20px;
 margin-left:10px;
+left:280px;
+top:-143px;
 `;
 
 const RecentUpdate = styled.Text`
 color: ${props => props.color ? props.color : "#999999" };
 position:relative;
-left:1.25em;
-top:-.45em;
+left:43px;
+top:-9.5px;
+padding-left:-4px;
+
 `;
 
 const ReviewNumber = styled.Text`
 color: ${props => props.color ? props.color : "#999999" };
 position:relative;
-top:-.9em;
-left:.5em;
+top:-61px;
+left:190px;
 `;
 
 const HeaderDiv = styled.View`
 width:149px;
-height:16;
-display:block;
+height:16px;
+
 
 `;
 
 const StarDiv = styled.View`
-display:flex;
+flex:1;
+flexDirection:row;
 `;
 
 const InfoDiv = styled.View`
-display:block;
+
 `;
 
 const TopLine = styled.View`
@@ -89,86 +100,143 @@ width:1.68px;
 height:64px;
 background-color:#c4c4c4;
 position:relative;
-margin-left:1em;
-top:.8em;
+margin-left:16px;
+top:-78px;
+left:250px;
 `;
 
 const SideLine = styled.View`
-width:58.68px;
+width:98.68px;
 height:1.68px;
 background-color:#c4c4c4;
 position:relative;
 margin-left:10px;
-top:-8px;
+top:-140px;
+left:260px;
 `;
 
 const ProfilePic = styled.View`
 width:7.22px;
 height:7px;
 position:relative;
-top:-2em;
-left:.75em;
+
 `;
 
 const UserDiv = styled.View`
-display:flex;
 position:relative;
-top:-2.5em;
-left:-.7em;
+top:-140px;
+left:240px;
 `;
 
 const TimeDiv = styled.View`
-color: ${props => props.color ? props.color : "#999999" };
+color: ${props => props.color ? props.color : "#c4c4c4" };
 position:relative;
-left:-2.5em;
-top:1.8em;
+flexDirection:row;
+left:60px;
+
 `;
 
-const MapOverlay = ({textDistance,color,width,height,stars,h1text,username,time,revnum,textWait}) => {
-   return <View> <OverlayDiv>
-     
-<SearchImg color={color}> <img src="RestImg.png"/></SearchImg>
+const SeperatingDiv = styled.View`
+width:350px;
+height:2px;
+background-color:#c4c4c4;
+position:relative;
+left:11.2px;
+top:-150px;
+`;
+
+const Main = styled.View`
+
+`;
+
+const Usernametext = styled.Text`
+color:#c4c4c4;
+position:relative;
+top:-10px;
+left:100px;
+`;
+
+const UsernameDiv = styled.View`
+color:grey
+`;
+
+const ProfileImageIcon = styled.View`
+position:relative;
+left:35px;
+top:5px;
+`;
+
+const TimeText = styled.Text`
+color:#c4c4c4;
+position:relative;
+left:-15px;
+top:-15px;
+`;
+
+const ShadowBorder = styled.View`
+width:375px;
+height:3px;
+backgroundColor:black;
+border-radius:2px;
+position:relative;
+top:-12px;
+left:7px;
+`;
+
+
+const SearchResult = ({textDistance,color,width,height,stars,h1text,username,time,revnum,textWait}) => {
+   return <View><Main>
+      
+      <OverlayDiv>
+
+<SearchImg color={color}><Image source={require('../../public/RestImg.png')}/></SearchImg>
 <HeaderDiv>
-<Header>{h1text}</Header>
-    <StarDiv>
-<Star> <img src="Star.png"/></Star>
-<Star> <img src="Star.png"/></Star>
-<Star> <img src="Star.png"/></Star>
-<Star> <img src="Star.png"/></Star>
-<Star> <img src="Star.png"/></Star>
-<ReviewNumber>({revnum})</ReviewNumber>
+<Header><Text>{h1text}</Text></Header>
+<StarDiv>
+<Star><Image source={require('../../public/Star.png')}/></Star>
+<Star><Image source={require('../../public/Star.png')}/></Star>
+<Star><Image source={require('../../public/Star.png')}/></Star>
+<Star><Image source={require('../../public/Star.png')}/></Star>
+<Star><Image source={require('../../public/Star.png')}/></Star>
+
 </StarDiv>
+<ReviewNumber><Text>{revnum}</Text></ReviewNumber>
 </HeaderDiv>
 <TopLine></TopLine>
 
 <InfoDiv>
-<Distance>{textDistance}</Distance>
+<Distance><Text>{textDistance}</Text></Distance>
 <SideLine></SideLine>
-<WaitTime>{textWait}</WaitTime>
+<WaitTime><Text>{textWait}</Text></WaitTime>
 <UserDiv>
-<RecentUpdate><img src="mapoverlayprofile.png"/> {username}</RecentUpdate>
-<TimeDiv>
-{time} ago
-</TimeDiv>
+   <ProfileImageIcon>
+<Image source={require('../../public/mapoverlayprofile.png')}/>
+</ProfileImageIcon>
+<RecentUpdate> <Usernametext>{username}</Usernametext></RecentUpdate>
+<TimeDiv><TimeText>{time} ago</TimeText></TimeDiv>
 </UserDiv>
 </InfoDiv>
 
-   </OverlayDiv>
+</OverlayDiv>
+
+   </Main>
+   <ShadowBorder opacity={0.8}></ShadowBorder>
    </View>
+   
 }
 
-MapOverlay.defaultProps= {
+SearchResult.defaultProps= {
    textWait:"10 min",
    textDistance:"1.5 km",
    color:"#D4170B",
    width:"331px",
    height:"90px",
-   backgroundColor:"blue",
+   backgroundColor:"#ffffff",
    stars:"5",
    h1text:"Chronic Tacos",
    username:"user123",
    time:"30m",
-   revnum:"16"
+   revnum:"(16)"
  }
 
-export default MapOverlay
+export default SearchResult

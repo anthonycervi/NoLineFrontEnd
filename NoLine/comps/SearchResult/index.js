@@ -1,28 +1,29 @@
 import React from 'react';
 import styled, {css} from 'styled-components/native';
 import {View,Text,TextInput,Image} from 'react-native';
-
+import '../../public/Star.png';
 
 const OverlayDiv = styled.View`
-width: ${props => props.width ? props.width :"70px"};
-height: ${props => props.height ? props.height :"70px"};
-backgroundColor: ${props => props.backgroundColor ? props.backgroundColor :"#c4c4c4"};
+width: ${props => props.width ? props.width :"375px"};
+height: ${props => props.height ? props.height :"110px"};
+backgroundColor: ${props => props.backgroundColor ? props.backgroundColor :"white"};
 margin:8px;
 display:flex;
 border-radius:7px;
 
+position:relative;
 `;
 
 const SearchImg = styled.View`
-width: 71px;
-height:69px;
+
 border-radius:11px;
 color: ${props => props.color ? props.color : "#c4c4c4" };
 margin-right:16px;
 margin-left:12px;
 position:relative;
 top:12%;
-
+top:4px;
+left:-7px;
 `;
 
 const Header = styled.Text`
@@ -30,44 +31,53 @@ position:relative;
 font-size:20px;
 text-align:left;
 top:-65px;
-left:80px;
+left:85px;
 `;
 
-const Star = styled.Text`
+const Star = styled.View`
 width:13.4px;
 height:11.55px;
 position:relative;
-margin:2px;
+margin:3px;
+flexDirection:row;
+left:89px;
+top:-60px;
 `;
 
 
 const WaitTime = styled.Text`
 color: ${props => props.color ? props.color : "#25D22C" };
 position:relative;
-font-size:18px;
+font-size:20px;
 margin-left:10px;
-top:-18px;
+top:-140px;
+left:280px;
+
 `;
 
 const Distance = styled.Text`
 color: ${props => props.color ? props.color : "black" };
 position:relative;
-font-size:18px;
+font-size:20px;
 margin-left:10px;
+left:280px;
+top:-143px;
 `;
 
 const RecentUpdate = styled.Text`
 color: ${props => props.color ? props.color : "#999999" };
 position:relative;
-left:20px;
-top:-7.2px;
+left:43px;
+top:-9.5px;
+padding-left:-4px;
+
 `;
 
 const ReviewNumber = styled.Text`
 color: ${props => props.color ? props.color : "#999999" };
 position:relative;
-top:-14.4px;
-left:8px;
+top:-61px;
+left:190px;
 `;
 
 const HeaderDiv = styled.View`
@@ -78,7 +88,8 @@ height:16px;
 `;
 
 const StarDiv = styled.View`
-display:flex;
+flex:1;
+flexDirection:row;
 `;
 
 const InfoDiv = styled.View`
@@ -91,38 +102,39 @@ height:64px;
 background-color:#c4c4c4;
 position:relative;
 margin-left:16px;
-top:12.8px;
+top:-78px;
+left:250px;
 `;
 
 const SideLine = styled.View`
-width:58.68px;
+width:98.68px;
 height:1.68px;
 background-color:#c4c4c4;
 position:relative;
 margin-left:10px;
-top:-8px;
+top:-140px;
+left:260px;
 `;
 
 const ProfilePic = styled.View`
 width:7.22px;
 height:7px;
 position:relative;
-top:-32px;
-left:12px;
+
 `;
 
 const UserDiv = styled.View`
-display:flex;
 position:relative;
-top:-40px;
-left:-11.2px;
+top:-140px;
+left:240px;
 `;
 
 const TimeDiv = styled.View`
-color: ${props => props.color ? props.color : "#999999" };
+color: ${props => props.color ? props.color : "#c4c4c4" };
 position:relative;
-left:-40px;
-top:28.8px;
+flexDirection:row;
+left:60px;
+
 `;
 
 const SeperatingDiv = styled.View`
@@ -131,25 +143,55 @@ height:2px;
 background-color:#c4c4c4;
 position:relative;
 left:11.2px;
+top:-150px;
 `;
 
 const Main = styled.View`
 
 `;
 
+const Usernametext = styled.Text`
+color:#c4c4c4;
+position:relative;
+top:-10px;
+left:100px;
+`;
+
+const UsernameDiv = styled.View`
+color:grey
+`;
+
+const ProfileImageIcon = styled.View`
+position:relative;
+left:35px;
+top:5px;
+`;
+
+const TimeText = styled.Text`
+color:#c4c4c4;
+position:relative;
+left:-15px;
+top:-15px;
+`;
+
+
 const SearchResult = ({textDistance,color,width,height,stars,h1text,username,time,revnum,textWait}) => {
    return <View><Main>
       
       <OverlayDiv>
 
-<SearchImg color={color}><Text><Image source="RestImg.png"/></Text></SearchImg>
+<SearchImg color={color}><Image source={require('../../public/RestImg.png')}/></SearchImg>
 <HeaderDiv>
 <Header><Text>{h1text}</Text></Header>
 <StarDiv>
-<Star><Text><Image source={"Star.png"}/></Text></Star>
+<Star><Image source={require('../../public/Star.png')}/></Star>
+<Star><Image source={require('../../public/Star.png')}/></Star>
+<Star><Image source={require('../../public/Star.png')}/></Star>
+<Star><Image source={require('../../public/Star.png')}/></Star>
+<Star><Image source={require('../../public/Star.png')}/></Star>
 
-<ReviewNumber><Text>{revnum}</Text></ReviewNumber>
 </StarDiv>
+<ReviewNumber><Text>{revnum}</Text></ReviewNumber>
 </HeaderDiv>
 <TopLine></TopLine>
 
@@ -158,12 +200,16 @@ const SearchResult = ({textDistance,color,width,height,stars,h1text,username,tim
 <SideLine></SideLine>
 <WaitTime><Text>{textWait}</Text></WaitTime>
 <UserDiv>
-<RecentUpdate> <Text><Image source="mapoverlayprofile.png"/> </Text>  <Text>{username} </Text></RecentUpdate>
-<TimeDiv><Text>{time}</Text><Text>ago</Text></TimeDiv>
+   <ProfileImageIcon>
+<Image source={require('../../public/mapoverlayprofile.png')}/>
+</ProfileImageIcon>
+<RecentUpdate> <Usernametext>{username}</Usernametext></RecentUpdate>
+<TimeDiv><TimeText>{time} ago</TimeText></TimeDiv>
 </UserDiv>
 </InfoDiv>
-</OverlayDiv>
 <SeperatingDiv></SeperatingDiv>
+</OverlayDiv>
+
    </Main>
   
    </View>
@@ -181,7 +227,7 @@ SearchResult.defaultProps= {
    h1text:"Chronic Tacos",
    username:"user123",
    time:"30m",
-   revnum:"16"
+   revnum:"(16)"
  }
 
 export default SearchResult

@@ -8,7 +8,7 @@ import MapOverlay from '../comps/MapOverlay'
 import SearchResult from '../comps/SearchResult'
 // import Message from '../../comps/Message';
 
-storiesOf('InputComp', module)
+storiesOf('InputIconBar', module)
 .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('Basic EditBar', () => (
     <InputComp/> 

@@ -15,17 +15,13 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-import InputComp from './comps/InputComp';
-import SearchResult from './comps/SearchResult'
-import SearchTitle from './comps/SearchTitle'
-
+import EditBar from './comps/EditBar';
 
 const App = () =>{
   return <View>
-    <SearchResult/>
-    
+    <EditBar />
   </View>
 }
 
 export default App;
-//export {default} from './storybook';
+//export {default} from './storybook'; 

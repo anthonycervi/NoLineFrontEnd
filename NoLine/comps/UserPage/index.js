@@ -1,57 +1,61 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components/native';
+import {View,Text,TextInput,Image} from 'react-native';
 
-const TopDiv = styled.div`
-width: ${props => props.width ? props.width :"375"};
-height: ${props => props.height ? props.height :"23"};
+const TopDiv = styled.View`
+width: ${props => props.width ? props.width :"375px"};
+height: ${props => props.height ? props.height :"23px"};
+flexDirection:row;
+position:relative;
+right:30px;
 `;
 
-const GreyDiv = styled.div`
+const GreyDiv = styled.View`
 width:186px;
-height:1px;
+height:2px;
 position:relative;
 background-color:#999999;
+position:relative;
+top:20px;
 `;
 
-const YellowDiv = styled.div`
+const YellowDiv = styled.View`
 width:186px;
 height:4px;
 position:relative;
 background-color:#FFD25B;
-left:8.4em;
-top:-.2em;
+
 `;
 
-const ProfileText = styled.p`
+const ProfileText = styled.Text`
 position:relative;
-left:4em;
-top:.5em;
+left:115px;
 `;
 
-const MainDiv = styled.div`
+const MainDiv = styled.View`
 display:flex;
 `;
 
-const AwardsText =styled.p`
+const AwardsText =styled.Text`
 position:relative;
-left:15em;
-top:-3em;
+left:60px;
 `;
 
-const UserPage = ({width,height}) => {
-   return <TopDiv>
-       <ProfileText>Profile</ProfileText>
+const UserPage = ({width,height,award,profile}) => {
+   return <View><TopDiv>
+       <ProfileText><Text>{profile}</Text></ProfileText>
 <GreyDiv></GreyDiv>
 <MainDiv>
-<AwardsText>Awards</AwardsText>
+<AwardsText><Text>{award}</Text></AwardsText>
 <YellowDiv></YellowDiv>
 </MainDiv>
    </TopDiv>
-   
+   </View>
 }
 
 UserPage.defaultProps= {
-
+award:"Awards",
+profile:"Profile"
  }
 
 export default UserPage

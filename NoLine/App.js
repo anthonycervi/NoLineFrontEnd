@@ -19,10 +19,11 @@ import InputComp from './comps/InputComp';
 import SearchResult from './comps/SearchResult'
 import SearchTitle from './comps/SearchTitle'
 import MapOverlay from './comps/MapOverlay'
+import UserPage from './comps/UserPage'
 
 const App = () =>{
   return <View>
-    <MapOverlay/>
+    <UserPage/>
     
     
   </View>

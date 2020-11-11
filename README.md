@@ -1,5 +1,4 @@
-# NoLineFrontEnd
-
+# NoLineFrontEnd - Farhaz Comps:
 
 # EditBar
 The 3 buttons on the top (ex. cancel, edit profile and done). Has 3 text props for each. 

@@ -6,16 +6,23 @@ import SearchTitle from '../comps/SearchTitle'
 import UserPage from '../comps/UserPage'
 import MapOverlay from '../comps/MapOverlay'
 import SearchResult from '../comps/SearchResult'
+import SearchResults from '../../pages/SearchResults';
 // import Message from '../../comps/Message';
 
 storiesOf('InputIconBar', module)
 .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
-  .add('Basic EditBar', () => (
+  .add('Input Comp', () => (
     <InputComp/> 
   ))
-  .add('Profile', () => (
+  .add('Search Title', () => (
     <SearchTitle/>
   ))
-  .add('IconBar', () => (
+  .add('UserPage', () => (
     <UserPage/>
+  ))
+  .add('Search Results', () => (
+    <SearchResult/>
+  ))
+  .add('MapOverlay', () => (
+    <MapOverlay/>
   ))

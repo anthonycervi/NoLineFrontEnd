@@ -18,13 +18,17 @@ import {
 import Button from '../comps/Button';
 import SearchResult from '../comps/SearchResult';
 import Filter from '../comps/Filter';
+import SearchTitle from '../comps/SearchTitle'
  //SEARCH COMPS
-//OTHER COMPS ONCE TEAM HAS FINISHED
-const SearchResults = () =>{
+//2 MAJOR COMPONENTS ON THIS PAGE IS IN THE BACKEND: MAP + COMMENT COMPONENT
+const RestaurantListing = () =>{
   return <View>
-    < Search/>
+    < SearchTitle/>
+    <Map></Map>
+    <REPORTWAITCOMP></REPORTWAITCOMP>
+    <COMMENT></COMMENT>
   </View>
 }
 
-export default SearchResults;
+export default RestaurantListing;
 //export {default} from './storybook'; 

@@ -23,7 +23,7 @@ import UserPage from './comps/UserPage'
 
 const App = () =>{
   return <View>
-    <UserPage/>
+    <SearchTitle/>
     
     
   </View>

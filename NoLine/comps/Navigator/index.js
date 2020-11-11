@@ -1,6 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components/native";
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
+
+import Search from '../../public/Profile.png'
 
 const NavContainer = styled.View`
   height: 87px;
@@ -31,7 +33,7 @@ const Navigator = () => {
       <NavContainer>
         <Magnifier src="/Search.svg" />
         <Location src="/LocationPin.svg" />
-        <User src="/Profile.svg" />
+        <User src="/Profile.png" />
       </NavContainer>
     </View>
   );

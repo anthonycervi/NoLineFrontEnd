@@ -38,7 +38,13 @@ const styles = StyleSheet.create({
     },
 
     buttonCenter:{
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: 0
+    },
+
+    filterItem:{
+        marginTop: 0,
+        marginBottom: -80
     }
 })
 
@@ -51,20 +57,20 @@ export default function SearchFilters() {
         </View>
 
         <View style={styles.filters}>
-            <View>
+            <View style={styles.filterItem}>
                 <View style={styles.sliderFlex}>
                     <FilterSlider text="Wait Time" slidenumber="10 min" number="2+ hours"/>
                 </View>
             </View>
 
-            <View >
+            <View style={styles.filterItem}>
                 <View style={styles.sliderFlex}>
                     <FilterSlider text="Distance" slidenumber="10 km" number="50 km"/>
                 </View>
             </View>
 
-            <View>
-                <Text style={styles.filterHeading}>Food</Text>
+            <View style={styles.filterItem}>
+                <Text style={styles.filterHeading}>Food{"\n"}</Text>
                 <FoodIcon />
             </View>
 
@@ -72,6 +78,6 @@ export default function SearchFilters() {
                 <Button text="Save Changes"/>
             </View>
         </View>
-        
+
     </View>
 }

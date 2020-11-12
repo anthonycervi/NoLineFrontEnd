@@ -1,3 +1,24 @@
+import { storiesOf } from '@storybook/react-native';
+import React from 'react';
+import AccountText from '../../comps/AccountText';
+
+
+storiesOf('AccountText', module)
+  .add('BasicAccountText', () => (
+    <AccountText />
+  ))
+
+
+
+
+
+
+
+
+
+
+
+
 // import React from 'react';
 // import AccountText from '../comps/AccountText';
 

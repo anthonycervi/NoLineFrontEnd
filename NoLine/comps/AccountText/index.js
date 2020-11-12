@@ -6,12 +6,20 @@ const TextAlt = styled.Text`
 font-weight:700;
 `;
 
+const ViewContainer = styled.View`
+position:relative;
+display: flex;
+flexDirection: row;
+alignItems: center;
+justifyContent: center;
+`;
+
 const AccountTextContainer = styled.Text`
     position:relative;
     display: flex;
     flex-direction: row;
     align-items: center;
-    align-text: center;
+    
     justify-content: center;
     font-family: Montserrat;
     font-weight: 400;
@@ -22,16 +30,18 @@ const AccountTextContainer = styled.Text`
 
  const AccountText = ({text, text2}) => {
        return <View>
+           <ViewContainer>
                 <AccountTextContainer>
-                {text} 
+               <Text>{text}</Text> 
               </AccountTextContainer>
-                <TextAlt>{text2}</TextAlt>
+                <Text>{text2}</Text>
+                </ViewContainer>
               </View>
     
     }
 
     AccountText.defaultProps= {
-        text:""
+        text:" "
     }
 
 export default AccountText;

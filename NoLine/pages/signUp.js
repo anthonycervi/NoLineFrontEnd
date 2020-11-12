@@ -22,11 +22,11 @@ import {
 
 const signUp = () =>{
   return <View>
-      <InputBox />
-      <InputBox />
-      <InputBox />
-      <Button />
-      <AccountText />
+      <InputBox text="Full Name"/>
+      <InputBox text="Email"/>
+      <InputBox text="Password"/>
+      <Button text="SIGN UP" buttonbgcolor="#FFD25B" buttoncolor="white"/>
+      <AccountText text="Have an account? &nbsp;" text2=" Sign In"/>
   </View>
 }
 

@@ -3,8 +3,8 @@ import styled from 'styled-components/native';
 import {View} from "react-native";
 
 const FilterContainer = styled.View`
-    width: 21px;
-    height: 21px;
+    width: 21;
+    height: 21;
     background-color: #EBEBEB;
     position:relative;
     display: flex;

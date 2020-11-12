@@ -7,6 +7,9 @@
  */
 
 import React from 'react';
+import SearchResult from '../comps/SearchResult';
+import InputIconBar from '../comps/InputIconBar';
+
 import {
   SafeAreaView,
   StyleSheet,
@@ -15,21 +18,13 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-import Page from './pages/SignUp';
 
-const App = () =>{
-  return <View style={styles.cont}>
-    <Page />
-  </View>
+const Map2 = () =>{
+  return <View>
+      <InputIconBar />
+      <SearchResult />
+  </View> 
 }
 
-const styles = StyleSheet.create({
-  cont:{
-    flex:1,
-    justifyContent:"center",
-    alignItems:"center"
-  }
-})
-
-export default App;
+export default Map2;
 //export {default} from './storybook';

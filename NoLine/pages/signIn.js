@@ -20,14 +20,48 @@ import {
   StatusBar,
 } from 'react-native';
 
+const styles = StyleSheet.create({
+  mainContainer: {
+    alignContent: 'center',
+    position: 'absolute',
+    display: 'flex',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    alignItems: 'center',
+    
+  },
+
+  innerText: {
+    color: 'white',
+  },
+
+  ContentContainer: {
+    height: 500,
+    width: 500,
+    alignContent: 'center',
+    position: 'absolute',
+    display: 'flex',
+    justifyContent: 'space-between',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+
+  Padding: {
+    padding: 30,
+    margin: 30,
+  }
+})
+
 const signIn = () =>{
-  return <View>
-      <InputBox />
-      <InputBox />
-      <Button />
-      <AccountText />
-      <AccountText />
-  </View>
+  return <View style={styles.mainContainer}>
+           {/* <View style={styles.mainContainer}> */}
+              <InputBox text="Email"/>
+              <InputBox style={styles.Padding} text="Password"/>
+              <Button style={styles.innerText} text="SIGN IN" buttonbgcolor="#FFD25B" buttoncolor="white"/>
+              <AccountText text2="Forgot Password?"/>
+            {/* </View> */}
+              <AccountText text="Don't have an account? &nbsp;" text2=" Create Now"/>
+            </View>
 }
 
 export default signIn;

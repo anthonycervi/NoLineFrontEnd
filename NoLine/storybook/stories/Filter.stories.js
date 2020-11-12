@@ -7,7 +7,20 @@ storiesOf('Filter', module)
   .add('Basic EditBar', () => (
     <Filter />
   ))
-// export default {
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // export default {
 //     title: 'Example/Filter',
 //     component: Filter
 // }

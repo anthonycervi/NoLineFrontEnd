@@ -1,3 +1,35 @@
+import { storiesOf } from '@storybook/react-native';
+import React from 'react';
+import Button from '../../comps/Button';
+
+
+storiesOf('Button', module)
+  .add('BasicButton', () => (
+    <Button />
+  ))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // export default {
+//     title: 'Example/Filter',
+//     component: Filter
+// }
+
+
+
 // import React from 'react';
 // import Button from '../comps/Button';
 

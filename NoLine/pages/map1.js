@@ -8,6 +8,7 @@
 
 import React from 'react';
 import Navigator from '../comps/Navigator';
+import InputIconBar from '../comps/InputIconBar';
 
 import {
   SafeAreaView,
@@ -17,10 +18,11 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-import Navigator from './comps/Navigator';
+
 
 const Map = () =>{
   return <View>
+      <InputIconBar />
       <Navigator />
   </View>
 }

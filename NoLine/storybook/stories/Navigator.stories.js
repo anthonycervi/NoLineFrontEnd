@@ -1,9 +1,10 @@
 import React from 'react';
-import Navigator from '../comps/Navigator'
+import Navigator from '../../comps/Navigator'
+import { storiesOf } from '@storybook/react-native';
+import CenterView from './CenterView';
 
-export default {
-    title: 'Example/Navigator',
-    component: Navigator
-};
+storiesOf('MyNavigator', module)
 
-export const MyNavigator = () => <Navigator />;
+  .add('Navigator', () => (
+    <Navigator />
+  ))

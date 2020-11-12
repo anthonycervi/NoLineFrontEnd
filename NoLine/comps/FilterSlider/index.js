@@ -79,16 +79,16 @@ const FilterSlider = ({text, number, slidenumber}) => {
         <View>
         <SliderContainer>
             <TextContainer>
-                {text}
+                <Text>{text}</Text>
             </TextContainer>
             <SliderConst>
                 <MainSlider input type="range" min="0" max="120" step="0"/>
             </SliderConst>
             <SliderNumber>
-                {slidenumber}
+                <Text>{slidenumber}</Text>
             </SliderNumber>
             <NumberContainer>
-                {number}
+                <Text>{number}</Text>
             </NumberContainer>
         </SliderContainer>
         </View>

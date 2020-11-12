@@ -15,11 +15,14 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-import Page from './pages/startScreen';
+import ProfileBio from './pages/ProfileBio';
+//import ProfileAwards from './pages/ProfileAwards';
+//import EditProf from './pages/EditProf';
+
 
 const App = () =>{
-  return <View style={styles.cont}>
-    <Page />
+  return <View>
+    <ProfileBio />
   </View>
 }
 

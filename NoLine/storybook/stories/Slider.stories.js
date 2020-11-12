@@ -1,9 +1,9 @@
 import React from 'react';
-import Slider from '../comps/Slider'
+import Slider from '../../comps/Slider'
+import { storiesOf } from '@storybook/react-native';
 
-export default {
-    title: 'Example/Slider',
-    component: Slider
-};
+storiesOf('MySlider', module)
 
-export const MySlider = () => <Slider />;
+  .add('Slider', () => (
+    <Slider />
+  ))

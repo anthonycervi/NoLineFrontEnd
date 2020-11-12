@@ -1,11 +1,11 @@
 import React from 'react';
-import FilterSlider from '../comps/FilterSlider'
+import FilterSlider from '../../comps/FilterSlider'
+import { storiesOf } from '@storybook/react-native';
+import CenterView from './CenterView';
 
-export default {
-    title: 'Example/FilterSlider',
-    component: FilterSlider
-};
+storiesOf('MyFilterSlider', module)
+.addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
 
-export const WaitTime = () => <FilterSlider />;
-
-export const Distance = () => <FilterSlider text="Distance" number="50km" slidenumber="10km"/>;
+  .add('FilterSlider', () => (
+    <FilterSlider />
+  ))

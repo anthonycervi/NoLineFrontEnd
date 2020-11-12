@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components/native";
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 
 const IconContainer = styled.View`
   width: 100%;
@@ -51,10 +51,10 @@ const AchievementIcon = ({ image, text, text2 }) => {
                 <IconImg img src={image} />
             </Icon>
             <TextContainer>
-                {text}
+                <Text>{text}</Text>
             </TextContainer>
             <TextContainer2>
-                {text2}
+                <Text>{text2}</Text>
             </TextContainer2>
         </IconContainer>
         </View>

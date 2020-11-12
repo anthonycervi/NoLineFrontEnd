@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components/native";
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
+import '../../public/check.png';
 
 const IconContainer = styled.View`
   width: 100%;
@@ -28,12 +29,15 @@ width: 9px;
 height: 9px;
 `;
 
+
 const CheckIcon = () => {
     return (
         <View>
         <IconContainer>
             <IconBorder>
-            <IconImg img src="Check.svg"/>
+            <IconImg>
+                {/* <Image source={require('../../public/check.png')}/> */}
+            </IconImg>
             </IconBorder>
         </IconContainer>
         </View>

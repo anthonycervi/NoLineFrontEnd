@@ -1,9 +1,11 @@
 import React from 'react';
-import CheckIcon from '../comps/CheckIcon'
+import CheckIcon from '../../comps/CheckIcon'
+import { storiesOf } from '@storybook/react-native';
+import CenterView from './CenterView';
 
-export default {
-    title: 'Example/CheckIcon',
-    component: CheckIcon
-};
+storiesOf('MyCheckIcon', module)
+.addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
 
-export const Check = () => <CheckIcon />;
+  .add('CheckIcon', () => (
+    <CheckIcon />
+  ))

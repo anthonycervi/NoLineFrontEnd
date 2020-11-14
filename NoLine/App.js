@@ -25,7 +25,15 @@ const App = () =>{
   return <View style={styles.cont}>
 <InputIconBar></InputIconBar>
       <Button></Button> 
+      <Button></Button> 
       <SearchResult></SearchResult>
+      <SearchResult></SearchResult>
+      <SearchResult></SearchResult>
+      <SearchResult></SearchResult>
+      
+     
+
+      
       <Navigator></Navigator>
   </View>
 }

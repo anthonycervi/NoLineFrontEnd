@@ -23,13 +23,18 @@ import Navigator from './comps/Navigator'
 
 const App = () =>{
   return <View style={styles.cont}>
+    <View style={SearchInput.cont}>
 <InputIconBar></InputIconBar>
-      <Button></Button> 
-      <Button></Button> 
+</View>
+<View style={ButtonStyles.cont}>
+      <Button text="Wait Time" buttonborder={"3px solid #FFD25B"} buttonwidth={100} buttonheight={32}></Button> 
+      <Button text="Distance" buttonbgcolor="white" buttonborder buttonwidth={100} buttonheight={32} ></Button> 
+      </View>
       <SearchResult></SearchResult>
       <SearchResult></SearchResult>
       <SearchResult></SearchResult>
       <SearchResult></SearchResult>
+      
       
      
 
@@ -45,8 +50,23 @@ cont:{
 }
 })
 
+const SearchInput = StyleSheet.create({
+  cont:{
+    flex:1,
+  justifyContent:"center",
+  left:20
+  }
+})
+
 const SearchResultStyle = StyleSheet.create({
 
+})
+
+const ButtonStyles = StyleSheet.create({
+  cont:{
+    flexDirection:"row",
+  margin:10
+  }
 })
 
 export default App;

@@ -15,19 +15,31 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-import InputComp from './comps/InputComp';
+
+import InputIconBar from './comps/InputIconBar';
+import Button from './comps/Button';
 import SearchResult from './comps/SearchResult'
-import SearchTitle from './comps/SearchTitle'
-import MapOverlay from './comps/MapOverlay'
-import UserPage from './comps/UserPage'
+import Navigator from './comps/Navigator'
 
 const App = () =>{
-  return <View>
-    <SearchTitle/>
-    
-    
+  return <View style={styles.cont}>
+<InputIconBar></InputIconBar>
+      <Button></Button> 
+      <SearchResult></SearchResult>
+      <Navigator></Navigator>
   </View>
 }
+
+const styles = StyleSheet.create({
+cont:{
+  flex:1,
+  justifyContent:"center",
+}
+})
+
+const SearchResultStyle = StyleSheet.create({
+
+})
 
 export default App;
 //export {default} from './storybook';

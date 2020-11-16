@@ -7,6 +7,7 @@
  */
 
 import React from 'react';
+import {NativeRouter, Route, Link} from "react-router-native";
 import {
   SafeAreaView,
   StyleSheet,
@@ -19,10 +20,9 @@ import ProfileBio from './pages/ProfileBio';
 //import ProfileAwards from './pages/ProfileAwards';
 //import EditProf from './pages/EditProf';
 
-
 const App = () =>{
   return <View>
-    <ProfileBio />
+    <ProfileBio/>
   </View>
 }
 

@@ -5,6 +5,7 @@ import UserPage from '../comps/UserPage';
 import Navigator from '../comps/Navigator';
 import {View, Text, StyleSheet} from 'react-native';
 
+
 const styles = StyleSheet.create({
     profileComp: {
         display:'flex',

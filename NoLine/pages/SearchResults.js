@@ -16,10 +16,11 @@ import {
   StatusBar,
 } from 'react-native';
 
-import InputIconBar from './comps/InputIconBar';
-import Button from './comps/Button';
-import SearchResult from './comps/SearchResult'
-import Navigator from './comps/Navigator'
+import {Link} from "react-router-native";
+import InputIconBar from '../comps/InputIconBar';
+import Button from '../comps/Button';
+import SearchResult from '../comps/SearchResult'
+import Navigator from '../comps/Navigator'
 
 const SearchResultPage = () =>{
   return <View style={styles.cont}>
@@ -27,7 +28,9 @@ const SearchResultPage = () =>{
 <InputIconBar></InputIconBar>
 </View>
 <View style={ButtonStyles.cont}>
+<Link to ="/">
       <Button text="Wait Time" buttonborder={"3px solid #FFD25B"} buttonwidth={100} buttonheight={32}></Button> 
+      </Link>
       <Button text="Distance" buttonbgcolor="white" buttonborder buttonwidth={100} buttonheight={32} ></Button> 
       </View>
       <SearchResult></SearchResult>
@@ -39,6 +42,8 @@ const SearchResultPage = () =>{
      
 
       
+        
+        
       <Navigator></Navigator>
   </View>
 }

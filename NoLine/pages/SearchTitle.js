@@ -6,6 +6,8 @@
  * @flow strict-local
  */
 
+import {Link} from "react-router-native";
+
 import React from 'react';
 import {
   SafeAreaView,
@@ -16,14 +18,13 @@ import {
   StatusBar,
 } from 'react-native';
 
-import SearchTitle from './comps/SearchTitle';
-import Slider from './comps/Slider';
-import Button from './comps/Button';
-import Navigator from './comps/Navigator';
-
+import Slider from '../comps/Slider';
+import Button from '../comps/Button';
+import Navigator from '../comps/Navigator';
+import SearchTitle from '../comps/SearchTitle';
 
 //MAP COMPONENT IS ADRIAN'S GOOGLE MAP API
-const App = () =>{
+const SearchTitlePage = () =>{
   return <View style={styles.cont}>
  <SearchTitle style={title.cont}></SearchTitle>
 
@@ -70,5 +71,5 @@ const ButtonStyle = StyleSheet.create({
   }
 })
 
-export default App;
+export default SearchTitlePage;
 //export {default} from './storybook';

@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import {Link} from "react-router-native";
+
 
 import React from 'react';
 import {
@@ -17,7 +17,7 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-
+import {NativeRouter, Route, Link} from "react-router-native";
 import Slider from '../comps/Slider';
 import Button from '../comps/Button';
 import Navigator from '../comps/Navigator';
@@ -27,11 +27,13 @@ import SearchTitle from '../comps/SearchTitle';
 const SearchTitlePage = () =>{
   return <View style={styles.cont}>
  <SearchTitle style={title.cont}></SearchTitle>
-
+ {/* <Link to="/submitting"> */}
 <View style={ButtonStyle.cont}>
- <Button text="Submit" buttoncolor="#FFFFFF" buttonborder={"3px solid #FFD25B"} buttonwidth={135} buttonheight={35}></Button> 
+  <Link to="/map1">
+ <Button text="Submit" buttonwidth={135} buttonheight={35}></Button> 
+ </Link>
  </View>
-
+ {/* </Link> */}
 
 
 <View style={Nav.cont}>

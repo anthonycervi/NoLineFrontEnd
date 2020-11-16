@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, {css} from 'styled-components/native';
 import {View, Text, Image} from 'react-native';
-import ProfilePic from '../../public/ProfilePic.svg';
+import ProfilePic from '../../public/ProfilePic.png';
 
 const ProfileContainer = styled.View`
     text-align: center;

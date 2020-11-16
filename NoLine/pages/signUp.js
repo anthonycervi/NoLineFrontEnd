@@ -5,7 +5,7 @@
  * @format
  * @flow strict-local
  */
-
+import {NativeRouter, Route, Link} from "react-router-native";
 import React from 'react';
 import Button from '../comps/Button';
 import InputBox from '../comps/InputBox';
@@ -25,8 +25,12 @@ const signUp = () =>{
       <InputBox text="Full Name"/>
       <InputBox text="Email"/>
       <InputBox text="Password"/>
+      <Link to = "/signupbutton">
       <Button text="SIGN UP" buttonbgcolor="#FFD25B" buttoncolor="white"/>
+      </Link>
+      <Link to="signin">
       <AccountText text="Have an account? &nbsp;" text2=" Sign In"/>
+      </Link>
   </View>
 }
 

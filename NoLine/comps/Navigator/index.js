@@ -1,9 +1,10 @@
 import React from "react";
 import styled, { css } from "styled-components/native";
 import { View, Text, Image } from 'react-native';
-import '../../public/Search.svg';
-import '../../public/LocationPin.svg';
-import '../../public/Profile.svg';
+import '../../public/Search.png';
+import '../../public/LocationPin.png';
+import '../../public/Profile.png';
+import {NativeRouter, Route, Link} from "react-router-native";
 
 const NavContainer = styled.View`
   height: 87px;
@@ -38,15 +39,21 @@ const Navigator = () => {
   return (
     <View>
       <NavContainer>
+<Link to="/searchicon">
         <Magnifier>
-            {/* <Image source={require('../../public/Search.svg')}/> */}
+           <Image source={require('../../public/Search.png')}/> 
         </Magnifier>
+        </Link>
+        <Link to="/map1">
         <Location>
-            {/* <Image source={require('../../public/LocationPin.svg')}/> */}
+        <Image source={require('../../public/LocationPin.png')}/> 
         </Location>
+        </Link>
+        <Link to="/profilenav">
         <User>
-            {/* <Image source={require('../../public/Profile.svg')}/> */}
+        <Image source={require('../../public/Profile.png')}/> 
         </User>
+        </Link>
       </NavContainer>
     </View>
   );

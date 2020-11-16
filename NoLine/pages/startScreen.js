@@ -5,9 +5,10 @@
  * @format
  * @flow strict-local
  */
-
+import {NativeRouter, Route, Link} from "react-router-native";
 import React from 'react';
 import Button from '../comps/Button';
+import SignUpPage from './signUp'
 import {
   SafeAreaView,
   StyleSheet,
@@ -20,9 +21,14 @@ import {
 
 const startScreen = () =>{
   return <View>
+    <Link to="/signup">
       <Button />
-      <Button />
+      </Link>
+      <Link to="/signin">
+      <Button/>
+      </Link>
   </View>
+  
 }
 
 export default startScreen;

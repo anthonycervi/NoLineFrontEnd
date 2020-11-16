@@ -20,8 +20,8 @@ import {
 
 const startScreen = () =>{
   return <View>
-      <Button />
-      <Button />
+      <Button text="Sign In"/>
+      <Button text="Sign Up" color="white"/>
   </View>
 }
 

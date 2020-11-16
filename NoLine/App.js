@@ -15,7 +15,7 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-import Page from './pages/SignUp';
+import Page from './pages/startScreen';
 
 const App = () =>{
   return <View style={styles.cont}>

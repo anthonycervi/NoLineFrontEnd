@@ -18,7 +18,7 @@ import {
 
 import {NativeRouter, Route, Link} from "react-router-native";
 
-import InputIconBar from './comps/InputIconBar';
+
 import Button from './comps/Button';
 import SearchResult from './comps/SearchResult';
 import Navigator from './comps/Navigator';

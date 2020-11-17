@@ -166,7 +166,7 @@ const FoodIcon = ({ image, text }) => {
 
 FoodIcon.defaultProps = {
     text: "American",
-    image: "/American.png",
+    image: "/American.svg",
 };
 
 export default FoodIcon;

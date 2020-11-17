@@ -5,6 +5,25 @@ import Navigator from '../comps/Navigator';
 import Message from '../comps/Message';
 import { View, Text, StyleSheet } from 'react-native';
 
+import Axios from 'axios';
+
+const [backend, setBackend] = useState([]);
+const [reviewTitle, setReviewTitle] = useState([]);
+const [reviewBody, setReviewBody] = useState([]);
+const [username, setUsername] = useState([]);
+const [timestamp, setTimestamp] = useState([]);
+const [starRating, setStarRating] = useState([]);
+
+
+cost HandleGetReviews = async () => {
+    console.log("Fetching from database...");
+    var resp = await Axios.post("Database link goes here", {
+        //DB LINK
+    });
+    console.log(resp.data);
+    setBackend([...resp.data]);
+}
+
 const styles = StyleSheet.create({
     topBar: {
         alignContent: 'center',
@@ -64,7 +83,7 @@ export default function reviews() {
     <View style={styles.bigContainer}>
         <View>
             <Text style={styles.filterHeading}>Search Result Comp Goes Here...</Text>
-            {/* <SearchTitle /> */}
+            <SearchTitle />
         </View>
 
         <View style={styles.paddingSpace}></View>

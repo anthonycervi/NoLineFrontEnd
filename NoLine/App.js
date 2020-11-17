@@ -18,13 +18,19 @@ import {
 
 import {NativeRouter, Route, Link} from "react-router-native";
 
-import InputIconBar from './comps/InputIconBar';
-import Button from './comps/Button';
-import SearchResult from './comps/SearchResult';
-import Navigator from './comps/Navigator';
+
+// import Button from './comps/Button';
+// import SearchResult from './comps/SearchResult';
+// import Navigator from './comps/Navigator';
 import SearchTitlePage from './pages/SearchTitle';
 import SearchResultPage from './pages/SearchResults';
-import Page from './pages/SearchResults';
+// import Page from './pages/SearchResults';
+import StartScreen from './pages/startScreen'
+import SignUpPage from './pages/signUp'
+import SignInPage from './pages/signIn'
+import Map1Page from './pages/map1'
+import ProfilePage from './pages/ProfileBio'
+// import SearchFiltersPage from './pages/searchFilters'
 
 const App = () =>{
   return <NativeRouter><View style={styles.cont}>

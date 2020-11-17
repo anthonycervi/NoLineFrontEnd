@@ -40,11 +40,43 @@ import {
 // }
 
 const Map = () =>{
-  return <View>
-      <InputIconBar />
-      <Navigator />
-  </View>
+  return <View style={MainContainer.cont}>
+
+            <View style={SearchContainer.cont}>
+              <InputIconBar />
+            </View>
+
+            <View style={NavContainer.cont}>
+              <Navigator />
+            </View>
+
+         </View>
 }
+
+const MainContainer = StyleSheet.create({
+  cont:{
+    position: "relative",
+   
+    
+  }
+  })
+
+const SearchContainer = StyleSheet.create({
+    cont:{
+      position: "relative",
+     
+    }
+    })
+
+    const NavContainer = StyleSheet.create({
+      cont:{
+        position: "relative",
+        alignContent: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        top:300,    
+      }
+      })
 
 export default Map;
 //export {default} from './storybook';

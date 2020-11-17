@@ -43,15 +43,25 @@ import Navigator from '../comps/Navigator'
 
 const SearchResultPage = () =>{
   return <View style={styles.cont}>
-    <View style={SearchInput.cont}>
-<InputIconBar></InputIconBar>
-</View>
-<View style={ButtonStyles.cont}>
-<Link to ="/">
-      <Button text="Wait Time" buttonborder={"3px solid #FFD25B"} buttonwidth={100} buttonheight={32}></Button> 
-      </Link>
-      <Button text="Distance" buttonbgcolor="white" buttonborder buttonwidth={100} buttonheight={32} ></Button> 
-      </View>
+
+            <View style={SearchInput.cont}>
+                <InputIconBar></InputIconBar>
+            </View>
+
+            <View style={BothButtonStyles.cont}>
+
+                <View style={ButtonStyles.cont}>
+                    <Link to ="/">
+                    <Button text="Wait Time" buttonborder={"3px solid #FFD25B"} buttonwidth={100} buttonheight={32}></Button> 
+                    </Link>
+                </View>
+
+                <View style={ButtonStyles.cont}>
+                    <Button text="Distance" buttonbgcolor="white" buttonborder buttoncolor="#FFD25B" buttonwidth={100} buttonheight={32} ></Button> 
+                </View>
+
+            </View>
+
       <SearchResult></SearchResult>
       <SearchResult></SearchResult>
       <SearchResult></SearchResult>
@@ -89,7 +99,16 @@ const SearchResultStyle = StyleSheet.create({
 const ButtonStyles = StyleSheet.create({
   cont:{
     flexDirection:"row",
-  margin:10
+  margin:10,
+
+  }
+})
+
+const BothButtonStyles = StyleSheet.create({
+  cont:{
+    flexDirection:"row",
+
+
   }
 })
 

@@ -19,8 +19,6 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
-//import EditBar from './comps/EditBar';
-
 const startScreen = () =>{
   return <View style={MainContainer.cont}>
 
@@ -85,3 +83,14 @@ const ButtonStyles = StyleSheet.create({
 
 export default startScreen;
 // export {default} from './storybook';
+
+
+
+
+// Attempted to put TouchableHighlight on the button but routing would not work when I did.
+
+{/* <TouchableHighlight activeOpacity={0.7}
+                    underlayColor="#FFFFFF"
+                    onPress={() => {}}>
+
+ </TouchableHighlight> */}

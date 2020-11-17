@@ -1,17 +1,17 @@
 import React from 'react';
 import Profile from '../comps/Profile';
 import EditBar from '../comps/EditBar';
-import inputComp from '../comps/inputComp';
 import Button from '../comps/Button';
 import {View, Text, StyleSheet} from 'react-native';
-import InputComp from '../comps/inputComp';
+import InputComp from '../comps/InputComp';
+
 
 const styles = StyleSheet.create({
     bar :{
         display:'flex',
-        marginTop:50,
-        position:'absolute',
-        alignItems:'center'
+        justifyContent:'center',
+        alignItems:'center',
+        top:-15
     },
 
 
@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
         display:'flex',
         alignItems:'center',
         justifyContent:'center',
+        margin:20
     },
 
     inputs: {
@@ -26,52 +27,62 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
         flexDirection:'column',
+        marginLeft:4
     },
 
     buttons: {
         display:'flex',
         alignItems:'center',
+    },
+
+    space:{
+        marginBottom:30,
+    },
+
+    pagespace:{
+        marginBottom:-220
     }
 })
 
 export default function ProfileBio() {
-    return <View>
+    return <View style={styles.pagespace}>
+
         <View style={styles.bar}>
             <EditBar />
         </View>
 
         <View style={styles.profileComp}>
-            <Profile />
+            <Profile/>
         </View>
 
         <View style={styles.inputs}>
-            <View>
+            <View style={styles.space}>
                 <InputComp text="Name"/>
             </View>
 
-            <View>
+            <View style={styles.space}>
                 <InputComp text="Email"/>
             </View >
 
-            <View>
+            <View style={styles.space}>
                 <InputComp text="Password"/>
             </View>
 
-            <View>
+            <View style={styles.space}>
                 <InputComp text="Confirm Password"/>
             </View>
 
-            <View>
+            <View style={styles.space}>
                 <InputComp text="Location"/>
             </View>
 
-            <View>
+            <View style={styles.space}>
                 <InputComp text="Bio" height="130"/>
             </View>
         </View>
 
         <View style={styles.buttons}>
-            <Button buttonheight="49" buttonwidth="238" text="SAVE CHANGES" buttoncolor="white" buttonbgcolor="#FFD25B"/>
+            {/* <Button buttonheight="49" buttonwidth="238" text="SAVE CHANGES" buttoncolor="white" buttonbgcolor="#FFD25B"/> */}
         </View>
     </View>
 }

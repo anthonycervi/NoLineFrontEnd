@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components/native";
 import { View, Text, Image } from 'react-native';
-import '../../public/Search.png';
-import '../../public/LocationPin.png';
-import '../../public/Profile.png';
+
+import Search from '../../public/Search.png';
+import LocationPin from '../../public/LocationPin.png';
+import Profile from '../../public/Profile.png';
+
+import CheckedSearch from '../../public/Search_Checked.png';
+import CheckedLocationPin from '../../public/LocationPin_Checked.png';
+import CheckedProfile from '../../public/Profile_Checked.png';
+
+
 import {NativeRouter, Route, Link} from "react-router-native";
 
 const NavContainer = styled.View`
   height: 87px;
-  width:99%;
+  width:100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -17,42 +24,43 @@ const NavContainer = styled.View`
   padding-bottom: 30px;
 `;
 
-const Magnifier = styled.View`
-width:60px;
-height:60px;
-background-color:#FAD;
-`;
 
-const Location = styled.View`
-width:60px;
-height:60px;
-background-color:#FAD;
-`;
+const SearchPNG = {
+  src: Search
+}
 
-const User = styled.View`
-width:60px;
-height:60px;
-background-color:#FAD;
+const LocationPNG = {
+  src: LocationPin
+}
+
+const UserPNG = {
+  src: Profile
+}
+
+const NavImage = styled.Image`
+    width: 40px;
+    height: 40px;
+    resize-mode: contain;
+    align-items: center;
+    justify-content: center;
 `;
 
 const Navigator = () => {
+
+const [image, setImg] = useState(null);
+
+
   return (
     <View>
       <NavContainer>
-<Link to="/searchicon">
-        <Magnifier>
-           <Image source={require('../../public/Search.png')}/> 
-        </Magnifier>
+        <Link to="/searchicon">
+           <NavImage onPress={()=>{setImg(image.CheckedSearch);}} source={SearchPNG.src}/> 
         </Link>
         <Link to="/map1">
-        <Location>
-        <Image source={require('../../public/LocationPin.png')}/> 
-        </Location>
+          <NavImage source={LocationPNG.src}/> 
         </Link>
         <Link to="/profilenav">
-        <User>
-        <Image source={require('../../public/Profile.png')}/> 
-        </User>
+          <NavImage source={UserPNG.src}/> 
         </Link>
       </NavContainer>
     </View>

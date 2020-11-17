@@ -5,7 +5,7 @@
  * @format
  * @flow strict-local
  */
-import {NativeRouter, Route, Link} from "react-router-native";
+
 import React from 'react';
 import Button from '../comps/Button';
 import InputBox from '../comps/InputBox';

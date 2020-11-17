@@ -19,32 +19,25 @@ import {
 import {NativeRouter, Route, Link} from "react-router-native";
 
 
-// import Button from './comps/Button';
-// import SearchResult from './comps/SearchResult';
-// import Navigator from './comps/Navigator';
+import Button from './comps/Button';
+import SearchResult from './comps/SearchResult';
+import Navigator from './comps/Navigator';
 import SearchTitlePage from './pages/SearchTitle';
 import SearchResultPage from './pages/SearchResults';
-// import Page from './pages/SearchResults';
+import Page from './pages/SearchResults';
 import StartScreen from './pages/startScreen'
 import SignUpPage from './pages/signUp'
 import SignInPage from './pages/signIn'
 import Map1Page from './pages/map1'
 import ProfilePage from './pages/ProfileBio'
-// import SearchFiltersPage from './pages/searchFilters'
+import SearchFiltersPage from './pages/searchFilters'
 
 const App = () =>{
   return <NativeRouter><View style={styles.cont}>
-  <Route exact path="/" component={StartScreen} />
-  <Route exact path="/signup" component={SignUpPage}/>
-  <Route exact path="/signin" component={SignInPage}/>
-  <Route exact path="/signupbutton" component={SearchResultPage}/>
-  <Route exact path="/signinbutton" component={SearchResultPage}/>
-  <Route exact path="/searchicon" component={SearchResultPage}/>
-  <Route exact path="/map1" component={Map1Page}/>
-  <Route exact path="/profilenav" component={ProfilePage}/>
-  <Route exact path="/restauranttitle" component={SearchTitlePage}/>
-  {/* <Route exact path="/submitting" component={SignInPage}/> */}
-
+    <Link to ="/searchresults">
+    <Text>Go Home</Text>
+    </Link>
+    <Route exact path="/searchresults" component={Page}/>
 
   </View>
   </NativeRouter>

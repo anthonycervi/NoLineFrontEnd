@@ -2,7 +2,7 @@ import React from 'react';
 import styled, {css} from 'styled-components/native';
 import {View,Text,TextInput,Image} from 'react-native';
 import '../../public/Star.png';
-import {Link} from "react-router-native";
+
 const OverlayDiv = styled.View`
 width: ${props => props.width ? props.width :"375px"};
 height: ${props => props.height ? props.height :"110px"};
@@ -177,7 +177,7 @@ top:-15px;
 
 const SearchResult = ({textDistance,color,width,height,stars,h1text,username,time,revnum,textWait}) => {
    return <View><Main>
-      <Link to = "/restauranttitle">
+      
       <OverlayDiv>
 
 <SearchImg color={color}><Image source={require('../../public/RestImg.png')}/></SearchImg>
@@ -209,7 +209,7 @@ const SearchResult = ({textDistance,color,width,height,stars,h1text,username,tim
 </InfoDiv>
 <SeperatingDiv></SeperatingDiv>
 </OverlayDiv>
-</Link>
+
    </Main>
   
    </View>

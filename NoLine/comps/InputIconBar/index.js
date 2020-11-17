@@ -2,8 +2,8 @@ import React from 'react';
 import styled, {css} from 'styled-components/native';
 import {View, Text, TextInput, Image} from 'react-native';
 
-import searchIcon from '../../public/searchIcon.png';
-import sendIcon from '../../public/sendIcon.png';
+import searchIcon from '../../public/searchIcon.svg';
+import sendIcon from '../../public/sendIcon.svg';
 // const searchIcon = require("");
 
 const IconBarContainer = styled.View`

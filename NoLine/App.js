@@ -16,99 +16,57 @@ import {
   StatusBar,
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {NativeRouter, Route, Link} from "react-router-native";
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
-  );
-};
+
+// import Button from './comps/Button';
+// import SearchResult from './comps/SearchResult';
+// import Navigator from './comps/Navigator';
+import SearchTitlePage from './pages/SearchTitle';
+import SearchResultPage from './pages/SearchResults';
+// import Page from './pages/SearchResults';
+import StartScreen from './pages/startScreen'
+import SignUpPage from './pages/signUp'
+import SignInPage from './pages/signIn'
+import Map1Page from './pages/map1'
+import ProfilePage from './pages/ProfileBio'
+// import SearchFiltersPage from './pages/searchFilters'
+import ProfileAwardsPage from './pages/ProfileAwards'
+import EditProfPage from './pages/EditProf'
+import ProfileBioPage from './pages/ProfileBio'
+
+
+
+const App = () =>{
+  return <NativeRouter><View style={styles.cont}>
+  <Route exact path="/" component={StartScreen} />
+  <Route exact path="/signup" component={SignUpPage}/>
+  <Route exact path="/signin" component={SignInPage}/>
+  <Route exact path="/signupbutton" component={SearchResultPage}/>
+  <Route exact path="/signinbutton" component={SearchResultPage}/>
+  <Route exact path="/searchicon" component={SearchResultPage}/>
+  <Route exact path="/map1" component={Map1Page}/>
+  <Route exact path="/profilenav" component={ProfilePage}/>
+  <Route exact path="/restauranttitle" component={SearchTitlePage}/>
+  <Route exact path="/profileawards" component={ProfileAwardsPage}/>
+  <Route exact path="/editprofile" component={EditProfPage}/>
+  <Route exact path="/profilebio" component={ProfileBioPage}/>
+
+
+
+  {/* <Route exact path="/submitting" component={SignInPage}/> */}
+
+
+  </View>
+  </NativeRouter>
+}
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
+  cont:{
+    flex:1,
+    justifyContent:"center",
+  }
+  })
 
 export default App;
+//export {default} from './storybook';

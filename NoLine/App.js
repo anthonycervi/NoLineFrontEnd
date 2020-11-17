@@ -30,16 +30,12 @@ import SignUpPage from './pages/signUp'
 import SignInPage from './pages/signIn'
 import Map1Page from './pages/map1'
 import ProfilePage from './pages/ProfileBio'
-<<<<<<< Updated upstream
-// import SearchFiltersPage from './pages/searchFilters'
-=======
-import SearchFiltersPage from './pages/searchFilters'
+//import SearchFiltersPage from './pages/searchFilters'
 import ProfileAwardsPage from './pages/ProfileAwards'
 import EditProfPage from './pages/EditProf'
 import ProfileBioPage from './pages/ProfileBio'
 
 
->>>>>>> Stashed changes
 
 const App = () =>{
   return <NativeRouter><View style={styles.cont}>

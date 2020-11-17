@@ -5,7 +5,24 @@ import UserPage from '../comps/UserPage';
 import Navigator from '../comps/Navigator';
 import {View, Text, StyleSheet} from 'react-native';
 import {NativeRouter, Route, Link} from "react-router-native";
+// import axios from 'axios';
 
+
+// const [backend, setBackend] = useState(null);
+// const [profilepic, setProfilepic] = useState(null);
+// const [name, setName] = useState(null);
+// const [location, setLocation] = useState(null);
+// const [points, setPoints] = useState(null);
+
+// const HandleGetProfile = async () => {
+//     var resp = await axios.get(//Adrian's backend);
+//     console.log("clicked");
+//     setBackend([...resp.data]);
+//     setProfilepic([...resp.data]);
+//     setName([...resp.data]);
+//     setLocation([...resp.data]);
+//     setPoints([...resp.data]);
+// }
 
 const styles = StyleSheet.create({
     profileComp: {

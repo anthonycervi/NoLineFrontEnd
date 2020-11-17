@@ -1,8 +1,11 @@
 import React from "react";
 import styled, { css } from "styled-components/native";
 import { View, Text, TextInput, Image } from 'react-native';
-import '../../public/minus.png';
-import '../../public/plus.png';
+// import '../../public/minus.png';
+// import '../../public/plus.png';
+
+import Plus from '../../public/plus.png';
+import Minus from '../../public/minus.png';
 
 
 const SliderContainer = styled.View`
@@ -110,6 +113,24 @@ const HourContainer = styled.View`
   display: flex;
 `;
 
+const PlusPNG = {
+  src: Plus
+}
+
+const MinusPNG = {
+  src: Minus
+}
+
+const IconImage = styled.Image`
+    width: 11px;
+    height: 11px;
+    resize-mode: contain;
+    align-items: center;
+    justify-content: center;
+    right:-5;
+    bottom:-4;
+`;
+
 const Slider = ({text}) => {
     return (
         <View>
@@ -123,13 +144,13 @@ const Slider = ({text}) => {
             <SliderConst>
                 <Decrease>
                     <MinusIcon>
-                      {/* <Image source={require('../../public/minus.png')}/> */}
+                      <IconImage source={MinusPNG.src}/> 
                     </MinusIcon>
                 </Decrease>
                 <MainSlider input type="range" min="0" max="120" step="5"/>
                 <Increase>
                     <PlusIcon>
-                      {/* <Image source={require('../../public/plus.png')}/> */}                      
+                      <IconImage source={PlusPNG.src}/> 
                     </PlusIcon>
                 </Increase>
             </SliderConst>

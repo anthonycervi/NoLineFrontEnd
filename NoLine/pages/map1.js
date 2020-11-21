@@ -9,6 +9,7 @@
 import React from 'react';
 import Navigator from '../comps/Navigator';
 import InputIconBar from '../comps/InputIconBar';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 import {
   SafeAreaView,
@@ -40,17 +41,28 @@ import {
 // }
 
 const Map = () =>{
-  return <View style={MainContainer.cont}>
+  return (
+    <View style={MainContainer.cont}>
+      <View style={SearchContainer.cont}>
+      <InputIconBar />
+      </View>
+      <MapView
+       provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+       style={MapContainer.map}
+       region={{
+         latitude: 37.78825,
+         longitude: -122.4324,
+         latitudeDelta: 0.015,
+         longitudeDelta: 0.0121,
+       }}
+     >
+     </MapView>
+    <View style={NavContainer.cont}>
+      <Navigator />
+    </View>
 
-            <View style={SearchContainer.cont}>
-              <InputIconBar />
-            </View>
-
-            <View style={NavContainer.cont}>
-              <Navigator />
-            </View>
-
-         </View>
+ </View>
+  )
 }
 
 const MainContainer = StyleSheet.create({
@@ -59,7 +71,21 @@ const MainContainer = StyleSheet.create({
    
     
   }
-  })
+})
+  
+const MapContainer = StyleSheet.create({
+  container: {
+    ...StyleSheet.absoluteFillObject,
+    height: 800,
+    width: 400,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+  },
+})
+
 
 const SearchContainer = StyleSheet.create({
     cont:{

@@ -6,19 +6,42 @@
  * @flow strict-local
  */
 
-import React from 'react';
 import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
   View,
   Text,
+  KeyboardAvoidingView,
+  TextInput,
+  Button,
+  StyleSheet,
+  ScrollView,
+  SafeAreaView,
   StatusBar,
 } from 'react-native';
 
+import {
+  addUser,
+  addRating,
+  getUserWithUid,
+  registerUser,
+  addReview,
+  login,
+  getReviewsByRestaurant,
+  getUserFirstname,
+  logout,
+  addComment,
+  getCommentsByRestaurant,
+  addWaitTime,
+  getWaitTime,
+  addPoints,
+  getAllPoints,
+  getAllRestaurantByWaitTime,
+} from './database/functions';
+
 import {NativeRouter, Route, Link} from "react-router-native";
 
-
+import { firestore } from './database/firebase';
+import { auth } from "./database/firebase";
+import { getRestaurantsAroundUser, searchLocation } from './mapAPI/apiConnect';
 // import Button from './comps/Button';
 // import SearchResult from './comps/SearchResult';
 // import Navigator from './comps/Navigator';

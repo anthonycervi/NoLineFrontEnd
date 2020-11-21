@@ -175,6 +175,7 @@ top:-15px;
 `;
 
 
+
 const SearchResult = ({textDistance,color,width,height,stars,h1text,username,time,revnum,textWait}) => {
    return <View><Main>
       <Link to = "/restauranttitle">

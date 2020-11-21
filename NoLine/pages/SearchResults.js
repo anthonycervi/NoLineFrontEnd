@@ -21,6 +21,7 @@ import InputIconBar from '../comps/InputIconBar';
 import Button from '../comps/Button';
 import SearchResult from '../comps/SearchResult'
 import Navigator from '../comps/Navigator'
+import Filter from '../comps/Filter'
 
 // THE FOLLOWING IS COMMENTED OUT UNTIL ADRIAN PROVIDES US THE INFO TO PULL FROM :)
 
@@ -59,7 +60,7 @@ const SearchResultPage = () =>{
                 <View style={ButtonStyles.cont}>
                     <Button text="Distance" buttonbgcolor="white" buttonborder buttoncolor="#FFD25B" buttonwidth={100} buttonheight={32} ></Button> 
                 </View>
-
+                <Filter/>
             </View>
 
       <SearchResult></SearchResult>

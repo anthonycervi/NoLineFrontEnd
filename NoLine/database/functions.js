@@ -15,18 +15,16 @@ const WaitTime = db.collection("waittime"); //make an average function
  * @returns {object}
  */
 export async function getUserWithUid(id) {
-    return Users.where("id", "==", id)
-		.get()
-		.then((data) => {
-			let user;
-			data.forEach((doc) => {
-				user = { ...doc.data() };
-			});
-			if (!user) {
-				throw "No user";
-			}
-			return user;
-		});
+    console.log(id);
+    const data = await Users.where("id", "==", id).get()
+	let user;
+	data.forEach((doc) => {
+        user = { ...doc.data() };
+    });
+    if (!user) {
+        throw "No user";
+    }
+    return user;
 }
 
 /**
@@ -37,16 +35,14 @@ export async function getUserWithUid(id) {
  * @returns {object} return objects of user info
  */
 export async function login(email, password) {
-    return auth.signInWithEmailAndPassword(email, password)
-        .then(async (res) => {
-            const uid = res.user.uid;
-            const user = await getUserWithUid(uid);
-            //console.log("authenticated");
-            return user;
-        })
-        .catch((error) => {
-            return error;
-        });
+    var res = await auth.signInWithEmailAndPassword(email, password);
+    console.log("res", res)
+    const uid = res.user.uid;
+    console.log("uid", uid)
+    const user = await getUserWithUid(uid);
+    console.log("user", user);
+    //console.log("authenticated");
+    return user;
 }
 
 /**

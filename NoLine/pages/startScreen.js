@@ -5,7 +5,7 @@
  * @format
  * @flow strict-local
  */
-import {NativeRouter, Route, Link} from "react-router-native";
+import {NativeRouter, Route, Link, useHistory} from "react-router-native";
 import React from 'react';
 import Button from '../comps/Button';
 import LogoAndName from "../comps/LogoAndName";
@@ -20,6 +20,7 @@ import {
 } from 'react-native';
 
 const startScreen = () =>{
+  const history = useHistory();
   return <View style={MainContainer.cont}>
 
             <View style={LogoStyles.cont}>
@@ -35,9 +36,11 @@ const startScreen = () =>{
             
 
             <View style={ButtonStyles.cont}>
-              <Link to="/signin">
-                <Button style={ButtonTextStyles.cont} text="SIGN IN" buttonbgcolor="white" buttoncolor="#FFD25B" buttonbordercolor="#FFD25B" buttonborderstyle="solid" buttonfontsize={24} />
-              </Link>
+              <Button 
+                onPress={()=>{
+                  history.push("/signin")
+                }}
+                style={ButtonTextStyles.cont} text="SIGN IN" buttonbgcolor="white" buttoncolor="#FFD25B" buttonbordercolor="#FFD25B" buttonborderstyle="solid" buttonfontsize={24} />
             </View>
             
           </View>

@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 import {NativeRouter, Route, Link} from "react-router-native";
-import React from 'react';
+import React, {useState} from 'react';
 import Button from '../comps/Button';
 import InputBox from '../comps/InputBox';
 import AccountText from '../comps/AccountText';
@@ -72,16 +72,20 @@ const styles = StyleSheet.create({
   }
 })
 
-const handleLogIn = async () => {
-  try {
-    await login()
-    console.log('login success');
-  } catch (err) {
-    console.log(err)
-  }
-}
-
 const signIn = () =>{
+
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+  const handleLogIn = async () => {
+    console.log(email, pass)
+    try {
+      var resp = await login("test@test.com", "123123")
+      console.log('login success', resp);
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return <View style={MainContainer.cont}>
 
             <View style={LogoStyles.cont}>
@@ -90,7 +94,9 @@ const signIn = () =>{
 
             <View style={ContentContainer.cont}>
               <View style={InputStyles.cont}>
-                <InputBox text="Email"/>
+                <InputBox text="Email" onChangeText={(text)=>{
+                  setEmail(text)
+                }}/>
               </View>
 
               <View style={InputStyles.cont}>
@@ -98,9 +104,7 @@ const signIn = () =>{
               </View>
 
               <View style={ButtonStyles.cont}>
-                <Link to = "/signupbutton">
-          <Button text="SIGN IN" buttonbgcolor="#FFD25B" buttoncolor="white" buttonfontsize={24} onClick={handleLogIn}/>
-                </Link>
+               <Button text="SIGN IN" buttonbgcolor="#FFD25B" buttoncolor="white" buttonfontsize={24} onPress={handleLogIn}/>
               </View>
             </View>
 

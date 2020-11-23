@@ -13,7 +13,9 @@ const SliderContainer = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction:column;   
+  flex-direction:column;  
+  padding-right: 30px;
+  padding-left:30px;
 `;
 
 const TextContainer = styled.View`

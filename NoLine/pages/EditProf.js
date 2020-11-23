@@ -1,17 +1,17 @@
 import React from 'react';
-import Profile from '../comps/Profile';
+import EditProfile from '../comps/EditProfile';
 import EditBar from '../comps/EditBar';
 import Button from '../comps/Button';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TextInput, ScrollView} from 'react-native';
 import InputComp from '../comps/InputComp';
-
+import {Link} from "react-router-native";
 
 const styles = StyleSheet.create({
     bar :{
         display:'flex',
         justifyContent:'center',
         alignItems:'center',
-        top:-15
+        top:5
     },
 
 
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         display:'flex',
         alignItems:'center',
         justifyContent:'center',
-        margin:20
+        margin:20,
     },
 
     inputs: {
@@ -27,12 +27,17 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
         flexDirection:'column',
-        marginLeft:4
+        marginLeft:4,
+        borderTopWidth:0,
+        borderRightWidth:0,
+        borderLeftWidth:0,
+        borderBottomWidth:0
     },
 
     buttons: {
         display:'flex',
         alignItems:'center',
+        marginBottom:30
     },
 
     space:{
@@ -40,49 +45,53 @@ const styles = StyleSheet.create({
     },
 
     pagespace:{
-        marginBottom:-220
-    }
+        height:"100%",
+    },
 })
 
 export default function ProfileBio() {
     return <View style={styles.pagespace}>
-
-        <View style={styles.bar}>
-            <EditBar />
-        </View>
-
-        <View style={styles.profileComp}>
-            <Profile/>
-        </View>
-
-        <View style={styles.inputs}>
-            <View style={styles.space}>
-                <InputComp text="Name"/>
+            <ScrollView>
+            <View style={styles.bar}>
+                <EditBar />
             </View>
 
-            <View style={styles.space}>
-                <InputComp text="Email"/>
-            </View >
-
-            <View style={styles.space}>
-                <InputComp text="Password"/>
+            <View style={styles.profileComp}>
+                <EditProfile/>
             </View>
 
-            <View style={styles.space}>
-                <InputComp text="Confirm Password"/>
+            <View style={styles.inputs}>
+                <View style={styles.space}>
+                    <InputComp text="Name"/>
+                </View>
+
+                <View style={styles.space}>
+                    <InputComp text="Email"/>
+                </View >
+
+                <View style={styles.space}>
+                    <InputComp text="Password"/>
+                </View>
+
+                <View style={styles.space}>
+                    <InputComp text="Confirm Password"/>
+                </View>
+
+                <View style={styles.space}>
+                    <InputComp text="Location"/>
+                </View>
+
+                <View style={styles.space}>
+                    <InputComp text="Bio" height="130"/>
+                </View>
             </View>
 
-            <View style={styles.space}>
-                <InputComp text="Location"/>
+            <View style={styles.buttons}>
+                <Link to="/profilebio">
+                    <Button text="SAVE CHANGES" buttoncolor="white" buttonfontsize={24}/>
+                </Link>
             </View>
-
-            <View style={styles.space}>
-                <InputComp text="Bio" height="130"/>
-            </View>
-        </View>
-
-        <View style={styles.buttons}>
-            {/* <Button buttonheight="49" buttonwidth="238" text="SAVE CHANGES" buttoncolor="white" buttonbgcolor="#FFD25B"/> */}
-        </View>
+            </ScrollView>
     </View>
+
 }

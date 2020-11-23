@@ -1,19 +1,20 @@
 import React from 'react';
 import styled, {css} from 'styled-components/native';
 import {View, Text} from 'react-native';
-
+import {Link} from "react-router-native";
 const BarContainer = styled.View`
     display: flex;
-    align-items: stretch;
+    
     flex-direction:row;
-    align-items: center;
+    
+    
 `;
 
 const BarItem = styled.Text`
     background-color: #fff;
     color: #9D9D9D;
     text-align: center;
-    width: 40%;
+    width: 165px;
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
@@ -41,9 +42,17 @@ const Right = styled.Text`
 
 const EditBar = ({left, middle, right}) => {
     return <BarContainer>
-        <BarItem><Left>{left}</Left></BarItem>
+        <BarItem>
+            <Link to="profilebio">
+            <Left>{left}</Left>
+            </Link>
+        </BarItem>
         <BarItem><HeadingMiddle>{middle}</HeadingMiddle></BarItem>
-        <BarItem><Right>{right}</Right></BarItem>
+        <BarItem>
+            <Link to="profilebio">
+            <Right>{right}</Right>
+            </Link>
+            </BarItem>
 
     </BarContainer>
 }

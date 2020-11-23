@@ -6,19 +6,45 @@
  * @flow strict-local
  */
 
-import React from 'react';
 import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
   View,
   Text,
+  KeyboardAvoidingView,
+  TextInput,
+  Button,
+  StyleSheet,
+  ScrollView,
+  SafeAreaView,
   StatusBar,
 } from 'react-native';
 
+import {
+  addUser,
+  addRating,
+  getUserWithUid,
+  registerUser,
+  addReview,
+  login,
+  getReviewsByRestaurant,
+  getUserFirstname,
+  logout,
+  addComment,
+  getCommentsByRestaurant,
+  addWaitTime,
+  getWaitTime,
+  addPoints,
+  getAllPoints,
+  getAllRestaurantByWaitTime,
+} from './database/functions';
+
+import React, { useState } from 'react';
 import {NativeRouter, Route, Link} from "react-router-native";
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 
+import { firestore } from './database/firebase';
+import { auth } from "./database/firebase";
+import { getRestaurantsAroundUser, searchLocation } from './mapAPI/apiConnect';
 // import Button from './comps/Button';
 // import SearchResult from './comps/SearchResult';
 // import Navigator from './comps/Navigator';
@@ -30,7 +56,7 @@ import SignUpPage from './pages/signUp'
 import SignInPage from './pages/signIn'
 import Map1Page from './pages/map1'
 import ProfilePage from './pages/ProfileBio'
-// import SearchFiltersPage from './pages/searchFilters'
+import SearchFiltersPage from './pages/searchFilters'
 import ProfileAwardsPage from './pages/ProfileAwards'
 import EditProfPage from './pages/EditProf'
 import ProfileBioPage from './pages/ProfileBio'
@@ -51,8 +77,7 @@ const App = () =>{
   <Route exact path="/profileawards" component={ProfileAwardsPage}/>
   <Route exact path="/editprofile" component={EditProfPage}/>
   <Route exact path="/profilebio" component={ProfileBioPage}/>
-
-
+  <Route exact path="/filterpage" component={SearchFiltersPage}/>
 
   {/* <Route exact path="/submitting" component={SignInPage}/> */}
 
@@ -67,6 +92,28 @@ const styles = StyleSheet.create({
     justifyContent:"center",
   }
   })
+
+  const MapContainer = StyleSheet.create({
+    container: {
+      //...StyleSheet.absoluteFillObject,
+      height: 700,
+      width: 400,
+      position:"relative",
+      flex:1
+    },
+    map: {
+      flex: 1,
+        ...StyleSheet.absoluteFillObject
+    },
+  })
+  
+  
+  const SearchContainer = StyleSheet.create({
+      cont:{
+        position: "relative",
+       
+      }
+      })
 
 export default App;
 //export {default} from './storybook';

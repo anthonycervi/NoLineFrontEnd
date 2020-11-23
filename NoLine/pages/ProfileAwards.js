@@ -5,6 +5,7 @@ import UserPage from '../comps/UserPage';
 import Navigator from '../comps/Navigator';
 import {View, Text, StyleSheet} from 'react-native';
 import {NativeRouter, Route, Link} from "react-router-native";
+
 // import axios from 'axios';
 
 
@@ -34,6 +35,7 @@ const styles = StyleSheet.create({
 
     profAwards: {
         display:'flex',
+        margin:0
     },
 
     acheivementscont: {
@@ -45,12 +47,11 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         justifyContent:'space-around',
         alignItems:'center',
-        margin:20
     },
 
     nav:{
         position:'relative',
-        top:20
+        top:15
     },
 
     edittext:{
@@ -75,21 +76,12 @@ export default function ProfileBio() {
         </View>
 
         <View style={styles.profAwards}>
-            <Link to="/profilebio">
             <UserPage />
-            </Link>
         </View>
 
-        <View style={styles.achievementscont}>
-            <View style={styles.achievements}>
-                <AchievementIcon text="Refer a friend" text2="+100"/>
-                <AchievementIcon text="Share on Facebook" text2="+100"/>
-            </View>
-
-
-            <View style={styles.achievements}>
-                <AchievementIcon text="Write a Review" text2="+300"/>
-                <AchievementIcon text="Report a wait time" text2="+2000" />
+        <View>
+            <View>
+                <AchievementIcon/>
             </View>
 
         </View>

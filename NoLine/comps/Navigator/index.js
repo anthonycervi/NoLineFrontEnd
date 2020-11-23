@@ -20,7 +20,7 @@ const NavContainer = styled.View`
   justify-content: space-around;
   align-items: center;
   flex-direction:row;
-  border: 0.5px solid black;
+ 
   padding-bottom: 30px;
 `;
 

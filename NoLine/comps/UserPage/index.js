@@ -1,6 +1,8 @@
 import React from 'react';
 import styled, {css} from 'styled-components/native';
 import {View,Text,TextInput,Image} from 'react-native';
+import {NativeRouter, Route, Link} from "react-router-native";
+
 
 const TopDiv = styled.View`
 width: ${props => props.width ? props.width :"375px"};
@@ -43,10 +45,18 @@ left:60px;
 
 const UserPage = ({width,height,award,profile}) => {
    return <View><TopDiv>
-       <ProfileText><Text>{profile}</Text></ProfileText>
+       <ProfileText>
+          <Link to="profilebio">
+          <Text>{profile}</Text>
+          </Link>
+      </ProfileText>
 <GreyDiv></GreyDiv>
 <MainDiv>
-<AwardsText><Text>{award}</Text></AwardsText>
+<AwardsText>
+   <Link to="profileawards">
+   <Text>{award}</Text>
+   </Link>
+</AwardsText>
 <YellowDiv></YellowDiv>
 </MainDiv>
    </TopDiv>

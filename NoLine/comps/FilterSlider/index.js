@@ -31,31 +31,10 @@ const MainSlider = styled.TextInput`
   color: #ffd25b;
   margin:15px;
 
-    -webkit-appearance: none;
     width: 100%;
     height: 6px;
     border-radius: 5px;
     background: #ffd25b;
-    -webkit-transition: 0.2s;
-    transition: opacity 0.2s;
-    }
-    &::-webkit-slider-thumb{
-        -webkit-apperance:none;
-        apperance:none;
-        height: 15px;
-        width: 15px;
-        border-radius: 10px;
-        background-color: #ffd25b;
-        cursor: pointer;
-  
-    }
-    &::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #E5E5E5;
-    cursor: pointer;
-  }
 `;
 
 const SliderNumber = styled.Text`

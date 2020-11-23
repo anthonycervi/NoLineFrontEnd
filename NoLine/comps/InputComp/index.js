@@ -12,20 +12,26 @@ color: ${props => props.color ? props.color : "#686868" };
 
 `;
 
-const FormInput = styled.View`
+const FormInput = styled.TextInput`
 width: ${props => props.width ? props.width :"384px"};
 height: ${props => props.height ? props.height :"45px"};
-border:1px solid black;
+    background-color: #EBEBEB;
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15;
 
 `;
 
 const InputComp = ({text,color,width,height}) => {
-   return <View><FormStyle>
-    
+   return <View>
   <FormLabel color={color}>{text}</FormLabel>
-  <FormInput width={width} height={height}/> 
-   </FormStyle>
+  <FormInput placeholder={" "}></FormInput>
+  
    </View>
 }
 

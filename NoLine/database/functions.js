@@ -1,4 +1,4 @@
-import { registerRootComponent } from 'expo';
+//import { registerRootComponent } from 'expo';
 import { useColorScheme } from 'react-native';
 import { auth, db, firebase} from './firebase';
 

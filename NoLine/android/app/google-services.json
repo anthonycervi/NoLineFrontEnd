@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "271554712581",
+    "firebase_url": "https://noline-293103.firebaseio.com",
+    "project_id": "noline-293103",
+    "storage_bucket": "noline-293103.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:271554712581:android:71aa42ff67ba043ce4b86c",
+        "android_client_info": {
+          "package_name": "com.noline"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "271554712581-0pv504t86g3s7on4pqq1r3v75v6c5oc0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvwYo_S1OL6tZMGB0AnSSYrWDf1quASns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "271554712581-0pv504t86g3s7on4pqq1r3v75v6c5oc0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "271554712581-bbas04m0fb4uk5n9h3q32qod41og6e1u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "host.exp.Exponent"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

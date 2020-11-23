@@ -11,6 +11,7 @@ import Navigator from '../comps/Navigator';
 import InputIconBar from '../comps/InputIconBar';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
+
 import {
   SafeAreaView,
   StyleSheet,
@@ -51,7 +52,7 @@ const Map = () =>{
        style={MapContainer.map}
        region={{
          latitude: 37.78825,
-         longitude: -122.4324,
+         longitude: -123.120735,
          latitudeDelta: 0.015,
          longitudeDelta: 0.0121,
        }}
@@ -75,13 +76,14 @@ const MainContainer = StyleSheet.create({
   
 const MapContainer = StyleSheet.create({
   container: {
-    ...StyleSheet.absoluteFillObject,
-    height: 800,
+    //...StyleSheet.absoluteFillObject,
+    height: 700,
     width: 400,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+    position:"relative",
+    flex:1
   },
   map: {
+    flex:1,
     ...StyleSheet.absoluteFillObject,
   },
 })
@@ -103,6 +105,9 @@ const SearchContainer = StyleSheet.create({
         top:300,    
       }
       })
+
+      
+
 
 export default Map;
 //export {default} from './storybook';

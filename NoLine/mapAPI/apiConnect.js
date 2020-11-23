@@ -36,7 +36,7 @@ export async function getRestaurantsAroundUser(type, keyword, lat, long, apiKey)
     return await (await axios.get(url)).data;
 }
 
-//Testing
+// Testing
 // (async () => {
 //     const result = await searchLocation('restaurant', apiKey);
 //     console.log(result)

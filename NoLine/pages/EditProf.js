@@ -4,9 +4,7 @@ import EditBar from '../comps/EditBar';
 import Button from '../comps/Button';
 import {View, Text, StyleSheet, TextInput, ScrollView} from 'react-native';
 import InputComp from '../comps/InputComp';
-import {NativeRouter, Route, Link} from "react-router-native";
-
-
+import {Link} from "react-router-native";
 
 const styles = StyleSheet.create({
     bar :{

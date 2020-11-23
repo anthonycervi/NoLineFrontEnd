@@ -7,8 +7,13 @@ const ProfileContainer = styled.View`
     text-align: center;
     font-family: Montserrat;
     font-style: normal;
+<<<<<<< Updated upstream
     align-items:center;
     justify-content:center;
+=======
+    align-items: center;
+    
+>>>>>>> Stashed changes
 `;
 
 const HeadingTwo = styled.Text`

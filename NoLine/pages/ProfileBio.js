@@ -56,7 +56,12 @@ const styles = StyleSheet.create({
     nav:{
         display:'flex',
         position:'relative',
+<<<<<<< Updated upstream
         marginBottom:-20
+=======
+        marginBottom:-4,
+        top: 27.3
+>>>>>>> Stashed changes
     },
 
     edittext:{

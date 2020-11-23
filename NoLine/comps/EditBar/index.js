@@ -1,20 +1,25 @@
 import React from 'react';
 import styled, {css} from 'styled-components/native';
 import {View, Text} from 'react-native';
+<<<<<<< Updated upstream
 import {NativeRouter, Route, Link} from "react-router-native";
 
+=======
+import {Link} from "react-router-native";
+>>>>>>> Stashed changes
 const BarContainer = styled.View`
     display: flex;
-    align-items: stretch;
+    
     flex-direction:row;
-    align-items: center;
+    
+    
 `;
 
 const BarItem = styled.Text`
     background-color: #fff;
     color: #9D9D9D;
     text-align: center;
-    width: 40%;
+    width: 165px;
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
@@ -42,6 +47,7 @@ const Right = styled.Text`
 
 const EditBar = ({left, middle, right}) => {
     return <BarContainer>
+<<<<<<< Updated upstream
         <BarItem>
             <Link to="profilebio">
             <Left>{left}</Left>
@@ -54,6 +60,15 @@ const EditBar = ({left, middle, right}) => {
             </Link>
             </BarItem>
 
+=======
+        <Link to ="/profilebio">
+        <BarItem><Left>{left}</Left></BarItem>
+        </Link>
+        <BarItem><HeadingMiddle>{middle}</HeadingMiddle></BarItem>
+        <Link to ="/profilebio">
+        <BarItem><Right>{right}</Right></BarItem>
+        </Link>
+>>>>>>> Stashed changes
     </BarContainer>
 }
 

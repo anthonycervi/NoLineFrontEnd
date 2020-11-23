@@ -21,6 +21,25 @@ import {
   StatusBar,
 } from 'react-native';
 
+import {
+  addUser,
+  addRating,
+  getUserWithUid,
+  registerUser,
+  addReview,
+  login,
+  getReviewsByRestaurant,
+  getUserFirstname,
+  logout,
+  addComment,
+  getCommentsByRestaurant,
+  addWaitTime,
+  getWaitTime,
+  addPoints,
+  getAllPoints,
+  getAllRestaurantByWaitTime,
+} from '../database/functions';
+
 const styles = StyleSheet.create({
   mainContainer: {
     alignContent: 'center',
@@ -71,13 +90,13 @@ const signIn = () =>{
 
               <View style={ButtonStyles.cont}>
                 <Link to = "/signupbutton">
-                <Button text="SIGN IN" buttonbgcolor="#FFD25B" buttoncolor="white" buttonfontsize={24}/>
+                  <Button text="SIGN IN" buttonbgcolor="#FFD25B" buttoncolor="white" buttonfontsize={24} onPress={Login()}/>
                 </Link>
               </View>
             </View>
 
               <View style={AccountTextStyles.cont}>
-                <Link to="signin">
+                <Link to="signup">
                 <AccountText text="Dont't have an account? &nbsp;" text2=" Create Now"/>
                 </Link>
               </View>

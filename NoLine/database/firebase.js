@@ -4,7 +4,7 @@ import "firebase/auth";
 import "firebase/firestore";
 
 const config = {
-  apiKey: "AIzaSyClUvR3dTnBzmjHKPFEwqCLY9IIY_xaUZY",
+  apiKey: "AIzaSyBvwYo_S1OL6tZMGB0AnSSYrWDf1quASns",
   authDomain: "noline-293103.firebaseapp.com",
   databaseURL: "https://noline-293103.firebaseio.com",
   projectId: "noline-293103",

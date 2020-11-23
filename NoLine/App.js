@@ -37,7 +37,10 @@ import {
   getAllRestaurantByWaitTime,
 } from './database/functions';
 
+import React, { useState } from 'react';
 import {NativeRouter, Route, Link} from "react-router-native";
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+
 
 import { firestore } from './database/firebase';
 import { auth } from "./database/firebase";
@@ -76,8 +79,6 @@ const App = () =>{
   <Route exact path="/profilebio" component={ProfileBioPage}/>
   <Route exact path="/filterpage" component={SearchFiltersPage}/>
 
-
-
   {/* <Route exact path="/submitting" component={SignInPage}/> */}
 
 
@@ -91,6 +92,28 @@ const styles = StyleSheet.create({
     justifyContent:"center",
   }
   })
+
+  const MapContainer = StyleSheet.create({
+    container: {
+      //...StyleSheet.absoluteFillObject,
+      height: 700,
+      width: 400,
+      position:"relative",
+      flex:1
+    },
+    map: {
+      flex: 1,
+        ...StyleSheet.absoluteFillObject
+    },
+  })
+  
+  
+  const SearchContainer = StyleSheet.create({
+      cont:{
+        position: "relative",
+       
+      }
+      })
 
 export default App;
 //export {default} from './storybook';

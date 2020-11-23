@@ -6,7 +6,8 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, { useState } from 'react';
+
 import {
   SafeAreaView,
   StyleSheet,
@@ -23,7 +24,28 @@ import SearchResult from '../comps/SearchResult'
 import Navigator from '../comps/Navigator'
 import Filter from '../comps/Filter'
 
-// THE FOLLOWING IS COMMENTED OUT UNTIL ADRIAN PROVIDES US THE INFO TO PULL FROM :)
+
+import {
+  addUser,
+  addRating,
+  getUserWithUid,
+  registerUser,
+  addReview,
+  login,
+  getReviewsByRestaurant,
+  getUserFirstname,
+  logout,
+  addComment,
+  getCommentsByRestaurant,
+  addWaitTime,
+  getWaitTime,
+  addPoints,
+  getAllPoints,
+  getAllRestaurantByWaitTime,
+} from '../database/functions';
+
+
+
 
 // const [backend, setBackend] = useState([])
 // const [resttitle, setRestTitle] = useState([])
@@ -33,20 +55,29 @@ import Filter from '../comps/Filter'
 // const [waittime, setWaittime] = useState([])
 // const [timeago, setTimeAgo] = useState([])
 
+// const HandleGetAllRecipes = async (keyword,name)=>{ //keyword is passed back out
+//   console.log("clicked", keyword);
+//  var resp = await axios.post("https://noline-293103.firebaseio.com",{
+//  });
+//  console.log(resp.data);
+//  setRecipes([...resp.data]);
+
+// }
+
 // const HandleGetSearchResult = async ()=> {
 //   console.log("Pulled from Database");
-//   var resp = await axios.post("Adrians repo link",{
-//     //POST / AWAIT COMPONENTS
+//   var resp = await axios.get("https://noline-293103.firebaseio.com", {
 //   });
 //   console.log(resp.data);
 //   setBackend([...resp.data]);
 // }
 
+
 const SearchResultPage = () =>{
   return <View style={styles.cont}>
-
+ {/* //<Button text="Get All Recipes" onClick={HandleGetSearchResult()} /> */}
             <View style={SearchInput.cont}>
-                <InputIconBar></InputIconBar>
+            <InputIconBar text="Search" image="searchIconPNG.src"/>
             </View>
 
             <View style={BothButtonStyles.cont}>

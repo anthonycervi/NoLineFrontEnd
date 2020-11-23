@@ -7,6 +7,8 @@ const ProfileContainer = styled.View`
     text-align: center;
     font-family: Montserrat;
     font-style: normal;
+    align-items:center;
+    justify-content:center;
 `;
 
 const HeadingTwo = styled.Text`
@@ -14,6 +16,7 @@ const HeadingTwo = styled.Text`
     font-size: 24px;
     line-height: 29px;
     margin-bottom: 0px;
+    top:10px;
 `;
 
 const Paragraph = styled.Text`
@@ -23,6 +26,7 @@ const Paragraph = styled.Text`
     line-height: 13px;
     color: #ccc;
     margin-top: 4px;
+    top:7px;
 `;
 
 const HeadingOne = styled.Text`
@@ -30,6 +34,7 @@ const HeadingOne = styled.Text`
     font-size: 32px;
     line-height: 39px;
     color: #8486D1;
+    top:15px
 `;
 
 const ProfileSVG = {

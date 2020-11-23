@@ -36,12 +36,13 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
         margin:10,
+        marginBottom:20,
 
     },
 
     profAwards: {
         display:'flex',
-        marginBottom:20,
+        marginBottom:35,
     },
 
     inputs: {
@@ -49,20 +50,20 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
         flexDirection:'column',
-        marginLeft:4
+        marginLeft:4,
     },
 
     nav:{
         display:'flex',
         position:'relative',
-        marginBottom:-4
+        marginBottom:-20
     },
 
     edittext:{
         fontSize:20,
         justifyContent:"flex-end",
         left:338,
-        bottom:-10,
+        bottom:-3,
         color:"#9D9D9D"
     },
 
@@ -97,7 +98,7 @@ export default function ProfileBio() {
             </View>
 
             <View style={styles.space}>
-                <InputComp text="Reviews Written" />
+                <InputComp text="Reviews Written"/>
             </View>
 
             <View style={styles.space}>

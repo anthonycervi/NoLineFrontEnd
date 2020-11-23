@@ -8,44 +8,65 @@ import Review from '../../public/review.png';
 import Time from '../../public/time.png';
 
 const IconContainer = styled.View`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+display: flex;
+width: 100%;
+align-items: center;
+justify-content: center;
+`;
+
+const IconRow = styled.View`
+display:flex;
+align-items: center;
+justify-content: center;
+flex-direction:row;
+`;
+
+const IconCont = styled.View`
+  margin-top:5px;
+  margin-bottom:-30;
+  margin-right:15px;
+  margin-left:15px;
 `;
 
 const Icon = styled.View`
-display: flex;
+margin: 30px;
 align-items: center;
 justify-content: center;
+padding:20px;
 border: solid #ffd25b 2px;
-border-radius: 50px;
-width: 77px;
-height: 77px;
+border-radius: 100px;
+display:flex;
 `;
 
-const IconImg = styled.View`
-display: flex;
-align-items: center;
-justify-content: center;
-width: 50px;
-height: 50px;
+const TextCont = styled.View`
+  flex-direction:column;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  bottom:25px
 `;
 
-const TextContainer = styled.View`
+const TextContainer = styled.Text`
   font-size: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding:1px;
 `;
 
-const TextContainer2 = styled.View`
+const TextContainer2 = styled.Text`
   font-size: 12px;
-  color: #cbcbcb;
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const AchievementImage = styled.Image`
+width: 60px;
+height: 60px;
+resize-mode: contain;
+align-items: center;
+justify-content: center;
 `;
 
 const HandPNG = {
@@ -64,28 +85,54 @@ const HandPNG = {
     src: Time
   }
 
-  const AchievementImage = styled.Image`
-    width: 40px;
-    height: 40px;
-    resize-mode: contain;
-    align-items: center;
-    justify-content: center;
-`;
-
-const AchievementIcon = ({ image, text, text2 }) => {
+const AchievementIcon = ({ image, text, text2, }) => {
     return (
         <View>
         <IconContainer>
-            <Icon>
-                <AchievementImage source={ReviewPNG.src}/>
-            </Icon>
+            <IconRow>
+              <IconCont>
+              <Icon>
+                <AchievementImage source={HandPNG.src}/>
+              </Icon>
+              <TextCont>
+                <TextContainer>Refer a friend</TextContainer>
+                <TextContainer2>+100</TextContainer2>
+              </TextCont>
+              </IconCont>
+              
+              <IconCont>
+              <Icon>
+              <AchievementImage source={FacebookPNG.src}/>
+              </Icon>
+              <TextCont>
+                <TextContainer>Share on Facebook</TextContainer>
+                <TextContainer2>+100</TextContainer2>
+              </TextCont>
+              </IconCont>
+            </IconRow>
             
-            <TextContainer>
-                <Text>{text}</Text>
-            </TextContainer>
-            <TextContainer2>
-                <Text>{text2}</Text>
-            </TextContainer2>
+            <IconRow>
+            <IconCont>
+              <Icon>
+                <AchievementImage source={ReviewPNG.src}/>
+              </Icon>
+              <TextCont>
+                <TextContainer>Write a Review</TextContainer>
+                <TextContainer2>+300</TextContainer2>
+              </TextCont>
+              </IconCont>
+
+              <IconCont>
+              <Icon>
+              <AchievementImage source={TimePNG.src}/>
+              </Icon>
+              <TextCont>
+                <TextContainer>Report a Wait Time</TextContainer>
+                <TextContainer2>+2000</TextContainer2>
+              </TextCont>
+              </IconCont>
+            </IconRow>
+
         </IconContainer>
         </View>
     );

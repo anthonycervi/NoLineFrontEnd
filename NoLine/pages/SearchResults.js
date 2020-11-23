@@ -120,7 +120,8 @@ const SearchInput = StyleSheet.create({
   cont:{
     flex:1,
   justifyContent:"center",
-  left:20
+  left:20,
+  width: 350,
   }
 })
 

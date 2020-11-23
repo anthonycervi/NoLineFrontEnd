@@ -1,12 +1,7 @@
 import React from 'react';
 import styled, {css} from 'styled-components/native';
 import {View, Text} from 'react-native';
-<<<<<<< Updated upstream
-import {NativeRouter, Route, Link} from "react-router-native";
-
-=======
 import {Link} from "react-router-native";
->>>>>>> Stashed changes
 const BarContainer = styled.View`
     display: flex;
     
@@ -47,7 +42,6 @@ const Right = styled.Text`
 
 const EditBar = ({left, middle, right}) => {
     return <BarContainer>
-<<<<<<< Updated upstream
         <BarItem>
             <Link to="profilebio">
             <Left>{left}</Left>
@@ -60,15 +54,6 @@ const EditBar = ({left, middle, right}) => {
             </Link>
             </BarItem>
 
-=======
-        <Link to ="/profilebio">
-        <BarItem><Left>{left}</Left></BarItem>
-        </Link>
-        <BarItem><HeadingMiddle>{middle}</HeadingMiddle></BarItem>
-        <Link to ="/profilebio">
-        <BarItem><Right>{right}</Right></BarItem>
-        </Link>
->>>>>>> Stashed changes
     </BarContainer>
 }
 

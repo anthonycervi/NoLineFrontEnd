@@ -15,7 +15,7 @@ const [timestamp, setTimestamp] = useState([]);
 const [starRating, setStarRating] = useState([]);
 
 
-cost HandleGetReviews = async () => {
+const HandleGetReviews = async () => {
     console.log("Fetching from database...");
     var resp = await Axios.post("Database link goes here", {
         //DB LINK

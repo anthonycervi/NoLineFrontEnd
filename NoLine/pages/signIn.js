@@ -72,6 +72,15 @@ const styles = StyleSheet.create({
   }
 })
 
+const handleLogIn = async () => {
+  try {
+    await login()
+    console.log('login success');
+  } catch (err) {
+    console.log(err)
+  }
+}
+
 const signIn = () =>{
   return <View style={MainContainer.cont}>
 
@@ -90,7 +99,7 @@ const signIn = () =>{
 
               <View style={ButtonStyles.cont}>
                 <Link to = "/signupbutton">
-                  <Button text="SIGN IN" buttonbgcolor="#FFD25B" buttoncolor="white" buttonfontsize={24} onPress={Login()}/>
+          <Button text="SIGN IN" buttonbgcolor="#FFD25B" buttoncolor="white" buttonfontsize={24} onClick={handleLogIn}/>
                 </Link>
               </View>
             </View>

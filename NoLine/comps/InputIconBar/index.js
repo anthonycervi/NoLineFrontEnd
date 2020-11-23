@@ -12,10 +12,7 @@ const IconBarContainer = styled.View`
         width 20%;
         padding: 10px; 
         text-align: left; 
-
-    input:focus {
-        border: 2px solid #8486D1;
-    }
+        color: #32353f;
 `;
 
 const SpanView = styled.Image`

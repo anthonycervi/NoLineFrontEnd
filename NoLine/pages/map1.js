@@ -10,6 +10,9 @@ import React from 'react';
 import Navigator from '../comps/Navigator';
 import InputIconBar from '../comps/InputIconBar';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+ import MapImg from '../public/map.png'
+ import styled, {css} from 'styled-components/native';
+import MapOverlay from '../comps/MapOverlay'
 
 
 import {
@@ -19,6 +22,7 @@ import {
   View,
   Text,
   StatusBar,
+  Image
 } from 'react-native';
 
 // THE FOLLOWING IS COMMENTED OUT UNTIL ADRIAN PROVIDES US THE INFO TO PULL FROM :)
@@ -41,13 +45,25 @@ import {
 //   setBackend([...resp.data]);
 // }
 
+const MapPNG = {
+  src: MapImg
+}
+
+const MapImage1 = styled.Image`
+  width: 500;
+  height: 450;
+  margin-top: 10px;
+`;
+
 const Map = () =>{
   return (
     <View style={MainContainer.cont}>
       <View style={SearchContainer.cont}>
       <InputIconBar />
       </View>
-      <MapView
+      <MapImage1 source={require('../public/map.png')}/>
+      <MapOverlay></MapOverlay>
+      {/* <MapView
        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
        style={MapContainer.map}
        region={{
@@ -57,7 +73,7 @@ const Map = () =>{
          longitudeDelta: 0.0121,
        }}
      >
-     </MapView>
+     </MapView> */}
     <View style={NavContainer.cont}>
       <Navigator />
     </View>
@@ -65,6 +81,8 @@ const Map = () =>{
  </View>
   )
 }
+
+
 
 const MainContainer = StyleSheet.create({
   cont:{
@@ -79,7 +97,10 @@ const MapContainer = StyleSheet.create({
     //...StyleSheet.absoluteFillObject,
     height: 700,
     width: 400,
-    position:"relative",
+    position:"relative",  
+    alignContent: 'center',
+    justifyContent: 'center',
+    display: "flex",
     flex:1
   },
   map: {
@@ -102,7 +123,9 @@ const SearchContainer = StyleSheet.create({
         alignContent: 'center',
         alignItems: 'center',
         justifyContent: 'center',
-        top:300,    
+        display: "flex",
+        top:25,  
+        left:21  
       }
       })
 

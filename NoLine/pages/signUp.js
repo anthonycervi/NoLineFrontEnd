@@ -21,6 +21,33 @@ import {
   StatusBar,
 } from 'react-native';
 
+import {
+  addUser,
+  addRating,
+  getUserWithUid,
+  registerUser,
+  addReview,
+  login,
+  getReviewsByRestaurant,
+  getUserFirstname,
+  logout,
+  addComment,
+  getCommentsByRestaurant,
+  addWaitTime,
+  getWaitTime,
+  addPoints,
+  getAllPoints,
+  getAllRestaurantByWaitTime,
+} from '../database/functions';
+
+const handleSignIn = async () => {
+  try {
+    const user = await registerUser();
+    console.log(user);
+  } catch (err) {
+    console.log(err)
+  }
+}
 
 const signUp = () =>{
   return <View style={MainContainer.cont}>
@@ -44,7 +71,7 @@ const signUp = () =>{
 
             <View style={ButtonStyles.cont}>
               <Link to = "/signupbutton">
-              <Button text="SIGN UP" buttonbgcolor="#FFD25B" buttoncolor="white" buttonfontsize={24}/>
+          <Button text="SIGN UP" buttonbgcolor="#FFD25B" buttoncolor="white" buttonfontsize={24} onClick={handleSignIn}/>
               </Link>
             </View>
           </View>
@@ -54,8 +81,6 @@ const signUp = () =>{
             <AccountText text="Have an account? &nbsp;" text2=" Sign In"/>
             </Link>
           </View>
-
-
         </View>
 }
 
@@ -127,4 +152,3 @@ const ButtonStyles = StyleSheet.create({
       })
 
 export default signUp;
-// export {default} from './storybook';

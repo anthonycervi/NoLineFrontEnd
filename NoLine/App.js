@@ -66,7 +66,7 @@ import ProfileBioPage from './pages/ProfileBio'
 
 const App = () =>{
   return <NativeRouter><View style={styles.cont}>
-  <Route exact path="/" component={StartScreen}/>
+  <Route exact path="/" component={Map1Page}/>
   <Route exact path="/signup" component={SignUpPage}/>
   <Route exact path="/signin" component={SignInPage}/>
   <Route exact path="/signupbutton" component={SearchResultPage}/>

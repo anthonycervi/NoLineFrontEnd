@@ -61,19 +61,19 @@ const Map = () =>{
       <View style={SearchContainer.cont}>
       <InputIconBar />
       </View>
-      <MapImage1 source={require('../public/map.png')}/>
+      
       <MapOverlay></MapOverlay>
-      {/* <MapView
+      <MapView
        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
        style={MapContainer.map}
        region={{
          latitude: 37.78825,
          longitude: -123.120735,
-         latitudeDelta: 0.015,
-         longitudeDelta: 0.0121,
+         latitudeDelta: 3.115,
+         longitudeDelta: 3.1121,
        }}
      >
-     </MapView> */}
+     </MapView>
     <View style={NavContainer.cont}>
       <Navigator />
     </View>

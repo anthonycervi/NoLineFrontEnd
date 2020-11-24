@@ -12,6 +12,7 @@ const config = {
 }
 
 firebase.initializeApp(config);
+firebase.firestore().settings({ experimentalForceLongPolling: true });
 
 const auth = firebase.auth();
 const db = firebase.firestore();

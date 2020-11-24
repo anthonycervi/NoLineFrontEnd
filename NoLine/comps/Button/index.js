@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {View, Text, TouchableHighlight, StyleSheet} from "react-native";
+import {View, Text, TouchableOpacity, StyleSheet} from "react-native";
 
 const ButtonContainer = styled.View`
     width: ${props => props.buttonwidth ? props.buttonwidth :284};
@@ -24,7 +24,7 @@ const ButtonContainer = styled.View`
 
 
  const Button = ({buttonwidth, buttonheight, buttonbgcolor, buttoncolor, buttonfontstyle, buttonfontweight, buttonfontsize, buttonbordercolor, buttonborderstyle, buttonborderwidth, text, onPress}) => {
-       return <TouchableHighlight onPress={onPress}>
+       return <TouchableOpacity onPress={onPress}>
 
            <ButtonContainer style ={{backgroundColor: buttonbgcolor, 
                                               color: buttoncolor, 
@@ -40,7 +40,7 @@ const ButtonContainer = styled.View`
                 <Text style = {{color: buttoncolor, fontSize: buttonfontsize}}>{text}</Text>
               </ButtonContainer>
              
-              </TouchableHighlight>
+              </TouchableOpacity>
 
     
     }

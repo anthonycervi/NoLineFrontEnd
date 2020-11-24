@@ -79,15 +79,18 @@ export async function registerUser(email, password, confirmPassword, data) {
 	}
 	return firebase.auth()
 		.createUserWithEmailAndPassword(email, password)
-		.then((response) => {
+		.then(async (response) => {
 			const uid = response.user.uid;
 			const currentTime = firebase.firestore.FieldValue.serverTimestamp();
 			data.createdTime = currentTime;
             data.id = uid;
-			firebase.firestore().collection("users").doc(uid).set(data).then(async () => {
-					const user = await getUserWithUID(uid);
+			db.collection("users").doc(uid).set(data).then(async () => {
+                    console.log("firestore collection")
+                    const user = await getUserWithUid(uid);
+                    console.log("get user", user);
 					return user;
 				}).catch((error) => {
+                    console.log("error", error.message)
 					throw error.message;
 				});
 		})

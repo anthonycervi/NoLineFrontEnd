@@ -16,6 +16,7 @@ import {
   ScrollView,
   SafeAreaView,
   StatusBar,
+  useState,
 } from 'react-native';
 
 import {
@@ -37,7 +38,7 @@ import {
   getAllRestaurantByWaitTime,
 } from './database/functions';
 
-import React, { useState } from 'react';
+import React from 'react';
 import {NativeRouter, Route, Link} from "react-router-native";
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
@@ -65,7 +66,7 @@ import ProfileBioPage from './pages/ProfileBio'
 
 const App = () =>{
   return <NativeRouter><View style={styles.cont}>
-  <Route exact path="/" component={StartScreen} />
+  <Route exact path="/" component={StartScreen}/>
   <Route exact path="/signup" component={SignUpPage}/>
   <Route exact path="/signin" component={SignInPage}/>
   <Route exact path="/signupbutton" component={SearchResultPage}/>

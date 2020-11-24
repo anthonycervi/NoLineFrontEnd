@@ -9,7 +9,7 @@ const Comments = db.collection("comments");
 const WaitTime = db.collection("waittime"); //make an average function
 
 /**
- * //get user info with UID
+ * get user info with UID
  * @date 2020-11-10
  * @param {string} id
  * @returns {object}
@@ -65,7 +65,7 @@ export async function logout() {
 }
 
 /**
- * Sign in
+ * Sign up
  * @date 2020-11-10
  * @param {string} email
  * @param {string} password
@@ -73,30 +73,26 @@ export async function logout() {
  * @param {object} data user information
  * @returns {object}
  */
-export async function registerUser( email,password, confirmPassword, data) {
+export async function registerUser(email, password, confirmPassword, data) {
     if (password !== confirmPassword) {
-		return "Passwords don't match.";
+		throw "Passwords don't match.";
 	}
-	return firebase
-		.auth()
+	return firebase.auth()
 		.createUserWithEmailAndPassword(email, password)
 		.then((response) => {
 			const uid = response.user.uid;
 			const currentTime = firebase.firestore.FieldValue.serverTimestamp();
 			data.createdTime = currentTime;
-			data.id = uid;
-			Users.doc(uid)
-				.set(data)
-				.then(async () => {
-                    const user = await getUserWithUid(uid);
+            data.id = uid;
+			firebase.firestore().collection("users").doc(uid).set(data).then(async () => {
+					const user = await getUserWithUID(uid);
 					return user;
-				})
-				.catch((error) => {
-					return error.message;
+				}).catch((error) => {
+					throw error.message;
 				});
 		})
 		.catch((error) => {
-			return error.message;
+			throw error.message;
 		});
 }
 

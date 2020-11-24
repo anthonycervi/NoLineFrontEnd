@@ -5,8 +5,8 @@
  * @format
  * @flow strict-local
  */
-import {NativeRouter, Route, Link} from "react-router-native";
-import React from 'react';
+import {NativeRouter, Route, Link, useHistory} from "react-router-native";
+import React, { useState } from 'react';
 import Button from '../comps/Button';
 import InputBox from '../comps/InputBox';
 import AccountText from '../comps/AccountText';
@@ -40,16 +40,24 @@ import {
   getAllRestaurantByWaitTime,
 } from '../database/functions';
 
-const handleSignIn = async () => {
-  try {
-    const user = await registerUser();
-    console.log(user);
-  } catch (err) {
-    console.log(err)
-  }
-}
+const signUp = () => {
 
-const signUp = () =>{
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+  const [fullname, setFullname] = useState("");
+  const [confirmPassword,setConfirmPassword] = useState("");
+  const handleSignUp = async () => {
+    const data = {
+      example: "idk"
+    }
+    try {
+      const res = await registerUser(email, pass, confirmPassword, data);
+        console.log('Sign Up success', res);
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  const history = useHistory();
   return <View style={MainContainer.cont}>
 
           <View style={LogoStyles.cont}>
@@ -58,21 +66,36 @@ const signUp = () =>{
 
           <View style={ContentContainer.cont}>
             <View style={InputStyles.cont}>
-              <InputBox text="Full Name"/>
+        <InputBox text="Full Name" onChangeText={(text) => {
+          setFullname(text)
+         }}/>
             </View>
 
             <View style={InputStyles.cont}>
-              <InputBox text="Email"/>
+            <InputBox text="Email" onChangeText={(text)=>{
+                  setEmail(text)
+                }}/>
             </View>
 
             <View style={InputStyles.cont}>
-              <InputBox text="Password"/>
+            <InputBox text="Password" onChangeText={(text) => {
+                  setPass(text)
+                }}/>
+            </View>
+
+            <View style={InputStyles.cont}>
+            <InputBox text="ConfirmPassword" onChangeText={(text) => {
+                  setConfirmPassword(text)
+                }}/>
             </View>
 
             <View style={ButtonStyles.cont}>
-              <Link to = "/signupbutton">
-          <Button text="SIGN UP" buttonbgcolor="#FFD25B" buttoncolor="white" buttonfontsize={24} onClick={handleSignIn}/>
-              </Link>
+              
+          <Button onPress={() => {
+                history.push("/SearchResults")
+              }}
+          text="SIGN UP" buttonbgcolor="#FFD25B" buttoncolor="white" buttonfontsize={24} onPress={handleSignUp}/>
+              
             </View>
           </View>
 

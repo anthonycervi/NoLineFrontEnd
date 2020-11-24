@@ -23,8 +23,8 @@ const ButtonContainer = styled.View`
      `;
 
 
- const Button = ({buttonwidth, buttonheight, buttonbgcolor, buttoncolor, buttonfontstyle, buttonfontweight, buttonfontsize, buttonbordercolor, buttonborderstyle, buttonborderwidth, text}) => {
-       return <View>
+ const Button = ({buttonwidth, buttonheight, buttonbgcolor, buttoncolor, buttonfontstyle, buttonfontweight, buttonfontsize, buttonbordercolor, buttonborderstyle, buttonborderwidth, text, onPress}) => {
+       return <TouchableHighlight onPress={onPress}>
 
            <ButtonContainer style ={{backgroundColor: buttonbgcolor, 
                                               color: buttoncolor, 
@@ -40,7 +40,8 @@ const ButtonContainer = styled.View`
                 <Text style = {{color: buttoncolor, fontSize: buttonfontsize}}>{text}</Text>
               </ButtonContainer>
              
-              </View>
+              </TouchableHighlight>
+
     
     }
 
@@ -54,7 +55,8 @@ const ButtonContainer = styled.View`
         buttonbordercolor: "#FFD25B",
         buttonborderwidth: 5,
         buttonfontsize: 15,
-        text:"Default"
+        text:"Default",
+        onPress:()=>{}
          }
 
 export default Button;

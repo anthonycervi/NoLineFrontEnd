@@ -17,15 +17,16 @@ const InputBoxContainer = styled.TextInput`
      `;
 
 
- const InputBox = ({text}) => {
-       return <View><InputBoxContainer placeholder={text}>
+ const InputBox = ({text, onChangeText}) => {
+       return <View><InputBoxContainer placeholder={text} onChangeText={onChangeText}>
        </InputBoxContainer></View>
               
     
     }
 
     InputBox.defaultProps= {
-        text:"Default"
+        text:"Default",
+        onChangeText:()=>{}
          }
 
 export default InputBox;

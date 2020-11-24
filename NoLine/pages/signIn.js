@@ -5,8 +5,8 @@
  * @format
  * @flow strict-local
  */
-import {NativeRouter, Route, Link} from "react-router-native";
-import React from 'react';
+import {NativeRouter, Route, Link,useHistory} from "react-router-native";
+import React, {useState} from 'react';
 import Button from '../comps/Button';
 import InputBox from '../comps/InputBox';
 import AccountText from '../comps/AccountText';
@@ -72,16 +72,24 @@ const styles = StyleSheet.create({
   }
 })
 
-const handleLogIn = async () => {
-  try {
-    await login()
-    console.log('login success');
-  } catch (err) {
-    console.log(err)
-  }
-}
+const signIn = () => {
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
 
-const signIn = () =>{
+  const handleLogIn = () => {
+    console.log(email,pass);
+    login(email,pass)
+      .then(user=>{
+        console.log('login success', user);
+        history.push("/SearchTitle")
+      })
+      .catch(err=>{
+        console.log(err)
+      })
+  }
+
+  const history = useHistory();
+
   return <View style={MainContainer.cont}>
 
             <View style={LogoStyles.cont}>
@@ -90,17 +98,24 @@ const signIn = () =>{
 
             <View style={ContentContainer.cont}>
               <View style={InputStyles.cont}>
-                <InputBox text="Email"/>
+                <InputBox text="Email" onChangeText={(text)=>{
+                  setEmail(text)
+                }}/>
               </View>
 
               <View style={InputStyles.cont}>
-                <InputBox text="Password"/>
+                <InputBox text="Password" onChangeText={(text)=>{
+                  setPass(text)
+                }}/>
               </View>
 
               <View style={ButtonStyles.cont}>
-                <Link to = "/signupbutton">
-          <Button text="SIGN IN" buttonbgcolor="#FFD25B" buttoncolor="white" buttonfontsize={24} onClick={handleLogIn}/>
-                </Link>
+                <Button onPress={handleLogIn} 
+                  text="SIGN IN" 
+                  buttonbgcolor="#FFD25B" 
+                  buttoncolor="white" 
+                  buttonfontsize={24} 
+                />
               </View>
             </View>
 
@@ -176,8 +191,6 @@ const ButtonStyles = StyleSheet.create({
         display: "flex",
         margin: 10,
         bottom: -100,
-       
-        
       }
       })
 

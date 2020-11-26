@@ -82,8 +82,7 @@ export default function reviews() {
 
     <View style={styles.bigContainer}>
         <View>
-            <Text style={styles.filterHeading}>Search Result Comp Goes Here...</Text>
-            <SearchTitle />
+            <SearchTitle stars="5" h1text="Chronic Tacos" username="@user" time="30m" revnum="16" text="1 hr wait"/>
         </View>
 
         <View style={styles.paddingSpace}></View>

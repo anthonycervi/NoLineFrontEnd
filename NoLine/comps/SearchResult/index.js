@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled, {css} from 'styled-components/native';
 import {View,Text,TextInput,Image} from 'react-native';
 import '../../public/Star.png';
@@ -175,15 +175,14 @@ top:-15px;
 `;
 
 
-
-const SearchResult = ({textDistance,color,width,height,stars,h1text,username,time,revnum,textWait}) => {
+const SearchResult = ({textDistance,color,width,height,stars,name,username,time,revnum,textWait}) => {
    return <View><Main>
       <Link to = "/restauranttitle">
       <OverlayDiv>
 
 <SearchImg color={color}><Image source={require('../../public/RestImg.png')}/></SearchImg>
 <HeaderDiv>
-<Header><Text>{h1text}</Text></Header>
+<Header><Text>{name}</Text></Header>
 <StarDiv>
 <Star><Image source={require('../../public/Star.png')}/></Star>
 <Star><Image source={require('../../public/Star.png')}/></Star>
@@ -223,9 +222,9 @@ SearchResult.defaultProps= {
    color:"#D4170B",
    width:"331px",
    height:"90px",
-   backgroundColor:"#ffffff",
+   backgroundColor:"#fafafa",
    stars:"5",
-   h1text:"Chronic Tacos",
+   name:"Default Name",
    username:"user123",
    time:"30m",
    revnum:"(16)"

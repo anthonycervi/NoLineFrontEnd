@@ -34,7 +34,10 @@ export async function searchLocation(place, apiKey) {
 export async function getRestaurantsAroundUser(type, keyword, lat, long, apiKey) {
     const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${long}&radius=500&type=${[type]}&keyword=${keyword}&key=${apiKey}`;
     return await (await axios.get(url)).data;
+    // return await (await axios.get(url));
 }
+
+
 
 // Testing
 // (async () => {

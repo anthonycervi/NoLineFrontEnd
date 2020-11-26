@@ -5,7 +5,7 @@
  * @format
  * @flow strict-local
  */
-import {NativeRouter, Route, Link,useHistory} from "react-router-native";
+import { NativeRouter, Route, Link, useHistory } from "react-router-native";
 import React, {useState} from 'react';
 import Button from '../comps/Button';
 import InputBox from '../comps/InputBox';
@@ -76,19 +76,21 @@ const signIn = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
+  const history = useHistory();
+
   const handleLogIn = () => {
     console.log(email,pass);
     login(email,pass)
       .then(user=>{
         console.log('login success', user);
-        history.push("/SearchTitle")
+        history.push("/signinbutton");
       })
       .catch(err=>{
         console.log(err)
       })
   }
 
-  const history = useHistory();
+
 
   return <View style={MainContainer.cont}>
 
@@ -110,7 +112,8 @@ const signIn = () => {
               </View>
 
               <View style={ButtonStyles.cont}>
-                <Button onPress={handleLogIn} 
+                <Button
+                  onPress={handleLogIn} 
                   text="SIGN IN" 
                   buttonbgcolor="#FFD25B" 
                   buttoncolor="white" 
@@ -118,14 +121,6 @@ const signIn = () => {
                 />
               </View>
             </View>
-
-              <View style={AccountTextStyles.cont}>
-                <Link to="signup">
-                <AccountText text="Dont't have an account? &nbsp;" text2=" Create Now"/>
-                </Link>
-              </View>
-            
-
           </View>
 }
 

@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import {
   SafeAreaView,
@@ -17,7 +17,7 @@ import {
   StatusBar,
 } from 'react-native';
 import axios from 'axios';
-import {Link} from "react-router-native";
+import {Link, useHistory} from "react-router-native";
 import InputIconBar from '../comps/InputIconBar';
 import Button from '../comps/Button';
 import SearchResult from '../comps/SearchResult'
@@ -44,16 +44,12 @@ import {
   getAllRestaurantByWaitTime,
 } from '../database/functions';
 
+import {
+  getRestaurantsAroundUser,
+  searchLocation
+} from '../mapAPI/apiConnect';
 
 
-
-// const [backend, setBackend] = useState([])
-// const [resttitle, setRestTitle] = useState([])
-// const [imgsrc, setImg] = useState([])
-// const [reviewnum, setReviewNum] = useState([])
-// const [username, setUsername] = useState([])
-// const [waittime, setWaittime] = useState([])
-// const [timeago, setTimeAgo] = useState([])
 
 // const HandleGetAllRecipes = async (keyword,name)=>{ //keyword is passed back out
 //   console.log("clicked", keyword);
@@ -61,25 +57,121 @@ import {
 //  });
 //  console.log(resp.data);
 //  setRecipes([...resp.data]);
-
-// }
-
-// const HandleGetSearchResult = async ()=> {
-//   console.log("Pulled from Database");
-//   var resp = await axios.get("https://noline-293103.firebaseio.com", {
-//   });
-//   console.log(resp.data);
-//   setBackend([...resp.data]);
 // }
 
 
-const SearchResultPage = () =>{
-  return <View style={styles.cont}>
- {/* //<Button text="Get All Recipes" onClick={HandleGetSearchResult()} /> */}
+// const HandleGetAllRecipes = async (keyword,name)=>{ //keyword is passed back out
+//   console.log("clicked", keyword);
+//  var resp = await axios.post("https://mdia25262020.herokuapp.com/allrecipes",{
+//    token:"secrettoken",
+//    keyword:keyword,
+//    name:name
+//  });
+//  console.log(resp.data);
+//  setRecipes([...resp.data]);
+
+
+// {
+
+//   recipes.map((o,i)=>{
+//     console.log("inside the array...", o,i);
+//     return <Card
+//       key={i}
+//       name={o.name}
+//       description={o.description}
+//       image={o.image}
+//       forked={o.forked}
+//   notes={o.notes}
+//   tag={o.tag}
+//     />
+  
+//   })
+// }
+
+const SearchResultPage = () => {
+  //grab name, icon, user_rating_total, rating under getRestaurantsAroundUser function
+  //grab formatted_address under searchLocation
+  //photo_reference??
+
+  const [backend, setBackend] = useState([]);
+  const [name, setName] = useState([]);
+
+  //Need to consolidate
+  
+  const getAllRestaurantDetails = async () => {
+  }
+    
+const getAllRestaurantsNames = async () => {
+  const apiKey = "AIzaSyClUvR3dTnBzmjHKPFEwqCLY9IIY_xaUZY"; 
+  const place = "sushi";
+  try {
+    const res = await searchLocation(place, apiKey);
+    res.forEach(name => {
+      console.log(name.name);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+  }
+  
+  //need to work on this
+  const getAllRestaurantsphotos = async () => {
+    const apiKey = "AIzaSyClUvR3dTnBzmjHKPFEwqCLY9IIY_xaUZY"; 
+    const place = "sushi";
+    try {
+      const res = await searchLocation(place, apiKey);
+      res.forEach(photos => {
+        console.log(photos.photos);
+      });
+    } catch (err) {
+      console.log(err);
+    }
+    }
+
+    const getAllRestaurantsRating = async () => {
+      const apiKey = "AIzaSyClUvR3dTnBzmjHKPFEwqCLY9IIY_xaUZY"; 
+      const place = "sushi";
+      try {
+        const res = await searchLocation(place, apiKey);
+        res.forEach(rating => {
+          console.log(rating.rating);
+        });
+      } catch (err) {
+        console.log(err);
+      }
+      }
+     
+      const getAllRestaurantsUserRatingTotal = async () => {
+        const apiKey = "AIzaSyClUvR3dTnBzmjHKPFEwqCLY9IIY_xaUZY"; 
+        const place = "sushi";
+        try {
+          const res = await searchLocation(place, apiKey);
+          res.forEach(user_ratings_total => {
+            console.log(user_ratings_total.user_ratings_total);
+          });
+        } catch (err) {
+          console.log(err);
+        }
+        }
+     
+        const getAllRestaurantsFormattedAddress = async () => {
+          const apiKey = "AIzaSyClUvR3dTnBzmjHKPFEwqCLY9IIY_xaUZY"; 
+          const place = "sushi";
+          try {
+            const res = await searchLocation(place, apiKey);
+            res.forEach(formatted_address => {
+              console.log(formatted_address.formatted_address);
+            });
+          } catch (err) {
+            console.log(err);
+          }
+          }
+    
+  return <View  style={styles.cont}>
             <View style={SearchInput.cont}>
             <InputIconBar text="Search" image="searchIconPNG.src"/>
-            </View>
-
+        </View>
+        <Button text="Get All Recipes" onPress={getAllRestaurantsFormattedAddress } />
             <View style={BothButtonStyles.cont}>
 
                 <View style={ButtonStyles.cont}>
@@ -94,11 +186,13 @@ const SearchResultPage = () =>{
                 <Filter/>
             </View>
 
-      <SearchResult></SearchResult>
-      <SearchResult></SearchResult>
-      <SearchResult></SearchResult>
-      <SearchResult></SearchResult>
+ 
       
+      <SearchResult name={name}></SearchResult>
+      <SearchResult></SearchResult>
+      <SearchResult></SearchResult>
+      <SearchResult></SearchResult>
+
       
      
 

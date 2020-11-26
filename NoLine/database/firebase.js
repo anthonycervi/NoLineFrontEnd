@@ -10,7 +10,7 @@ const config = {
   appId: "1:271554712581:web:cc23e3486bf289b9e4b86c",
   measurementId: "G-9LPM2YM5EX"
 }
-
+// AIzaSyCjh1JMtJsM_3EKSxgq1ayPjvWA3ZNodjs
 firebase.initializeApp(config);
 firebase.firestore().settings({ experimentalForceLongPolling: true });
 

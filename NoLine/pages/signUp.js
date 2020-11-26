@@ -5,7 +5,7 @@
  * @format
  * @flow strict-local
  */
-import {NativeRouter, Route, Link, useHistory} from "react-router-native";
+import { NativeRouter, Route, Link, useHistory } from "react-router-native";
 import React, { useState } from 'react';
 import Button from '../comps/Button';
 import InputBox from '../comps/InputBox';
@@ -45,19 +45,21 @@ const signUp = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [fullname, setFullname] = useState("");
-  const [confirmPassword,setConfirmPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const history = useHistory();
   const handleSignUp = async () => {
     const data = {
       example: "idk"
     }
     try {
       const res = await registerUser(email, pass, confirmPassword, data);
-        console.log('Sign Up success', res);
+      console.log('Sign Up success', res);
+      history.push("/signupbutton");
     } catch (err) {
       console.log(err)
     }
   }
-  const history = useHistory();
+
   return <View style={MainContainer.cont}>
 
           <View style={LogoStyles.cont}>
@@ -91,11 +93,13 @@ const signUp = () => {
 
             <View style={ButtonStyles.cont}>
               
-          <Button onPress={() => {
-                history.push("/SearchResults")
-              }}
-          text="SIGN UP" buttonbgcolor="#FFD25B" buttoncolor="white" buttonfontsize={24} onPress={handleSignUp}/>
-              
+        <Button
+          text="SIGN UP"
+          buttonbgcolor="#FFD25B"
+          buttoncolor="white"
+          buttonfontsize={24}
+          onPress={handleSignUp}
+        />
             </View>
           </View>
 

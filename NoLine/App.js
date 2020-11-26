@@ -39,16 +39,13 @@ import {
 } from './database/functions';
 
 import React from 'react';
-import {NativeRouter, Route, Link} from "react-router-native";
+import {NativeRouter, Route, Link, useHistory} from "react-router-native";
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 
 import { firestore } from './database/firebase';
 import { auth } from "./database/firebase";
 import { getRestaurantsAroundUser, searchLocation } from './mapAPI/apiConnect';
-// import Button from './comps/Button';
-// import SearchResult from './comps/SearchResult';
-// import Navigator from './comps/Navigator';
 import SearchTitlePage from './pages/SearchTitle';
 import SearchResultPage from './pages/SearchResults';
 // import Page from './pages/SearchResults';
@@ -61,12 +58,13 @@ import SearchFiltersPage from './pages/searchFilters'
 import ProfileAwardsPage from './pages/ProfileAwards'
 import EditProfPage from './pages/EditProf'
 import ProfileBioPage from './pages/ProfileBio'
+import startScreen from './pages/startScreen';
 
 
 
 const App = () =>{
   return <NativeRouter><View style={styles.cont}>
-  <Route exact path="/" component={Map1Page}/>
+  <Route exact path="/" component={startScreen}/>
   <Route exact path="/signup" component={SignUpPage}/>
   <Route exact path="/signin" component={SignInPage}/>
   <Route exact path="/signupbutton" component={SearchResultPage}/>

@@ -95,20 +95,34 @@ const SearchResultPage = () => {
 
   const [backend, setBackend] = useState([]);
   const [name, setName] = useState([]);
+  
 
   //Need to consolidate
   
-  const getAllRestaurantDetails = async () => {
-  }
-    
-const getAllRestaurantsNames = async () => {
   const apiKey = "AIzaSyClUvR3dTnBzmjHKPFEwqCLY9IIY_xaUZY"; 
   const place = "sushi";
+  
+  // const getAllRestaurantDetails = async () => {
+  //   try {
+  //     const res = await searchLocation(place, apiKey);
+  //     res.forEach(res => {
+  //       console.log(res);
+  //       setBackend([name.name]);
+  //     });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
+    
+const getAllRestaurantsNames = async () => {
   try {
     const res = await searchLocation(place, apiKey);
-    res.forEach(name => {
-      console.log(name.name);
+    const restaurantNameArr = [];
+    res.forEach(data => {
+      restaurantNameArr.push(data.name);
     });
+    console.log(restaurantNameArr)
+    setName(restaurantNameArr)
   } catch (err) {
     console.log(err);
   }
@@ -116,10 +130,9 @@ const getAllRestaurantsNames = async () => {
   
   //need to work on this
   const getAllRestaurantsphotos = async () => {
-    const apiKey = "AIzaSyClUvR3dTnBzmjHKPFEwqCLY9IIY_xaUZY"; 
-    const place = "sushi";
     try {
       const res = await searchLocation(place, apiKey);
+      const url = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${PhotoRef}&key=${apiKey}`;
       res.forEach(photos => {
         console.log(photos.photos);
       });
@@ -129,8 +142,6 @@ const getAllRestaurantsNames = async () => {
     }
 
     const getAllRestaurantsRating = async () => {
-      const apiKey = "AIzaSyClUvR3dTnBzmjHKPFEwqCLY9IIY_xaUZY"; 
-      const place = "sushi";
       try {
         const res = await searchLocation(place, apiKey);
         res.forEach(rating => {
@@ -142,8 +153,6 @@ const getAllRestaurantsNames = async () => {
       }
      
       const getAllRestaurantsUserRatingTotal = async () => {
-        const apiKey = "AIzaSyClUvR3dTnBzmjHKPFEwqCLY9IIY_xaUZY"; 
-        const place = "sushi";
         try {
           const res = await searchLocation(place, apiKey);
           res.forEach(user_ratings_total => {
@@ -155,8 +164,6 @@ const getAllRestaurantsNames = async () => {
         }
      
         const getAllRestaurantsFormattedAddress = async () => {
-          const apiKey = "AIzaSyClUvR3dTnBzmjHKPFEwqCLY9IIY_xaUZY"; 
-          const place = "sushi";
           try {
             const res = await searchLocation(place, apiKey);
             res.forEach(formatted_address => {
@@ -171,7 +178,7 @@ const getAllRestaurantsNames = async () => {
             <View style={SearchInput.cont}>
             <InputIconBar text="Search" image="searchIconPNG.src"/>
         </View>
-        <Button text="Get All Recipes" onPress={getAllRestaurantsFormattedAddress } />
+        <Button text="Get All Recipes" onPress={getAllRestaurantsNames } />
             <View style={BothButtonStyles.cont}>
 
                 <View style={ButtonStyles.cont}>
@@ -187,12 +194,11 @@ const getAllRestaurantsNames = async () => {
             </View>
 
  
-      
-      <SearchResult name={name}></SearchResult>
-      <SearchResult></SearchResult>
-      <SearchResult></SearchResult>
-      <SearchResult></SearchResult>
 
+     <SearchResult  name={name[0]}></SearchResult>
+     <SearchResult  name={name[1]}></SearchResult>
+     <SearchResult  name={name[2]}></SearchResult>
+     <SearchResult  name={name[3]}></SearchResult>
       
      
 

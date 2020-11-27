@@ -174,13 +174,18 @@ left:-15px;
 top:-15px;
 `;
 
+const IconImage = styled.Image`
+width:70px;
+height:70px;
+margin-top:10px;
+`;
 
 const SearchResult = ({textDistance,color,width,height,stars,name,username,time,revnum,textWait}) => {
    return <View><Main>
       <Link to = "/restauranttitle">
       <OverlayDiv>
 
-<SearchImg color={color}><Image source={require('../../public/RestImg.png')}/></SearchImg>
+<SearchImg color={color}><IconImage source={require('../../public/RestImg.png')}/></SearchImg>
 <HeaderDiv>
 <Header><Text>{name}</Text></Header>
 <StarDiv>

@@ -59,12 +59,13 @@ import ProfileAwardsPage from './pages/ProfileAwards'
 import EditProfPage from './pages/EditProf'
 import ProfileBioPage from './pages/ProfileBio'
 import startScreen from './pages/startScreen';
+import SearchResult from './comps/SearchResult';
 
 
 
 const App = () =>{
   return <NativeRouter><View style={styles.cont}>
-  <Route exact path="/" component={startScreen}/>
+  <Route exact path="/" component={SearchResultPage}/>
   <Route exact path="/signup" component={SignUpPage}/>
   <Route exact path="/signin" component={SignInPage}/>
   <Route exact path="/signupbutton" component={SearchResultPage}/>

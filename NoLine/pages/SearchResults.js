@@ -95,6 +95,7 @@ const SearchResultPage = () => {
 
   const [backend, setBackend] = useState([]);
   const [name, setName] = useState([]);
+  const [photo, setPhoto] = useState([]);
   
 
   //Need to consolidate
@@ -132,10 +133,14 @@ const getAllRestaurantsNames = async () => {
   const getAllRestaurantsphotos = async () => {
     try {
       const res = await searchLocation(place, apiKey);
-      const url = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${PhotoRef}&key=${apiKey}`;
+      const arr = []
       res.forEach(photos => {
-        console.log(photos.photos);
+        const PhotoRef = ((photos.photos[0].photo_reference));
+        const url = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${PhotoRef}&key=${apiKey}`;
+        arr.push(url);
+        setPhoto(arr);
       });
+      console.log(arr);
     } catch (err) {
       console.log(err);
     }
@@ -178,7 +183,7 @@ const getAllRestaurantsNames = async () => {
             <View style={SearchInput.cont}>
             <InputIconBar text="Search" image="searchIconPNG.src"/>
         </View>
-        <Button text="Get All Recipes" onPress={getAllRestaurantsNames } />
+        <Button text="Get All Recipes" onPress={getAllRestaurantsphotos, getAllRestaurantsNames} />
             <View style={BothButtonStyles.cont}>
 
                 <View style={ButtonStyles.cont}>
@@ -195,10 +200,10 @@ const getAllRestaurantsNames = async () => {
 
  
 
-     <SearchResult  name={name[0]}></SearchResult>
-     <SearchResult  name={name[1]}></SearchResult>
-     <SearchResult  name={name[2]}></SearchResult>
-     <SearchResult  name={name[3]}></SearchResult>
+     <SearchResult  name={name[0]} IImage={photo[0]}></SearchResult>
+     <SearchResult  name={name[1]} IImage={photo[1]}></SearchResult>
+     <SearchResult  name={name[2]} IImage={photo[2]}></SearchResult>
+     <SearchResult  name={name[3]} IImage={photo[3]}></SearchResult>
       
      
 

@@ -180,12 +180,13 @@ height:70px;
 margin-top:10px;
 `;
 
-const SearchResult = ({textDistance,color,width,height,stars,name,username,time,revnum,textWait}) => {
+const SearchResult = ({IImage, textDistance,color,width,height,stars,name,username,time,revnum,textWait}) => {
    return <View><Main>
       <Link to = "/restauranttitle">
       <OverlayDiv>
 
-<SearchImg color={color}><IconImage source={require('../../public/RestImg.png')}/></SearchImg>
+<SearchImg color={color}><IconImage source={{ uri: (IImage)}}
+/></SearchImg>
 <HeaderDiv>
 <Header><Text>{name}</Text></Header>
 <StarDiv>
@@ -232,7 +233,8 @@ SearchResult.defaultProps= {
    name:"Default Name",
    username:"user123",
    time:"30m",
-   revnum:"(16)"
+   revnum:"(16)",
+   IImage: 'https://reactnative.dev/img/tiny_logo.png'
  }
 
 export default SearchResult

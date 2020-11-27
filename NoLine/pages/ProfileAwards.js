@@ -30,16 +30,19 @@ const styles = StyleSheet.create({
         display:'flex',
         alignItems:'center',
         justifyContent:'center',
-        margin:20
+        margin:20,
+        top: 22,
     },
 
     profAwards: {
         display:'flex',
         margin:0,
+        // top: 22,
     },
 
     acheivementscont: {
         display:'flex',
+        
     },
 
     achievements:{
@@ -55,20 +58,48 @@ const styles = StyleSheet.create({
     edittext:{
         fontSize:20,
         justifyContent:"flex-end",
-        left:338,
-        bottom:-10,
+        // left:338,
+        // bottom:-10,
         color:"#9D9D9D"
     },
-    
+
+    edittextCont:{
+        width: 34,
+        justifyContent:"center",
+        left:330,
+        top: 36,
+        color:"#9D9D9D"
+    },
+
+    MainContainer:{
+        display:'flex',
+        flexDirection:'row',
+        justifyContent:'space-around',
+        alignItems:'center',
+    },
+
+    container:{
+        display:'flex',
+        flexDirection:'column',
+        justifyContent:'center',
+        alignItems:'center',
+        left: 3,
+        bottom: 6,
+    },
 })
 
 export default function ProfileBio() {
-    return <View>
-        <Link to="editprofile">
-        <Text style={styles.edittext}>
-            Edit
-        </Text>
-        </Link>
+    return <View style={styles.MainContainer}>
+
+        <View style={styles.edittextCont}>
+            
+            <Text style={styles.edittext}>
+                
+            </Text>
+            
+        </View>
+
+    <View style={styles.container}>
 
         <View style={styles.profileComp}>
             <Profile/>
@@ -88,5 +119,8 @@ export default function ProfileBio() {
         <View style={styles.nav}>
             <Navigator />
         </View>
+
+</View>
+
     </View>
 }

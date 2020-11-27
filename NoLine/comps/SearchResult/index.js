@@ -6,7 +6,7 @@ import {Link} from "react-router-native";
 const OverlayDiv = styled.View`
 width: ${props => props.width ? props.width :"375px"};
 height: ${props => props.height ? props.height :"110px"};
-backgroundColor: ${props => props.backgroundColor ? props.backgroundColor :"white"};
+backgroundColor: ${props => props.backgroundColor ? props.backgroundColor :"#00000000"};
 margin:8px;
 display:flex;
 border-radius:7px;

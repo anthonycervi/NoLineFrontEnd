@@ -13,7 +13,7 @@ right:30px;
 `;
 
 const GreyDiv = styled.View`
-width:186px;
+width:175px;
 height:2px;
 position:relative;
 background-color:#999999;
@@ -22,7 +22,7 @@ top:20px;
 `;
 
 const YellowDiv = styled.View`
-width:186px;
+width:175px;
 height:4px;
 position:relative;
 background-color:#FFD25B;

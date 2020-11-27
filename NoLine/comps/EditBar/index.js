@@ -31,6 +31,7 @@ const HeadingMiddle = styled.Text`
 const Left = styled.Text`
     color: #9D9D9D;
     font-weight: 500;
+    font-size: 20;
 `;
 
 const PCont = styled.View``;
@@ -38,6 +39,7 @@ const PText = styled.Text``;
 const Right = styled.Text`
     color: #8486D1;;
     font-weight: 500;
+    font-size: 20;
 `;
 
 const EditBar = ({left, middle, right}) => {

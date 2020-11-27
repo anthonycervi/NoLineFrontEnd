@@ -62,8 +62,8 @@ const TextContainer2 = styled.Text`
 `;
 
 const AchievementImage = styled.Image`
-width: 60px;
-height: 60px;
+width: 40px;
+height: 40px;
 resize-mode: contain;
 align-items: center;
 justify-content: center;

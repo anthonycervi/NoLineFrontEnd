@@ -46,19 +46,22 @@ import {
 //   setBackend([...resp.data]);
 // }
 
-const MapPNG = {
-  src: MapImg
-}
+// const MapPNG = {
+//   src: MapImg
+// }
 
-const MapImage1 = styled.Image`
-  width: 500;
-  height: 450;
-  margin-top: 10px;
-`;
+// const MapImage1 = styled.Image`
+//   width: 500;
+//   height: 450;
+//   margin-top: 10px;
+// `;
 
 const Map = () =>{
-  return (<View>
-      <MapOverlay></MapOverlay>
+  return (
+    <View style={MainContainer.cont}>
+      
+      
+      <View style={MainMapContainer.cont}>
       <MapView
        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
        style={MapContainer.map}
@@ -70,18 +73,18 @@ const Map = () =>{
        }}
      >
      </MapView>
-
-         <View style={MainContainer.cont}>
-         <View style={SearchContainer.cont}>
-         <InputIconBar image={searchIconPNG}/>
-       </View>
+     </View>
+     
+     <View style={SearchContainer.cont}>
+      <InputIconBar />
+      </View>
 
     <View style={NavContainer.cont}>
       <Navigator />
     </View>
 
  </View>
- </View>
+//  </View>
   )
 }
 
@@ -90,7 +93,17 @@ const Map = () =>{
 const MainContainer = StyleSheet.create({
   cont:{
     position: "relative",
-    alignItems:"center"
+    alignItems: "center"
+   
+    
+  }
+})
+
+const MainMapContainer = StyleSheet.create({
+  cont:{
+    position: "relative",
+    height: "100%",
+    width: "100%"
    
     
   }
@@ -99,7 +112,7 @@ const MainContainer = StyleSheet.create({
 const MapContainer = StyleSheet.create({
   container: {
     //...StyleSheet.absoluteFillObject,
-    height: 700,
+    height: 1000,
     width: 400,
     position:"relative",  
     alignContent: 'center',
@@ -122,22 +135,28 @@ const MapContainer = StyleSheet.create({
 
 const SearchContainer = StyleSheet.create({
     cont:{
-      top:-350,
-      display:"flex",
-      justifyContent:"center",
+      position: "absolute",
+      alignContent: 'center',
+      justifyContent: 'center',
+      display: "flex",
+      top:20,
       width:"90%",
+      backgroundColor: "white",
+      borderRadius: 5,
+     
     }
     })
 
     const NavContainer = StyleSheet.create({
       cont:{
-        position: "relative",
+        position: "absolute",
         alignContent: 'center',
         alignItems: 'center',
         justifyContent: 'center',
         display: "flex",
-        top:250,  
-        left:22,
+        bottom:0,  
+        left:0,
+        backgroundColor: "white"  
       }
       })
 

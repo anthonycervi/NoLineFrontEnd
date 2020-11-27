@@ -13,7 +13,7 @@ color: ${props => props.color ? props.color : "#686868" };
 `;
 
 const FormInput = styled.TextInput`
-width: ${props => props.width ? props.width :"384px"};
+width: ${props => props.width ? props.width :"350px"};
 height: ${props => props.height ? props.height :"45px"};
     background-color: #EBEBEB;
     position:relative;
@@ -38,7 +38,7 @@ const InputComp = ({text,color,width,height}) => {
 InputComp.defaultProps= {
    text:"Default",
    color:"#686868",
-   width:"384px",
+   width:"384%",
    height:"45px"
    //TEST
  }

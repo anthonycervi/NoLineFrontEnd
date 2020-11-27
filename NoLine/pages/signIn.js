@@ -100,13 +100,13 @@ const signIn = () => {
 
             <View style={ContentContainer.cont}>
               <View style={InputStyles.cont}>
-                <InputBox text="Email" onChangeText={(text)=>{
+                <InputBox text=" Email" onChangeText={(text)=>{
                   setEmail(text)
                 }}/>
               </View>
 
               <View style={InputStyles.cont}>
-                <InputBox text="Password" onChangeText={(text)=>{
+                <InputBox text=" Password" onChangeText={(text)=>{
                   setPass(text)
                 }}/>
               </View>
@@ -151,7 +151,7 @@ const MainContainer = StyleSheet.create({
         alignContent: 'center',
         alignItems: 'center',
         justifyContent: 'center',
-        top: 20,
+        top: -15,
         
       }
       })
@@ -162,7 +162,7 @@ const ButtonStyles = StyleSheet.create({
     alignContent: 'center',
     justifyContent: 'center',
     display: "flex",
-    margin: 15,
+    margin: 14,
     
   }
   })
@@ -185,7 +185,7 @@ const ButtonStyles = StyleSheet.create({
         justifyContent: 'center',
         display: "flex",
         margin: 10,
-        bottom: -100,
+        bottom: -128,
       }
       })
 

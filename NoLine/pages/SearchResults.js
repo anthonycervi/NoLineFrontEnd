@@ -186,7 +186,7 @@ const getAllRestaurantsNames = async () => {
           }
           }
     
-  return <View  style={styles.cont}>
+  return <View >
             <View style={SearchInput.cont}>
             <InputIconBar text="Search" image={searchIconPNG}/>
         </View>
@@ -205,29 +205,18 @@ const getAllRestaurantsNames = async () => {
                 <Filter/>
             </View>
 
- 
 
      <SearchResult  name={name[0]} IImage={photo[0]} revnum={ratingtotal[0]}></SearchResult>
      <SearchResult  name={name[1]} IImage={photo[1]} revnum={ratingtotal[1]}></SearchResult>
      <SearchResult  name={name[2]} IImage={photo[2]} revnum={ratingtotal[2]}></SearchResult>
      <SearchResult  name={name[3]} IImage={photo[3]} revnum={ratingtotal[3]}></SearchResult>
-      
-     
 
-      
-        
-        <View style={Nav.nav}>
-      <Navigator></Navigator>
-      </View>
-  </View>
+     <View style={Nav.nav}>
+       <Navigator></Navigator>
+       </View> 
+     </View>
 }
 
-const styles = StyleSheet.create({
-cont:{
-  flex:1,
-  justifyContent:"center",
-}
-})
 
 const SearchInput = StyleSheet.create({
   cont:{
@@ -235,6 +224,15 @@ const SearchInput = StyleSheet.create({
   justifyContent:"center",
   left:20,
   width: 350,
+  backgroundColor:'#00000000',
+  }
+})
+
+const TopContentContainer = StyleSheet.create({
+  cont:{
+  // justifyContent:"center",
+  height:135,
+  backgroundColor:'#00000000',
   }
 })
 
@@ -248,6 +246,7 @@ const ButtonStyles = StyleSheet.create({
   cont:{
     flexDirection:"row",
   margin:10,
+  backgroundColor:'#00000000',
 
   }
 })
@@ -255,7 +254,7 @@ const ButtonStyles = StyleSheet.create({
 const BothButtonStyles = StyleSheet.create({
   cont:{
     flexDirection:"row",
-
+    backgroundColor:'#00000000',
 
   },
 })

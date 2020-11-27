@@ -68,25 +68,25 @@ const signUp = () => {
 
           <View style={ContentContainer.cont}>
             <View style={InputStyles.cont}>
-        <InputBox text="Full Name" onChangeText={(text) => {
+        <InputBox text=" Username" onChangeText={(text) => {
           setFullname(text)
          }}/>
             </View>
 
             <View style={InputStyles.cont}>
-            <InputBox text="Email" onChangeText={(text)=>{
+            <InputBox text=" Email" onChangeText={(text)=>{
                   setEmail(text)
                 }}/>
             </View>
 
             <View style={InputStyles.cont}>
-            <InputBox text="Password" onChangeText={(text) => {
+            <InputBox text=" Password" onChangeText={(text) => {
                   setPass(text)
                 }}/>
             </View>
 
             <View style={InputStyles.cont}>
-            <InputBox text="ConfirmPassword" onChangeText={(text) => {
+            <InputBox text=" ConfirmPassword" onChangeText={(text) => {
                   setConfirmPassword(text)
                 }}/>
             </View>
@@ -127,7 +127,7 @@ const MainContainer = StyleSheet.create({
       alignContent: 'center',
       justifyContent: 'center',
       display: "flex",
-      top: -26,
+      top: 10,
     }
     })
 
@@ -172,7 +172,7 @@ const ButtonStyles = StyleSheet.create({
         justifyContent: 'center',
         display: "flex",
         margin: 10,
-        bottom: -65,
+        bottom: -59,
         
         
       }

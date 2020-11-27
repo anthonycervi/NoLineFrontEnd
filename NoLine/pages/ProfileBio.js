@@ -3,8 +3,8 @@ import Profile from '../comps/Profile';
 import InputComp from '../comps/InputComp';
 import UserPage from '../comps/UserPage';
 import Navigator from '../comps/Navigator';
-import {View, Text, StyleSheet} from 'react-native';
-import {NativeRouter, Route, Link} from "react-router-native";
+import {View, Text, StyleSheet, TouchableOpacity, } from 'react-native';
+import {NativeRouter, Route, Link, useHistory} from "react-router-native";
 import axios from 'axios';
 
 
@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         flexDirection:'column',
         marginLeft:4,
+        // width:"50%",
     },
 
     nav:{
@@ -62,25 +63,50 @@ const styles = StyleSheet.create({
     edittext:{
         fontSize:20,
         justifyContent:"flex-end",
-        left:338,
-        bottom:-3,
+        // left:338,
+        // bottom:-3,
         color:"#9D9D9D"
     },
 
     space:{
         marginBottom:30,
+        marginRight: 3,
+        
     },
+
+    edittextCont:{
+        width: 34,
+        justifyContent:"center",
+        left:151,
+        top: 4,
+        color:"#9D9D9D",
+        
+    },
+
+    PageCont:{
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+        flexDirection:'column',
+        
+    },
+    
 
 })
 
-export default function ProfileBio() {
-    return <View>
+export default function ProfileBio({onPress}) {
+    const history = useHistory();
+    return <View style={styles.PageCont}>
         
-        <Link to="editprofile">
-        <Text style={styles.edittext}>
-            Edit
-        </Text>
-        </Link>
+        <TouchableOpacity style={styles.edittextCont} 
+        onPress={() => {
+            history.push("/editprofile")
+          }}>              
+                    <Text onPress={onPress} style={styles.edittext}>
+                        Edit
+                    </Text>
+            
+        </TouchableOpacity>
 
         <View style={styles.profileComp}>
             <Profile />
@@ -108,6 +134,7 @@ export default function ProfileBio() {
 
         <View style={styles.nav}>
             <Navigator />
-        </View>
+        </View>  
+
     </View>
 }

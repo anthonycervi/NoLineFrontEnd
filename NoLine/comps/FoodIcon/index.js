@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components/native";
 import { View, Text, Image } from 'react-native';
+
+import CheckIcon from '../CheckIcon';
 
 import American from '../../public/American.png';
 import Chinese from '../../public/Chinese.png';
@@ -44,6 +46,10 @@ const Label = styled.Text`
     text-align: center;
     line-height: 40px;
     font-size: 12px;
+`;
+
+const Check = styled.View`
+    display:${props=>props.checked ? "inline-flex" : "none"};
 `;
 
 const AmericanPNG = {
@@ -96,11 +102,21 @@ const VietnamesePNG = {
 
 
 const FoodIcon = ({ image, text }) => {
+    const[checked, setChecked] = useState(false);
+
     return (
         <View>
             <Container>
-                <FlexItem>
-                    <FoodImage source={AmericanPNG.src}/>
+                <FlexItem >
+                    <FoodImage source={AmericanPNG.src}
+                    status={checked ? 'checked' : 'unchecked'}
+                    onPress={()=>{
+                    setChecked(!checked);
+                    }}
+                    />
+                    <Check>
+                        <CheckIcon checked={checked}/>
+                    </Check>
                     <Label>American</Label>
                 </FlexItem>
 

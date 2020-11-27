@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
 
     profAwards: {
         display:'flex',
-        margin:0
+        margin:0,
     },
 
     acheivementscont: {
@@ -43,15 +43,13 @@ const styles = StyleSheet.create({
     },
 
     achievements:{
-        display:'flex',
-        flexDirection:'row',
-        justifyContent:'space-around',
-        alignItems:'center',
+        bottom:10
+
     },
 
     nav:{
         position:'relative',
-        top:15
+        top:4,
     },
 
     edittext:{
@@ -61,6 +59,7 @@ const styles = StyleSheet.create({
         bottom:-10,
         color:"#9D9D9D"
     },
+    
 })
 
 export default function ProfileBio() {
@@ -80,7 +79,7 @@ export default function ProfileBio() {
         </View>
 
         <View>
-            <View>
+            <View style={styles.achievements}>
                 <AchievementIcon/>
             </View>
 

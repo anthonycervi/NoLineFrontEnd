@@ -7,11 +7,12 @@ const SliderContainer = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction:column;   
+  flex-direction:column;  
+  bottom:80;
 `;
 
 const TextContainer = styled.Text`
-  font-size: 13px;
+  font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -25,32 +26,55 @@ const SliderConst = styled.View`
   width: 100%;
 `;
 
-const MainSlider = styled.TextInput`
-  display: flex;
-  align-items: center;
-  color: #ffd25b;
-  margin:15px;
-
-    width: 100%;
-    height: 6px;
-    border-radius: 5px;
-    background: #ffd25b;
-`;
-
-const SliderNumber = styled.Text`
-font-size:13px;
+const MainSlider = styled.View`
 display: flex;
 align-items: center;
-justify-content: center;
-width: 100%;
+color: #ffd25b;
+top:18px;
+right:5px;
+  
+
+width: 90%;
+  height: 6px;
+  border-radius: 10px;
+  background: #ffd25b;
+  }
+  &::-webkit-slider-thumb{
+      -webkit-apperance:none;
+      apperance:none;
+      height: 15px;
+      width: 15px;
+      border-radius: 10px;
+      background-color: #ffd25b;
+      cursor: pointer;
+
+  }&::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #E5E5E5;
+  cursor: pointer;
+}
+
 `;
 
 const NumberContainer = styled.View`
   display: flex;
-  align-items:center;
-  justify-content: flex-end;
-  width: 100%;
-  font-size:13px;
+  align-items: stretch;
+  flex-direction:row;
+  justify-content: space-between;
+  width: 95%;
+  top:25px;
+  right:5px;
+`;
+
+const LeftContainer = styled.View`
+  font-size: 13px;
+`;
+
+const RightContainer = styled.View`
+  font-size: 13px;
+  display: flex;
 `;
 
 const FilterSlider = ({text, number, slidenumber}) => {
@@ -63,11 +87,13 @@ const FilterSlider = ({text, number, slidenumber}) => {
             <SliderConst>
                 <MainSlider input type="range" min="0" max="120" step="0"/>
             </SliderConst>
-            <SliderNumber>
-                <Text>{slidenumber}</Text>
-            </SliderNumber>
             <NumberContainer>
+              <LeftContainer>
+                <Text>{slidenumber}</Text>
+              </LeftContainer>
+              <RightContainer>
                 <Text>{number}</Text>
+              </RightContainer>
             </NumberContainer>
         </SliderContainer>
         </View>

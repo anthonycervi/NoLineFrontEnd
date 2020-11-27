@@ -9,7 +9,7 @@ const IconBarContainer = styled.View`
         border: 2px solid #FFD25B;
         border-radius: 5px;
         height: 40px;
-        width 20%;
+        width: ${props => props.width ? props.width :331};
         padding: 10px; 
         text-align: left; 
         color: #32353f;
@@ -30,7 +30,7 @@ const sendIconPNG = {
     src: sendIcon
 }
 
-const InputIconBar = ({text, image}) => {
+const InputIconBar = ({text, image, width}) => {
     return <IconBarContainer>
             <TextInput type="text" placeholder={text}/>
             <SpanView source={searchIconPNG.src}/>
@@ -40,6 +40,7 @@ const InputIconBar = ({text, image}) => {
 InputIconBar.defaultProps = {
    text: "Search",
    image: "searchIconPNG.src",
+   width:331
 }
 
 export default InputIconBar;

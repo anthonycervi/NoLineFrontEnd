@@ -209,8 +209,9 @@ const getAllRestaurantsNames = async () => {
 
       
         
-        
+        <View style={Nav.nav}>
       <Navigator></Navigator>
+      </View>
   </View>
 }
 
@@ -230,8 +231,10 @@ const SearchInput = StyleSheet.create({
   }
 })
 
-const SearchResultStyle = StyleSheet.create({
-
+const Nav = StyleSheet.create({
+  nav:{
+    top:12,
+  }
 })
 
 const ButtonStyles = StyleSheet.create({
@@ -247,7 +250,7 @@ const BothButtonStyles = StyleSheet.create({
     flexDirection:"row",
 
 
-  }
+  },
 })
 
 export default SearchResultPage;

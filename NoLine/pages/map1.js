@@ -56,12 +56,7 @@ const MapImage1 = styled.Image`
 `;
 
 const Map = () =>{
-  return (
-    <View style={MainContainer.cont}>
-      <View style={SearchContainer.cont}>
-      <InputIconBar />
-      </View>
-      
+  return (<View>
       <MapOverlay></MapOverlay>
       <MapView
        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
@@ -74,10 +69,17 @@ const Map = () =>{
        }}
      >
      </MapView>
+
+         <View style={MainContainer.cont}>
+         <View style={SearchContainer.cont}>
+         <InputIconBar />
+       </View>
+
     <View style={NavContainer.cont}>
       <Navigator />
     </View>
 
+ </View>
  </View>
   )
 }
@@ -87,6 +89,7 @@ const Map = () =>{
 const MainContainer = StyleSheet.create({
   cont:{
     position: "relative",
+    alignItems:"center"
    
     
   }
@@ -105,15 +108,23 @@ const MapContainer = StyleSheet.create({
   },
   map: {
     flex:1,
+    width:"100%",
+    height:650,
+    marginTop:-250,
     ...StyleSheet.absoluteFillObject,
   },
+
 })
+
+
 
 
 const SearchContainer = StyleSheet.create({
     cont:{
-      position: "relative",
-     
+      top:-350,
+      display:"flex",
+      justifyContent:"center",
+      width:"90%",
     }
     })
 
@@ -124,8 +135,8 @@ const SearchContainer = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         display: "flex",
-        top:25,  
-        left:21  
+        top:250,  
+        left:22,
       }
       })
 

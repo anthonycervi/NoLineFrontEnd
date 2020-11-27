@@ -162,7 +162,7 @@ const Slider = ({text}) => {
                 </MinuteContainer>
                 <HourContainer>
                     <Text>2+ hours</Text>
-        </HourContainer>
+                </HourContainer>
             </NumberContainer>
         </SliderContainer>
         </View>

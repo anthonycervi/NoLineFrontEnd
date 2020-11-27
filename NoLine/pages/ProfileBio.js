@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     nav:{
         display:'flex',
         position:'relative',
-        marginBottom:-20
+        bottom:-27,
     },
 
     edittext:{

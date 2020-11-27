@@ -96,6 +96,7 @@ const SearchResultPage = () => {
   const [backend, setBackend] = useState([]);
   const [name, setName] = useState([]);
   const [photo, setPhoto] = useState([]);
+  const [ratingtotal, setRatingTotal] = useState([]);
   
 
   //Need to consolidate
@@ -103,17 +104,15 @@ const SearchResultPage = () => {
   const apiKey = "AIzaSyClUvR3dTnBzmjHKPFEwqCLY9IIY_xaUZY"; 
   const place = "sushi";
   
-  // const getAllRestaurantDetails = async () => {
-  //   try {
-  //     const res = await searchLocation(place, apiKey);
-  //     res.forEach(res => {
-  //       console.log(res);
-  //       setBackend([name.name]);
-  //     });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
+  const getAllRestaurantDetails = async () => {
+    try {
+      getAllRestaurantsphotos();
+      getAllRestaurantsUserRatingTotal();
+      getAllRestaurantsNames();
+    } catch (err) {
+      console.log(err);
+    }
+  }
     
 const getAllRestaurantsNames = async () => {
   try {
@@ -146,23 +145,29 @@ const getAllRestaurantsNames = async () => {
     }
     }
 
-    const getAllRestaurantsRating = async () => {
-      try {
-        const res = await searchLocation(place, apiKey);
-        res.forEach(rating => {
-          console.log(rating.rating);
-        });
-      } catch (err) {
-        console.log(err);
-      }
-      }
+    // const getAllRestaurantsRating = async () => {
+    //   try {
+    //     const res = await searchLocation(place, apiKey);
+    //     const arr = []
+    //     res.forEach(rating => {
+    //       const userRating = (rating.rating);
+    //     });
+    //     arr.push(userRating);
+
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    //   }
      
       const getAllRestaurantsUserRatingTotal = async () => {
         try {
           const res = await searchLocation(place, apiKey);
+          const userRatingArr = []
           res.forEach(user_ratings_total => {
-            console.log(user_ratings_total.user_ratings_total);
+            userRatingArr.push(user_ratings_total.user_ratings_total);
           });
+          setRatingTotal(userRatingArr);
+          console.log(userRatingArr);
         } catch (err) {
           console.log(err);
         }
@@ -183,7 +188,7 @@ const getAllRestaurantsNames = async () => {
             <View style={SearchInput.cont}>
             <InputIconBar text="Search" image="searchIconPNG.src"/>
         </View>
-        <Button text="Get All Recipes" onPress={getAllRestaurantsphotos, getAllRestaurantsNames} />
+        <Button text="Get All Recipes" onPress={getAllRestaurantDetails} />
             <View style={BothButtonStyles.cont}>
 
                 <View style={ButtonStyles.cont}>
@@ -200,10 +205,10 @@ const getAllRestaurantsNames = async () => {
 
  
 
-     <SearchResult  name={name[0]} IImage={photo[0]}></SearchResult>
-     <SearchResult  name={name[1]} IImage={photo[1]}></SearchResult>
-     <SearchResult  name={name[2]} IImage={photo[2]}></SearchResult>
-     <SearchResult  name={name[3]} IImage={photo[3]}></SearchResult>
+     <SearchResult  name={name[0]} IImage={photo[0]} revnum={ratingtotal[0]}></SearchResult>
+     <SearchResult  name={name[1]} IImage={photo[1]} revnum={ratingtotal[1]}></SearchResult>
+     <SearchResult  name={name[2]} IImage={photo[2]} revnum={ratingtotal[2]}></SearchResult>
+     <SearchResult  name={name[3]} IImage={photo[3]} revnum={ratingtotal[3]}></SearchResult>
       
      
 

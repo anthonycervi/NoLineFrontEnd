@@ -43,4 +43,4 @@ InputComp.defaultProps= {
    //TEST
  }
 
-export default InputComp
+export default InputComp;

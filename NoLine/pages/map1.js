@@ -12,7 +12,8 @@ import InputIconBar from '../comps/InputIconBar';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
  import MapImg from '../public/map.png'
  import styled, {css} from 'styled-components/native';
-import MapOverlay from '../comps/MapOverlay'
+import MapOverlay from '../comps/MapOverlay';
+import searchIconPNG from '../public/searchIcon.png';
 
 
 import {
@@ -72,7 +73,7 @@ const Map = () =>{
 
          <View style={MainContainer.cont}>
          <View style={SearchContainer.cont}>
-         <InputIconBar />
+         <InputIconBar image={searchIconPNG}/>
        </View>
 
     <View style={NavContainer.cont}>

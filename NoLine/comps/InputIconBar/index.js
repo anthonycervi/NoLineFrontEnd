@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, {css} from 'styled-components/native';
 import {View, Text, TextInput, Image} from 'react-native';
-
 import searchIcon from '../../public/searchIcon.png';
 import sendIcon from '../../public/sendIcon.png';
 
@@ -33,13 +32,13 @@ const sendIconPNG = {
 const InputIconBar = ({text, image, width}) => {
     return <IconBarContainer>
             <TextInput type="text" placeholder={text}/>
-            <SpanView source={searchIconPNG.src}/>
+            <SpanView source={image}/>
         </IconBarContainer>
 }
 
 InputIconBar.defaultProps = {
    text: "Search",
-   image: "searchIconPNG.src",
+   image: sendIconPNG.src,
    width:331
 }
 

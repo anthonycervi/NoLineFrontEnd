@@ -25,7 +25,7 @@ import Navigator from '../comps/Navigator';
 import SearchTitle from '../comps/SearchTitle';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import InputIconBar from '../comps/InputIconBar';
-
+import sendIconPNG from '../public/sendIcon.png';
 import MapOverlay from '../comps/MapOverlay'
 
 import '../public/minus.png';
@@ -86,7 +86,7 @@ const SearchTitlePage = () =>{
 
  <View>
    <Text>Comments</Text>
-   <InputIconBar text="Add a Comment..." width="331"/>
+   <InputIconBar text="Add a Comment..." width="331" image={sendIconPNG.src}/>
  </View>
 
 
@@ -114,7 +114,7 @@ const Nav = StyleSheet.create({
   cont:{
     position:"relative",
     flex:1,
-    top:80
+    top:40
   }
 })
 
@@ -125,7 +125,7 @@ const ButtonStyle = StyleSheet.create({
   display:"flex",
   justifyContent:"center",
   alignItems:"center",
-  top:40
+  top:10
   }
 })
 
@@ -133,26 +133,26 @@ const SliderStyle = StyleSheet.create({
   cont:{
     position:"relative",
     width:"100%",
-    top:90
+    top:50
   }
 })
 
 const MapContainer = StyleSheet.create({
   container: {
     //...StyleSheet.absoluteFillObject,
-    height: 700,
-    width: 300,
+    height: 220,
+    width: 340,
     alignContent: 'center',
     justifyContent: 'center',
     display: "flex",
-    flex:1,
     top:30,
-    right:15
+    borderWidth:5,
+    borderColor:"#FFD25B",
   },
   map: {
     flex:1,
-    width:"110%",
-    height:200,
+    width:"100%",
+    height:210.5,
     top:100,
     alignContent: 'center',
     justifyContent: 'center',

@@ -22,7 +22,9 @@ import InputIconBar from '../comps/InputIconBar';
 import Button from '../comps/Button';
 import SearchResult from '../comps/SearchResult'
 import Navigator from '../comps/Navigator'
-import Filter from '../comps/Filter'
+import Filter from '../comps/Filter';
+import searchIconPNG from '../public/searchIcon.png';
+
 
 
 import {
@@ -186,7 +188,7 @@ const getAllRestaurantsNames = async () => {
     
   return <View  style={styles.cont}>
             <View style={SearchInput.cont}>
-            <InputIconBar text="Search" image="searchIconPNG.src"/>
+            <InputIconBar text="Search" image={searchIconPNG}/>
         </View>
         <Button text="Get All Recipes" onPress={getAllRestaurantDetails} />
             <View style={BothButtonStyles.cont}>

@@ -8,6 +8,9 @@ const Comments = db.collection("comments");
 // const Points = db.collection("points"); 
 const WaitTime = db.collection("waittime"); //make an average function
 
+import config from './firebase.config.json';
+import { searchLocation, getRestaurantsAroundUser } from '../mapAPI/apiConnect';
+
 /**
  * get user info with UID
  * @date 2020-11-10
@@ -385,6 +388,15 @@ export function updateProfile(obj, userDoc) {
         .catch(function(error) {
             console.error("Error updating document: ", error);
         });
+}
+
+export const getAllRestaurants = async(place) => {
+    try {
+      const res = await searchLocation(place, config.apiKey);
+        return res;
+    } catch (err) {
+      console.log(err);
+    }
 }
 
 //get user amount of comments and waittimes reported

@@ -1,5 +1,6 @@
 const axios = require("axios");
-const apiKey = "AIzaSyClUvR3dTnBzmjHKPFEwqCLY9IIY_xaUZY";
+import config from "../database/firebase.config.json";
+const apiKey = config.apiKey;
 
 //Places api
 

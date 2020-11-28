@@ -24,7 +24,7 @@ import SearchResult from '../comps/SearchResult'
 import Navigator from '../comps/Navigator'
 import Filter from '../comps/Filter';
 import searchIconPNG from '../public/searchIcon.png';
-
+import styled, {css} from 'styled-components/native';
 
 
 import {
@@ -198,6 +198,7 @@ const getAllRestaurantsNames = async () => {
     }
   
   return <View >
+    <ScrollView>
             <View style={SearchInput.cont}>
             <InputIconBar text="Search" image={searchIconPNG}/>
         </View>
@@ -209,24 +210,49 @@ const getAllRestaurantsNames = async () => {
                     <Button text="Wait Time" buttonborder={"3px solid #FFD25B"} buttonwidth={100} buttonheight={32}></Button> 
                     </Link>
                 </View>
-
+              
                 <View style={ButtonStyles.cont}>
                     <Button text="Distance" buttonbgcolor="white" buttonborder buttoncolor="#FFD25B" buttonwidth={100} buttonheight={32} ></Button> 
                 </View>
                 <Filter/>
             </View>
 
-
+            
+              <View>
      <SearchResult  name={name[0]} IImage={photo[0]} revnum={ratingtotal[0]}></SearchResult>
      <SearchResult  name={name[1]} IImage={photo[1]} revnum={ratingtotal[1]}></SearchResult>
      <SearchResult  name={name[2]} IImage={photo[2]} revnum={ratingtotal[2]}></SearchResult>
      <SearchResult  name={name[3]} IImage={photo[3]} revnum={ratingtotal[3]}></SearchResult>
-
+     <SearchResult  name={name[4]} IImage={photo[4]} revnum={ratingtotal[4]}></SearchResult>
+     <SearchResult  name={name[5]} IImage={photo[5]} revnum={ratingtotal[5]}></SearchResult>
+     <SearchResult  name={name[6]} IImage={photo[6]} revnum={ratingtotal[6]}></SearchResult>
+     <SearchResult  name={name[7]} IImage={photo[7]} revnum={ratingtotal[7]}></SearchResult>
+     <SearchResult  name={name[8]} IImage={photo[8]} revnum={ratingtotal[8]}></SearchResult>
+     <SearchResult  name={name[9]} IImage={photo[9]} revnum={ratingtotal[9]}></SearchResult>
+     <SearchResult  name={name[10]} IImage={photo[10]} revnum={ratingtotal[10]}></SearchResult>
+     <SearchResult  name={name[11]} IImage={photo[11]} revnum={ratingtotal[11]}></SearchResult>
+     <SearchResult  name={name[12]} IImage={photo[12]} revnum={ratingtotal[12]}></SearchResult>
+     <SearchResult  name={name[13]} IImage={photo[13]} revnum={ratingtotal[13]}></SearchResult>
+     <SearchResult  name={name[14]} IImage={photo[14]} revnum={ratingtotal[14]}></SearchResult>
+     <SearchResult  name={name[15]} IImage={photo[15]} revnum={ratingtotal[15]}></SearchResult>
+     <SearchResult  name={name[16]} IImage={photo[16]} revnum={ratingtotal[16]}></SearchResult>
+     <SearchResult  name={name[17]} IImage={photo[17]} revnum={ratingtotal[17]}></SearchResult>
+     <SearchResult  name={name[18]} IImage={photo[18]} revnum={ratingtotal[18]}></SearchResult>
+     <SearchResult  name={name[19]} IImage={photo[19]} revnum={ratingtotal[19]}></SearchResult>
+     </View>
+     
      <View style={Nav.nav}>
-       <Navigator></Navigator>
+       
        </View> 
+       </ScrollView>
+      
+      <View style={Nav.nav}>
+      <Navigator></Navigator>
+       </View>
+      
      </View>
 }
+
 
 
 const SearchInput = StyleSheet.create({
@@ -249,7 +275,8 @@ const TopContentContainer = StyleSheet.create({
 
 const Nav = StyleSheet.create({
   nav:{
-    top:12,
+    
+    
   }
 })
 

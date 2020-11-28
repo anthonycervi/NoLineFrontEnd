@@ -399,7 +399,7 @@ export const getAllRestaurants = async(place) => {
     }
 }
 
-export const getAllPhotos = async (photoRef) => {
+export const getAllPhotos = (photoRef) => {
     try {
         return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoRef}&key=${config.apiKey}`;
     } catch (err) {

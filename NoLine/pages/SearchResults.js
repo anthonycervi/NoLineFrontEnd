@@ -99,7 +99,7 @@ const SearchResultPage = () => {
   const [name, setName] = useState([]);
   const [photo, setPhoto] = useState([]);
   const [ratingtotal, setRatingTotal] = useState([]);
-  
+  const [restaurantRating, setRestaurantRating] = useState([]);
 
   //Need to consolidate
   
@@ -161,31 +161,42 @@ const getAllRestaurantsNames = async () => {
     //   }
     //   }
      
-      const getAllRestaurantsUserRatingTotal = async () => {
-        try {
-          const res = await searchLocation(place, apiKey);
-          const userRatingArr = []
-          res.forEach(user_ratings_total => {
-            userRatingArr.push(user_ratings_total.user_ratings_total);
-          });
-          setRatingTotal(userRatingArr);
-          console.log(userRatingArr);
-        } catch (err) {
-          console.log(err);
-        }
-        }
-     
-        const getAllRestaurantsFormattedAddress = async () => {
-          try {
-            const res = await searchLocation(place, apiKey);
-            res.forEach(formatted_address => {
-              console.log(formatted_address.formatted_address);
-            });
-          } catch (err) {
-            console.log(err);
-          }
-          }
-    
+  const getAllRestaurantsUserRatingTotal = async () => {
+    try {
+      const res = await searchLocation(place, apiKey);
+      const userRatingArr = []
+      res.forEach(user_ratings_total => {
+        userRatingArr.push(user_ratings_total.user_ratings_total);
+      });
+      setRatingTotal(userRatingArr);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  const getAllRatings = async () => {
+    try {
+      const res = await searchLocation(place, apiKey);
+      const restaurantRatingArr = [];
+      res.forEach(rating => {
+        restaurantRatingArr.push(rating.rating);
+      })
+      setRestaurantRating(restaurantRatingArr);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  
+  const getAllRestaurantsFormattedAddress = async () => {
+    try {
+      const res = await searchLocation(place, apiKey);
+      res.forEach(formatted_address => {
+        console.log(formatted_address.formatted_address);
+      });
+    } catch (err) {
+      console.log(err);
+    }
+    }
+  
   return <View >
             <View style={SearchInput.cont}>
             <InputIconBar text="Search" image={searchIconPNG}/>

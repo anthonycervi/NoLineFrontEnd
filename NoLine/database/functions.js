@@ -399,6 +399,14 @@ export const getAllRestaurants = async(place) => {
     }
 }
 
+export const getAllPhotos = async (photoRef) => {
+    try {
+        return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoRef}&key=${config.apiKey}`;
+    } catch (err) {
+        console.log(err);
+    }
+}
+
 //get user amount of comments and waittimes reported
 
 

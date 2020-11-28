@@ -45,6 +45,7 @@ import {
   getAllPoints,
   getAllRestaurantByWaitTime,
   getAllRestaurants,
+  getAllPhotos,
 } from '../database/functions';
 
 import {
@@ -63,6 +64,7 @@ const SearchResultPage = () => {
   const getAllRestaurantsDetails = async() => {
     try {
       setRestaurant(await getAllRestaurants("sushi"));
+      console.log(getAllRestaurants);
     } catch (err) {
       console.log(err);
     }
@@ -88,7 +90,7 @@ const SearchResultPage = () => {
                 <Filter/>
             </View>
         {
-          restaurant.map(item => <SearchResult key={item.name} name={item.name} IImage={item.photo} revnum={item.user_ratings_total}></SearchResult> )
+          restaurant.map(item => <SearchResult key={item.name} name={item.name} IImage={getAllPhotos(item.photos)} revnum={item.user_ratings_total}></SearchResult> )
         }
      
      <View style={Nav.nav}>
@@ -97,7 +99,7 @@ const SearchResultPage = () => {
        </ScrollView>
       
       <View style={Nav.nav}>
-      <Navigator onPress={getAllRestaurantDetails}></Navigator>
+      <Navigator onPress={getAllRestaurantsDetails}></Navigator>
        </View>
       
      </View>

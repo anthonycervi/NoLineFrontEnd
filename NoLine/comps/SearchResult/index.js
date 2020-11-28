@@ -180,12 +180,22 @@ height:70px;
 margin-top:10px;
 `;
 
-const SearchResult = ({IImage, textDistance,color,width,height,stars,name,username,time,revnum,textWait}) => {
+const SearchResult = ({ IImage, textDistance, color, width, height, stars, name, username, time, revnum, textWait }) => {
+   
+   const [photo, setPhoto] = useState('');
+   useEffect(() => {
+      const fetch = async () => {
+         const newPhoto = await getAllPhotos(IImage[0].photo_reference);
+         setPhoto(newPhoto);
+      }
+      fetch();
+   }, [])
+
    return <View><Main>
       <Link to = "/restauranttitle">
       <OverlayDiv>
 
-<SearchImg color={color}><IconImage source={{ uri: (IImage)}}
+<SearchImg color={color}><IconImage source={{ uri: (photo)}}
 /></SearchImg>
 <HeaderDiv>
 <Header><Text>{name}</Text></Header>

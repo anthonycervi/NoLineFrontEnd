@@ -90,7 +90,7 @@ const SearchResultPage = () => {
                 <Filter/>
             </View>
         {
-          restaurant.map(item => <SearchResult key={item.name} name={item.name} IImage={getAllPhotos(item.photos)} revnum={item.user_ratings_total}></SearchResult> )
+          restaurant.map(item => <SearchResult name={item.name} IImage={getAllPhotos(item.photos)} revnum={item.user_ratings_total}></SearchResult> )
         }
      
      <View style={Nav.nav}>
@@ -99,7 +99,8 @@ const SearchResultPage = () => {
        </ScrollView>
       
       <View style={Nav.nav}>
-      <Navigator onPress={getAllRestaurantsDetails}></Navigator>
+        <Button onPress={getAllRestaurantsDetails}></Button>
+      <Navigator ></Navigator>
        </View>
       
      </View>

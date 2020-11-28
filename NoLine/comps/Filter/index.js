@@ -4,11 +4,8 @@ import {View,Image} from "react-native";
 import {Link} from "react-router-native";
 
 const FilterContainer = styled.View`
-    width: 40;
-    height: 40;
-    top:6.5;
-    left:90;
-    
+    width: 30;
+    height: 30;
     position:relative;
     display: flex;
     align-items: center;

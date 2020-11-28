@@ -16,17 +16,21 @@ import {
   View,
   Text,
   StatusBar,
+  Image,
 } from 'react-native';
+import Slider from '@react-native-community/slider';
 import axios from 'axios';
 import {NativeRouter, Route, Link} from "react-router-native";
-import Slider from '../comps/Slider';
+// import Slider from '../comps/Slider';
 import Button from '../comps/Button';
 import Navigator from '../comps/Navigator';
 import SearchTitle from '../comps/SearchTitle';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import InputIconBar from '../comps/InputIconBar';
 import sendIconPNG from '../public/sendIcon.png';
-import MapOverlay from '../comps/MapOverlay'
+import MapOverlay from '../comps/MapOverlay';
+import PlusPNG from '../public/plus.png';
+import MinusPNG from '../public/minus.png';
 
 import '../public/minus.png';
 import '../public/plus.png';
@@ -52,6 +56,8 @@ import '../public/plus.png';
 
 //MAP COMPONENT IS ADRIAN'S GOOGLE MAP API
 const SearchTitlePage = () =>{
+
+  
   return <View style={styles.cont}>
     <View style={title.cont}>
  <SearchTitle></SearchTitle>
@@ -73,8 +79,41 @@ const SearchTitlePage = () =>{
      </MapView>
      </View>
      
+       <View style={TextStyle.text}>
+         <Text style={TextStyle.report}>Report the Current Wait Time!</Text>
+       </View>
+
+       <View>
+         <Text style={TextStyle.min}>(num) min</Text>
+       </View>
+
+  <View style={ImageStyle.cont}>
+    <Image 
+    style={ImageStyle.image}
+    source={require('../public/minus.png')} />
+    <Image 
+    style={ImageStyle.image}
+    source={require('../public/plus.png')}/>
+  </View>
+
  <View style={SliderStyle.cont}>
- <Slider > </Slider>
+ <Slider
+    style={{width: 300, height: 40}}
+    minimumValue={0}
+    maximumValue={1}
+    minimumTrackTintColor="#FFD25B"
+    maximumTrackTintColor="#C4C4C4"
+    thumbTintColor="#FFD25B"
+  />
+ </View>
+
+ <View style={TextStyle.number}>
+   <View>
+     <Text>0 min</Text>
+   </View>
+   <View>
+     <Text>2+ hours</Text>
+   </View>
  </View>
 
 <View style={ButtonStyle.cont}>
@@ -85,7 +124,7 @@ const SearchTitlePage = () =>{
  {/* </Link> */}
 
  <View>
-   <Text>Comments</Text>
+   <Text style={TextStyle.report}>Comments</Text>
    <InputIconBar text="Add a Comment..." width="331" image={sendIconPNG.src}/>
  </View>
 
@@ -125,7 +164,31 @@ const ButtonStyle = StyleSheet.create({
   display:"flex",
   justifyContent:"center",
   alignItems:"center",
-  top:10
+  bottom:10
+  }
+})
+
+const TextStyle = StyleSheet.create({
+  text:{
+    top:40
+  },
+
+  number:{
+    display: "flex",
+    alignItems: "stretch",
+    flexDirection:"row",
+    justifyContent: "space-between",
+    width:"75%",
+    top:20
+  },
+
+  report:{
+    fontSize:18,
+  },
+
+  min:{
+    fontSize:16,
+    top:50
   }
 })
 
@@ -133,7 +196,12 @@ const SliderStyle = StyleSheet.create({
   cont:{
     position:"relative",
     width:"100%",
-    top:50
+    justifyContent:"center",
+    alignItems:"center",
+    top:25
+  },
+  slider:{
+    height:5
   }
 })
 
@@ -160,6 +228,23 @@ const MapContainer = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
   },
 
+})
+
+const ImageStyle = StyleSheet.create({
+  image:{
+    width: 20,
+    height: 20,
+    borderRadius: 20,
+    backgroundColor: "#ffd25b",
+  },
+  cont:{
+    display: "flex",
+    alignItems: "stretch",
+    flexDirection:"row",
+    justifyContent: "space-between",
+    width:"90%",
+    top:55    
+  }
 })
 
 export default SearchTitlePage;

@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components/native";
 import { View, Text, TextInput } from 'react-native';
+import Slider from '@react-native-community/slider';
 
 const SliderContainer = styled.View`
   width: 100%;
@@ -24,6 +25,7 @@ const SliderConst = styled.View`
   align-items: center;
   justify-content: center;
   width: 100%;
+  top:13px;
 `;
 
 const MainSlider = styled.View`
@@ -85,7 +87,14 @@ const FilterSlider = ({text, number, slidenumber}) => {
                 <Text>{text}</Text>
             </TextContainer>
             <SliderConst>
-                <MainSlider input type="range" min="0" max="120" step="0"/>
+                <Slider 
+                    style={{width: 350, height: 40}}
+                    minimumValue={0}
+                    maximumValue={1}
+                    minimumTrackTintColor="#FFD25B"
+                    maximumTrackTintColor="#C4C4C4"
+                    thumbTintColor="#FFD25B"
+                />
             </SliderConst>
             <NumberContainer>
               <LeftContainer>

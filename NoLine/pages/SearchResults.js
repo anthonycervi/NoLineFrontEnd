@@ -67,13 +67,13 @@ const SearchResultPage = () => {
       console.log(err);
     }
   }
-  
-  return <View >
+    
+  return <View>
     <ScrollView>
             <View style={SearchInput.cont}>
             <InputIconBar text="Search" image={searchIconPNG}/>
         </View>
-        <Button text="Get All Recipes" onPress={getAllRestaurantsDetails} />
+        
             <View style={BothButtonStyles.cont}>
 
                 <View style={ButtonStyles.cont}>
@@ -97,7 +97,7 @@ const SearchResultPage = () => {
        </ScrollView>
       
       <View style={Nav.nav}>
-      <Navigator></Navigator>
+      <Navigator onPress={getAllRestaurantDetails}></Navigator>
        </View>
       
      </View>

@@ -196,6 +196,7 @@ const SearchResult = ({IImage, textDistance,color,width,height,stars,name,userna
 <Star><Image source={require('../../public/Star.png')}/></Star>
 <Star><Image source={require('../../public/Star.png')}/></Star>
 
+
 </StarDiv>
 <ReviewNumber><Text>{revnum}</Text></ReviewNumber>
 </HeaderDiv>
@@ -230,11 +231,15 @@ SearchResult.defaultProps= {
    height:"90px",
    backgroundColor:"#fafafa",
    stars:"5",
-   name:"Default Name",
+   name:null,
    username:"user123",
    time:"30m",
-   revnum:"(16)",
-   IImage: 'https://reactnative.dev/img/tiny_logo.png'
+   revnum:null,
+   IImage: null,
+   ratingObj : {
+      stars: "3"
+      
+    }
  }
 
 export default SearchResult

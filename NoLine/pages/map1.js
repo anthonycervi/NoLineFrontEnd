@@ -76,7 +76,7 @@ const Map = () =>{
      </View>
      
      <View style={SearchContainer.cont}>
-      <InputIconBar />
+      <InputIconBar image={searchIconPNG}/>
       </View>
 
     <View style={NavContainer.cont}>
@@ -123,8 +123,7 @@ const MapContainer = StyleSheet.create({
   map: {
     flex:1,
     width:"100%",
-    height:650,
-    marginTop:-250,
+    height:"100%",
     ...StyleSheet.absoluteFillObject,
   },
 

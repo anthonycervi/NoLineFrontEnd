@@ -32,7 +32,7 @@ const sendIconPNG = {
 const InputIconBar = ({text, image, width}) => {
     return <IconBarContainer>
             <TextInput type="text" placeholder={text}/>
-            <SpanView source={image}/>
+            {/* <SpanView source={image}/> */}
         </IconBarContainer>
 }
 

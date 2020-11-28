@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         position: 'absolute',
         right: -43,
+        top:10
     },
 
     filters: {
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
         height: 1000,
         left: 20,
         width: 365,
-        top:30
+        top:40
     },
 
     filterHeading:{
@@ -33,7 +34,8 @@ const styles = StyleSheet.create({
 
     sliderFlex: {
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        top:10
     },
 
     buttonCenter:{

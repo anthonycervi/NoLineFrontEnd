@@ -15,10 +15,11 @@ import {
   View,
   Text,
   StatusBar,
+  TouchableOpacity,
 } from 'react-native';
 import axios from 'axios';
 import {Link, useHistory} from "react-router-native";
-import InputIconBar from '../comps/InputIconBar';
+import SearchBar from '../comps/SearchBar';
 import Button from '../comps/Button';
 import SearchResult from '../comps/SearchResult'
 import Navigator from '../comps/Navigator'
@@ -70,12 +71,88 @@ const SearchResultPage = () => {
     }
   }
     
-  return <View>
-    <ScrollView>
-            <View style={SearchInput.cont}>
-            <InputIconBar text="Search" image={searchIconPNG}/>
-        </View>
+  // return <View>
+  //   <ScrollView>
+  //           <View style={SearchInput.cont}>
+  //           <InputIconBar text="Search" image={searchIconPNG}/>
+  //       </View>
         
+const getAllRestaurantsNames = async () => {
+  try {
+    const res = await searchLocation(place, apiKey);
+    const restaurantNameArr = [];
+    res.forEach(data => {
+      restaurantNameArr.push(data.name);
+    });
+    console.log(restaurantNameArr)
+    setName(restaurantNameArr)
+  } catch (err) {
+    console.log(err);
+  }
+  }
+  
+  //need to work on this
+  const getAllRestaurantsphotos = async () => {
+    try {
+      const res = await searchLocation(place, apiKey);
+      const arr = []
+      res.forEach(photos => {
+        const PhotoRef = ((photos.photos[0].photo_reference));
+        const url = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${PhotoRef}&key=${apiKey}`;
+        arr.push(url);
+        setPhoto(arr);
+      });
+      console.log(arr);
+    } catch (err) {
+      console.log(err);
+    }
+    }
+
+    // const getAllRestaurantsRating = async () => {
+    //   try {
+    //     const res = await searchLocation(place, apiKey);
+    //     const arr = []
+    //     res.forEach(rating => {
+    //       const userRating = (rating.rating);
+    //     });
+    //     arr.push(userRating);
+
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    //   }
+     
+      const getAllRestaurantsUserRatingTotal = async () => {
+        try {
+          const res = await searchLocation(place, apiKey);
+          const userRatingArr = []
+          res.forEach(user_ratings_total => {
+            userRatingArr.push(user_ratings_total.user_ratings_total);
+          });
+          setRatingTotal(userRatingArr);
+          console.log(userRatingArr);
+        } catch (err) {
+          console.log(err);
+        }
+        }
+     
+        const getAllRestaurantsFormattedAddress = async () => {
+          try {
+            const res = await searchLocation(place, apiKey);
+            res.forEach(formatted_address => {
+              console.log(formatted_address.formatted_address);
+            });
+          } catch (err) {
+            console.log(err);
+          }
+          }
+    
+  return <View style={PageContainer.cont}>
+            <View style={SearchInput.cont}>
+              <SearchBar text=" Search" style={SearchBarInput.cont}/>
+              <TouchableOpacity style={SearchButton.cont}></TouchableOpacity>
+            </View>
+        {/* <Button text="Get All Recipes" onPress={getAllRestaurantDetails} /> */}
             <View style={BothButtonStyles.cont}>
 
                 <View style={ButtonStyles.cont}>
@@ -87,16 +164,19 @@ const SearchResultPage = () => {
                 <View style={ButtonStyles.cont}>
                     <Button text="Distance" buttonbgcolor="white" buttonborder buttoncolor="#FFD25B" buttonwidth={100} buttonheight={32} ></Button> 
                 </View>
-                <Filter/>
+                <View style={FilterStyles.cont}>
+                  <Filter/>
+                </View>
             </View>
+            <ScrollView>
         {
           restaurant.map(item => <SearchResult name={item.name} IImage={getAllPhotos(item.photos)} revnum={item.user_ratings_total}></SearchResult> )
         }
-     
+     </ScrollView>
      <View style={Nav.nav}>
        
        </View> 
-       </ScrollView>
+       
       
       <View style={Nav.nav}>
         <Button onPress={getAllRestaurantsDetails}></Button>
@@ -106,15 +186,50 @@ const SearchResultPage = () => {
      </View>
 }
 
+const PageContainer = StyleSheet.create({
+  cont:{
+    justifyContent: "center",
+    display:"flex",
+    alignContent:"center",
+    alignItems:"center",
+    flexDirection:"column",
+    // flex: 1,
+    // width: "100%",
+    // height: "100%",
+  }
+})
 
 
 const SearchInput = StyleSheet.create({
   cont:{
-    flex:1,
-  justifyContent:"center",
-  left:20,
-  width: 350,
-  backgroundColor:'#00000000',
+  // flex:1,
+  flexDirection: "row",
+  width:"90%",
+  // backgroundColor: "pink",
+  overflow: "hidden",
+  marginBottom: 15,
+  
+  }
+})
+
+const SearchBarInput = StyleSheet.create({
+  cont:{
+    // flex: 2,
+    alignSelf:"stretch",
+    display: "flex",
+    width:250,
+  }
+})
+
+const SearchButton = StyleSheet.create({
+  cont:{
+    width: 49,
+    height: 49,
+    backgroundColor: "#FFD25B",
+    borderBottomEndRadius: 5,
+    borderTopEndRadius: 5,
+    alignItems:"flex-end",
+    // flex: 1,
   }
 })
 
@@ -135,8 +250,7 @@ const Nav = StyleSheet.create({
 
 const ButtonStyles = StyleSheet.create({
   cont:{
-    flexDirection:"row",
-  margin:10,
+  marginRight:10,
   backgroundColor:'#00000000',
 
   }
@@ -145,9 +259,33 @@ const ButtonStyles = StyleSheet.create({
 const BothButtonStyles = StyleSheet.create({
   cont:{
     flexDirection:"row",
-    backgroundColor:'#00000000',
+    justifyContent: "center",
+    display:"flex",
+    alignContent:"center",
+    alignItems:"center",
+    // backgroundColor:'#00000000',
+    // backgroundColor: 'blue',
+    // flex:1,
+    width:"90%",
+
 
   },
+
+})
+
+const FilterStyles = StyleSheet.create({
+  cont:{
+  // backgroundColor:"red",
+  // width:10,
+  // height:"100%",
+  justifyContent: "center",
+  display:"flex",
+  alignContent:"center",
+  alignItems:"flex-end",
+  flexDirection:"column",
+  flex: 1,
+
+  }
 })
 
 export default SearchResultPage;

@@ -5,6 +5,8 @@ import FoodIcon from '../comps/FoodIcon';
 import Button from '../comps/Button';
 import CheckIcon from '../comps/CheckIcon';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { useHistory } from "react-router-native";
+
 
 const styles = StyleSheet.create({
     topBar: {
@@ -53,10 +55,11 @@ const styles = StyleSheet.create({
 })
 
 
-
 export default function SearchFilters() {
+    const history = useHistory();
     return <View styles={styles.page}>
         <ScrollView>
+            
         <View style={styles.topBar}>
             <EditBar left="Cancel" middle="Search Filters" right="Clear Filters" />
         </View>
@@ -80,7 +83,9 @@ export default function SearchFilters() {
             </View>
 
             <View style={styles.buttonCenter}>
-                <Button text="SAVE CHANGES" buttonfontsize={24}/>
+                <Button onPress={() => {
+                history.push("/signinbutton")
+              }}text="SAVE CHANGES" buttonfontsize={24}/>
             </View>
         </View>
         </ScrollView>

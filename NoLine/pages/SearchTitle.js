@@ -70,10 +70,10 @@ const SearchTitlePage = () =>{
        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
        style={MapContainer.map}
        region={{
-         latitude: 37.78825,
-         longitude: -123.120735,
-         latitudeDelta: 3.115,
-         longitudeDelta: 3.1121,
+        latitude: 49.27966,
+        longitude: -123.11993,
+        latitudeDelta: 0.055,
+        longitudeDelta: 0.055,
        }}
      >
      </MapView>

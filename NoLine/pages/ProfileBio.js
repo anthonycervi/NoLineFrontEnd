@@ -90,7 +90,29 @@ const styles = StyleSheet.create({
         flexDirection:'column',
         
     },
-    
+
+    TitleText:{
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+        flexDirection:'column',
+        color:'grey',
+        // backgroundColor: "green",
+        
+    },
+
+    TextDisplay:{
+        display:'flex',
+        justifyContent:'center',
+        flexDirection:'column',
+        width:350,
+        height: 49,
+        borderBottomColor: 'lightgrey',
+        borderBottomWidth: 2,
+        fontSize: 30,
+        
+    },
+
 
 })
 
@@ -120,15 +142,24 @@ export default function ProfileBio({onPress}) {
 
         <View style={styles.inputs}>
             <View style={styles.space}>
-                <InputComp text="Wait Times Reported"/>
+                <Text style={styles.TitleText}>Wait Times Reported</Text>
+                <View style={styles.TextDisplay}>
+                <Text style={styles.InsertText}>test</Text>
+                </View>
             </View>
 
             <View style={styles.space}>
-                <InputComp text="Reviews Written"/>
+                <Text style={styles.TitleText}>Reviews Written</Text>
+                <View style={styles.TextDisplay}>
+                <Text style={styles.InsertText}>test</Text>
+                </View>
             </View>
 
             <View style={styles.space}>
-                <InputComp text="Bio" height="100"/>
+                <Text style={styles.TitleText}>Bio</Text>
+                <View style={styles.TextDisplay}>
+                <Text style={styles.InsertText}>test</Text>
+                </View>
             </View>
         </View>
 

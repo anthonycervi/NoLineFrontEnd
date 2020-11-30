@@ -39,7 +39,7 @@ import {
 } from './database/functions';
 
 import React from 'react';
-import {NativeRouter, Route, Link, useHistory} from "react-router-native";
+import { NativeRouter, Route, Link, useHistory } from "react-router-native";
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 
@@ -63,23 +63,23 @@ import SearchResult from './comps/SearchResult';
 
 
 
-const App = () =>{
+const App = () => {
   return <NativeRouter><View style={styles.cont}>
-  <Route exact path="/" component={SearchResultPage}/>
-  <Route exact path="/signup" component={SignUpPage}/>
-  <Route exact path="/signin" component={SignInPage}/>
-  <Route exact path="/signupbutton" component={SearchResultPage}/>
-  <Route exact path="/signinbutton" component={SearchResultPage}/>
-  <Route exact path="/searchicon" component={SearchResultPage}/>
-  <Route exact path="/map1" component={Map1Page}/>
-  <Route exact path="/profilenav" component={ProfilePage}/>
-  <Route exact path="/restauranttitle" component={SearchTitlePage}/>
-  <Route exact path="/profileawards" component={ProfileAwardsPage}/>
-  <Route exact path="/editprofile" component={EditProfPage}/>
-  <Route exact path="/profilebio" component={ProfileBioPage}/>
-  <Route exact path="/filterpage" component={SearchFiltersPage}/>
+    <Route exact path="/" component={SearchTitlePage} />
+    <Route exact path="/signup" component={SignUpPage} />
+    <Route exact path="/signin" component={SignInPage} />
+    <Route exact path="/signupbutton" component={SearchResultPage} />
+    <Route exact path="/signinbutton" component={SearchResultPage} />
+    <Route exact path="/searchicon" component={SearchResultPage} />
+    <Route exact path="/map1" component={Map1Page} />
+    <Route exact path="/profilenav" component={ProfilePage} />
+    <Route exact path="/restauranttitle" component={SearchTitlePage} />
+    <Route exact path="/profileawards" component={ProfileAwardsPage} />
+    <Route exact path="/editprofile" component={EditProfPage} />
+    <Route exact path="/profilebio" component={ProfileBioPage} />
+    <Route exact path="/filterpage" component={SearchFiltersPage} />
 
-  {/* <Route exact path="/submitting" component={SignInPage}/> */}
+    {/* <Route exact path="/submitting" component={SignInPage}/> */}
 
 
   </View>
@@ -87,33 +87,33 @@ const App = () =>{
 }
 
 const styles = StyleSheet.create({
-  cont:{
-    flex:1,
-    justifyContent:"center",
+  cont: {
+    flex: 1,
+    justifyContent: "center",
   }
-  })
+})
 
-  const MapContainer = StyleSheet.create({
-    container: {
-      //...StyleSheet.absoluteFillObject,
-      height: 700,
-      width: 400,
-      position:"relative",
-      flex:1
-    },
-    map: {
-      flex: 1,
-        ...StyleSheet.absoluteFillObject
-    },
-  })
-  
-  
-  const SearchContainer = StyleSheet.create({
-      cont:{
-        position: "relative",
-       
-      }
-      })
+const MapContainer = StyleSheet.create({
+  container: {
+    //...StyleSheet.absoluteFillObject,
+    height: 700,
+    width: 400,
+    position: "relative",
+    flex: 1
+  },
+  map: {
+    flex: 1,
+    ...StyleSheet.absoluteFillObject
+  },
+})
+
+
+const SearchContainer = StyleSheet.create({
+  cont: {
+    position: "relative",
+
+  }
+})
 
 export default App;
 //export {default} from './storybook';

@@ -113,6 +113,12 @@ const styles = StyleSheet.create({
         
     },
 
+    InsertText:{
+        fontSize: 22,
+        color: "#8486D1",
+        fontWeight: "bold",       
+    },
+
 
 })
 

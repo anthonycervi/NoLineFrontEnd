@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled, {css} from 'styled-components/native';
 import {View,Text,TextInput,Image} from 'react-native';
 import '../../public/Star.png';
-import {Link} from "react-router-native";
+import { Link } from "react-router-native";
+import { getAllPhotos } from '../../database/functions';
+
 const OverlayDiv = styled.View`
 width: ${props => props.width ? props.width :"375px"};
 height: ${props => props.height ? props.height :"110px"};
@@ -180,13 +182,26 @@ height:70px;
 margin-top:10px;
 `;
 
-const SearchResult = ({IImage, textDistance,color,width,height,stars,name,username,time,revnum,textWait}) => {
+const SearchResult = ({ IImage, textDistance, color, width, height, stars, name, username, time, revnum, textWait }) => {
+   
+   const [photo, setPhoto] = useState('');
+   useEffect(() => {
+      const fetch = async () => {
+         const newPhoto = await getAllPhotos(IImage[0].photo_reference);
+         setPhoto(newPhoto);
+      }
+      fetch();
+   }, [])
+
    return <View><Main>
       <Link to = "/restauranttitle">
       <OverlayDiv>
+     <Text>{
+      photo && <SearchImg color={color}><IconImage source={{uri:(photo)}}/></SearchImg>  
+      }</Text>
 
-<SearchImg color={color}><IconImage source={{ uri: (IImage)}}
-/></SearchImg>
+
+      
 <HeaderDiv>
 <Header><Text>{name}</Text></Header>
 <StarDiv>

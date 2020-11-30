@@ -170,7 +170,7 @@ const getAllRestaurantsNames = async () => {
             </View>
             <ScrollView>
         {
-          restaurant.map(item => <SearchResult key={item.name} name={item.name} IImage={getAllPhotos(item.photos)} revnum={item.user_ratings_total}></SearchResult> )
+          restaurant.map(item => <SearchResult key={item.name} name={item.name} IImage={item.photos} revnum={item.user_ratings_total}></SearchResult> )
         }
      </ScrollView>
      <View style={Nav.nav}>
@@ -179,7 +179,8 @@ const getAllRestaurantsNames = async () => {
        
       
       <View style={Nav.nav}>
-      <Navigator onPress={getAllRestaurantsDetails}></Navigator>
+        <Button onPress={getAllRestaurantsDetails}></Button>
+      <Navigator ></Navigator>
        </View>
       
      </View>

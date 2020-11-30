@@ -11,19 +11,19 @@ const BarContainer = styled.View`
 `;
 
 const BarItem = styled.Text`
-    background-color: #fff;
+    background-color: #00000000;
     color: #9D9D9D;
     text-align: center;
     width: 165px;
     font-style: normal;
     font-weight: 500;
-    font-size: 13px;
     line-height: 16px;
 `;
 
 const HeadingMiddle = styled.Text`
     text-transform: uppercase;
     color: #FFD25B;
+    font-size: 12;
     font-weight: 600;
     text-align: center;
 `;
@@ -31,7 +31,7 @@ const HeadingMiddle = styled.Text`
 const Left = styled.Text`
     color: #9D9D9D;
     font-weight: 500;
-    font-size: 20;
+    font-size: 12;
 `;
 
 const PCont = styled.View``;
@@ -39,7 +39,7 @@ const PText = styled.Text``;
 const Right = styled.Text`
     color: #8486D1;;
     font-weight: 500;
-    font-size: 20;
+    font-size: 12;
 `;
 
 const EditBar = ({left, middle, right}) => {

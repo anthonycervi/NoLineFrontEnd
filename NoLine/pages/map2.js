@@ -26,10 +26,10 @@ const Map2 = () =>{
        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
        style={MapContainer.map}
        region={{
-         latitude: 37.78825,
-         longitude: -122.4324,
-         latitudeDelta: 0.015,
-         longitudeDelta: 0.0121,
+        latitude: 49.27966,
+        longitude: -123.11993,
+        latitudeDelta: 0.055,
+        longitudeDelta: 0.055,
        }}
      >
      </MapView>

@@ -1,13 +1,7 @@
 import React from 'react';
 import styled, {css} from 'styled-components/native';
-<<<<<<< Updated upstream
 import {View, Text, TouchableOpacity} from 'react-native';
 import {Link, useHistory} from "react-router-native";
-=======
-import {View, Text} from 'react-native';
-import {Link, useHistory} from "react-router-native";
-
->>>>>>> Stashed changes
 const BarContainer = styled.View`
     display: flex;
     width: 100%;
@@ -51,7 +45,6 @@ const Right = styled.Text`
 
 const EditBar = ({left, middle, right}) => {
     const history = useHistory();
-<<<<<<< Updated upstream
     return <BarContainer>
         <BarItem>
 
@@ -66,20 +59,6 @@ const EditBar = ({left, middle, right}) => {
         </BarItem>
         <BarItem><HeadingMiddle>{middle}</HeadingMiddle></BarItem>
         <BarItem>
-=======
-
-    return <BarContainer>
-        <BarItem  
-            onPress={() => {
-            history.push("/signupbutton")
-            }}>
-            <Left>{left}</Left>
-        </BarItem>
-        <BarItem><HeadingMiddle>{middle}</HeadingMiddle></BarItem>
-        <BarItem>
-            <Right>{right}</Right>
-            </BarItem>
->>>>>>> Stashed changes
 
         <TouchableOpacity  
         onPress={() => {

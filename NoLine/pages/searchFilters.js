@@ -175,8 +175,9 @@ export default function SearchFilters() {
                     </View>
 
 
-<<<<<<< Updated upstream
-                    <View>
+                        <View>
+                            <View style={styles.sliderFlex}>
+                            <View>
                         <View style={styles.distanceslider}>
                             <SliderText
                                 style={{ width: 200, height: 40 }}
@@ -191,11 +192,6 @@ export default function SearchFilters() {
                                 minimumValueLabel="1km"
                                 maximumValueLabel="50km"
                             />
-
-=======
-                        <View>
-                            <View style={styles.sliderFlex}>
-                                <FilterSlider text="Distance" slidenumber="10 km" number="50 km"/>
                             </View>
                         </View>
                         
@@ -204,27 +200,16 @@ export default function SearchFilters() {
                             <FoodIcon onPress={(word)=> {
                             setKeyword(word)
                             }} />
->>>>>>> Stashed changes
                         </View>
                     </View>
 
-                    <View style={styles.filterItem}>
-                        <Text style={styles.foodheader}>Food{"\n"}</Text>
-                        <FoodIcon />
-                    </View>
+                   
 
-<<<<<<< Updated upstream
-                    <View style={styles.buttonCenter}>
-                        <Button onPress={() => {
-                            history.push("/signinbutton")
-                        }} text="SAVE CHANGES" buttonfontsize={24} />
-=======
                         <View style={styles.buttonCenter}>
                             <Button onPress={() => {
                             history.push("/savechanges/" + keyword)
                         }}text="SAVE CHANGES" buttonfontsize={24}/>
                         </View>
->>>>>>> Stashed changes
                     </View>
                 </View>
             </View>

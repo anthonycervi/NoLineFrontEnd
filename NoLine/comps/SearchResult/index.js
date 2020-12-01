@@ -30,20 +30,24 @@ left:-7px;
 
 const Header = styled.Text`
 position:relative;
-font-size:20px;
+font-size:18px;
 text-align:left;
 top:-65px;
 left:85px;
+
+color: #38383F;
+height:48px;
 `;
 
 const Star = styled.View`
-width:13.4px;
-height:11.55px;
+width:40px;
+height:25.55px;
 position:relative;
-margin:3px;
+margin:2px;
 flexDirection:row;
-left:89px;
+left:80px;
 top:-60px;
+
 `;
 
 
@@ -78,8 +82,8 @@ padding-left:-4px;
 const ReviewNumber = styled.Text`
 color: ${props => props.color ? props.color : "#999999" };
 position:relative;
-top:-61px;
-left:190px;
+top:-57px;
+left:140px;
 `;
 
 const HeaderDiv = styled.View`
@@ -92,6 +96,7 @@ height:16px;
 const StarDiv = styled.View`
 flex:1;
 flexDirection:row;
+
 `;
 
 const InfoDiv = styled.View`
@@ -182,6 +187,24 @@ height:70px;
 margin-top:10px;
 `;
 
+const StarText = styled.Text`
+position:relative;
+right:0px;
+left:4px;
+bottom:0px;
+font-size:16px;
+color: #38383F;
+`;
+
+const StarImg = styled.Image`
+width:20px;
+height:20px;
+`;
+
+const RevText = styled.Text`
+
+`;
+
 const SearchResult = ({ IImage, textDistance, color, width, height, stars, name, username, time, revnum, textWait }) => {
    
    const [photo, setPhoto] = useState('');
@@ -205,15 +228,13 @@ const SearchResult = ({ IImage, textDistance, color, width, height, stars, name,
 <HeaderDiv>
 <Header><Text>{name}</Text></Header>
 <StarDiv>
-<Star><Image source={require('../../public/Star.png')}/></Star>
-<Star><Image source={require('../../public/Star.png')}/></Star>
-<Star><Image source={require('../../public/Star.png')}/></Star>
-<Star><Image source={require('../../public/Star.png')}/></Star>
-<Star><Image source={require('../../public/Star.png')}/></Star>
+  
+<Star><StarImg source={require('../../public/Star.png')}/><StarText>{stars}</StarText></Star>
+
 
 
 </StarDiv>
-<ReviewNumber><Text>{revnum}</Text></ReviewNumber>
+<ReviewNumber><RevText>{revnum}</RevText></ReviewNumber>
 </HeaderDiv>
 <TopLine></TopLine>
 
@@ -251,10 +272,7 @@ SearchResult.defaultProps= {
    time:"30m",
    revnum:null,
    IImage: null,
-   ratingObj : {
-      stars: "3"
-      
-    }
+   stars:"4"
  }
 
 export default SearchResult

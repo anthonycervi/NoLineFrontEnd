@@ -82,17 +82,18 @@ top:-60px;
 left:185px;
 `;
 
+const StarImg = styled.Image`
+width:25px;
+height:25px;
+`;
+
 const SearchTitle = ({text,color,width,height,stars,h1text,username,time,revnum}) => {
    return <View><SearchDiv>
        <HeaderDiv>
 <SearchImg color={color}><Image source={require('../../public/RestImg.png')}/></SearchImg>
 <Header>{h1text}</Header>
 <StarDiv>
-<Star><Image source={require('../../public/Star.png')}/></Star>
-<Star><Image source={require('../../public/Star.png')}/></Star>
-<Star><Image source={require('../../public/Star.png')}/></Star>
-<Star><Image source={require('../../public/Star.png')}/></Star>
-<Star><Image source={require('../../public/Star.png')}/></Star>
+<Star><StarImg source={require('../../public/Star.png')}/></Star>
 </StarDiv>
 <ReviewNumber>({revnum})</ReviewNumber>
 </HeaderDiv>

@@ -156,13 +156,11 @@ const getAllRestaurantsNames = async () => {
             <View style={BothButtonStyles.cont}>
 
                 <View style={ButtonStyles.cont}>
-                    <Link to ="/">
-                    <Button text="Wait Time" buttonborder={"3px solid #FFD25B"} buttonwidth={100} buttonheight={32}></Button> 
-                    </Link>
+                   
                 </View>
               
                 <View style={ButtonStyles.cont}>
-                    <Button text="Distance" buttonbgcolor="white" buttonborder buttoncolor="#FFD25B" buttonwidth={100} buttonheight={32} ></Button> 
+               
                 </View>
                 <View style={FilterStyles.cont}>
                   <Filter/>
@@ -170,7 +168,7 @@ const getAllRestaurantsNames = async () => {
             </View>
             <ScrollView>
         {
-          restaurant.map(item => <SearchResult key={item.name} name={item.name} IImage={item.photos} revnum={item.user_ratings_total}></SearchResult> )
+          restaurant.map(item => <SearchResult key={item.name} name={item.name} IImage={item.photos} revnum={"(" + item.user_ratings_total + " reviews)"} stars={"4" + "/5"}></SearchResult> )
         }
      </ScrollView>
      <View style={Nav.nav}>

@@ -4,8 +4,13 @@ import EditBar from '../comps/EditBar';
 import FoodIcon from '../comps/FoodIcon';
 import Button from '../comps/Button';
 import CheckIcon from '../comps/CheckIcon';
+<<<<<<< Updated upstream
 import { View, Text, StyleSheet, ScrollView, onPress, TouchableOpacity } from 'react-native';
+=======
+import { View, Text, StyleSheet, ScrollView, Slider } from 'react-native';
+>>>>>>> Stashed changes
 import { useHistory } from "react-router-native";
+import SliderText from 'react-native-slider-text';
 
 
 const styles = StyleSheet.create({
@@ -30,24 +35,30 @@ const styles = StyleSheet.create({
         top:40
     },
 
-    filterHeading:{
-        fontSize: 16,
+    waittimeheader:{
+        fontSize: 20,
+        top:40,
+        left:20
     },
 
-    sliderFlex: {
+    waittimeslider: {
         display: 'flex',
         flexDirection: 'column',
-        top:10
+        bottom:30
     },
 
     buttonCenter:{
         alignItems: 'center',
+<<<<<<< Updated upstream
         bottom:75,
      
+=======
+        bottom:70
+>>>>>>> Stashed changes
     },
 
     filterItem:{
-        bottom:70
+        bottom:40
     },
 
     greenBar:{
@@ -85,13 +96,28 @@ const styles = StyleSheet.create({
         alignItems: "center",
         alignContent: "center",
     },
+
+    distanceheading:{
+        bottom:20,
+        fontSize:20
+    },
+
+    distanceslider:{
+        bottom:40
+    },
+
+    foodheader:{
+        fontSize:20
+    }
 })
 
 
 export default function SearchFilters() {
+    const [sliderValue, setSliderValue] = useState(0);
     const history = useHistory();
     return <View styles={styles.page}>
         <ScrollView>
+<<<<<<< Updated upstream
            <View style={styles.ContentContainer}>
                     {/* <View style={styles.topBar}>
                         <EditBar left="Cancel" middle="Search Filters" right="Clear Filters" />
@@ -145,6 +171,70 @@ export default function SearchFilters() {
                         </View>
                     </View>
             </View> 
+=======
+            
+        <View style={styles.topBar}>
+            <EditBar left="Cancel" middle="Search Filters" right="Clear Filters" />
+        </View>
+
+        <View>
+            <Text style={styles.waittimeheader}>Wait Time</Text>
+        </View>
+
+        <View style={styles.filters}>
+            <View>
+                <View style={styles.waittimeslider}>
+                <SliderText
+                    style={{width: 200, height: 40}}
+                    stepValue={5}
+                    minimumValue={0}
+                    maximumValue={120}
+                    onValueChange={(id) => setSliderValue(id)}
+                    sliderValue={sliderValue}
+                    minimumTrackTintColor="#FFD25B"
+                    maximumTrackTintColor="#C4C4C4"
+                    thumbTintColor="#FFD25B"
+                    minimumValueLabel="0 min"
+                    maximumValueLabel="2+ hours"  
+                />
+                    
+                </View>
+            </View>
+
+            <View>
+                <Text style={styles.distanceheading}>Distance</Text>
+            </View>
+
+            <View>
+                <View style={styles.distanceslider}>
+                <SliderText
+                    style={{width: 200, height: 40}}
+                    stepValue={1}
+                    minimumValue={0}
+                    maximumValue={50}
+                    onValueChange={(id) => setSliderValue(id)}
+                    sliderValue={sliderValue}
+                    minimumTrackTintColor="#FFD25B"
+                    maximumTrackTintColor="#C4C4C4"
+                    thumbTintColor="#FFD25B"
+                    minimumValueLabel="1km"
+                    maximumValueLabel="50km"  
+                />
+                </View>
+            </View>
+            
+            <View style={styles.filterItem}>
+                <Text style={styles.foodheader}>Food{"\n"}</Text>
+                <FoodIcon />
+            </View>
+
+            <View style={styles.buttonCenter}>
+                <Button onPress={() => {
+                history.push("/signinbutton")
+              }}text="SAVE CHANGES" buttonfontsize={24}/>
+            </View>
+        </View>
+>>>>>>> Stashed changes
         </ScrollView>
     </View>
 }

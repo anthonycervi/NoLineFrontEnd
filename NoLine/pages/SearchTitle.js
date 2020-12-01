@@ -18,12 +18,14 @@ import {
   StatusBar,
   Image,
 } from 'react-native';
+import SliderText from 'react-native-slider-text';
 import Slider from '@react-native-community/slider';
 import axios from 'axios';
 import {NativeRouter, Route, Link} from "react-router-native";
 // import Slider from '../comps/Slider';
 import Button from '../comps/Button';
 import Navigator from '../comps/Navigator';
+import Message from '../comps/Message';
 import SearchTitle from '../comps/SearchTitle';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import InputIconBar from '../comps/InputIconBar';
@@ -32,6 +34,7 @@ import MapOverlay from '../comps/MapOverlay';
 import PlusPNG from '../public/plus.png';
 import MinusPNG from '../public/minus.png';
 
+import '../public/down.png'
 import '../public/minus.png';
 import '../public/plus.png';
 
@@ -55,10 +58,13 @@ import '../public/plus.png';
 // }
 
 //MAP COMPONENT IS ADRIAN'S GOOGLE MAP API
-const SearchTitlePage = () =>{
 
-  
-  return <View style={styles.cont}>
+
+const SearchTitlePage = () =>{
+  const [sliderValue, setSliderValue] = useState(0);
+
+return   <ScrollView>
+  <View style={styles.cont}>
     <View style={title.cont}>
  <SearchTitle></SearchTitle>
  </View>
@@ -83,10 +89,6 @@ const SearchTitlePage = () =>{
          <Text style={TextStyle.report}>Report the Current Wait Time!</Text>
        </View>
 
-       <View>
-         <Text style={TextStyle.min}>(num) min</Text>
-       </View>
-
   <View style={ImageStyle.cont}>
     <Image 
     style={ImageStyle.image}
@@ -97,23 +99,19 @@ const SearchTitlePage = () =>{
   </View>
 
  <View style={SliderStyle.cont}>
- <Slider
-    style={{width: 300, height: 40}}
+ <SliderText style={SliderStyle.slider}
+    style={{width: 200, height: 40}}
+    stepValue={5}
     minimumValue={0}
-    maximumValue={1}
+    maximumValue={120}
+    onValueChange={(id) => setSliderValue(id)}
+    sliderValue={sliderValue}
     minimumTrackTintColor="#FFD25B"
     maximumTrackTintColor="#C4C4C4"
     thumbTintColor="#FFD25B"
+    minimumValueLabel="0 min"
+    maximumValueLabel="2+ hours"  
   />
- </View>
-
- <View style={TextStyle.number}>
-   <View>
-     <Text>0 min</Text>
-   </View>
-   <View>
-     <Text>2+ hours</Text>
-   </View>
  </View>
 
 <View style={ButtonStyle.cont}>
@@ -123,16 +121,27 @@ const SearchTitlePage = () =>{
  </View>
  {/* </Link> */}
 
- <View>
+
+ <ScrollView>
+ <View style={Comment.space}>
    <Text style={TextStyle.report}>Comments</Text>
-   <InputIconBar text="Add a Comment..." width="331" image={sendIconPNG.src}/>
+   <InputIconBar style={TextStyle.input} text="Add a Comment..." width="331" image={sendIconPNG.src}/>
+  <View style={Comment.message}>
+    <Message title="False Wait Time" messageBody="This restaurant currently has 30minutes of wait time, not 10minute." timestamp="10min" username="BogaXD12"/>
+    <Message title="Amazing Place" messageBody="Of course one expects really fresh sushi in Vancouver.  Restaurant sushi is not only fresh but well portioned and presented." timestamp="1hour" username="Antony" />
+    <Message title="Huge line up" messageBody="This restaurant has a huge line up right now." timestamp="2hour" username="farhazzz"/>
+    <Message title="Huge line up" messageBody="This restaurant has a huge line up right now." timestamp="2hour" username="farhazzz"/>
+
+   </View>
  </View>
+ </ScrollView>
 
 
 <View style={Nav.cont}>
 <Navigator></Navigator>
 </View>
   </View>
+  </ScrollView>
 }
 
 const styles = StyleSheet.create({
@@ -153,7 +162,20 @@ const Nav = StyleSheet.create({
   cont:{
     position:"relative",
     flex:1,
-    top:40
+    bottom:0
+  }
+})
+
+const Comment = StyleSheet.create({
+  space:{
+    height:"100%",
+    top:10
+  },
+  
+  message:{
+    height:"100%",
+    display:'flex',
+    justifyContent:"space-around",
   }
 })
 
@@ -164,7 +186,7 @@ const ButtonStyle = StyleSheet.create({
   display:"flex",
   justifyContent:"center",
   alignItems:"center",
-  bottom:10
+  bottom:25
   }
 })
 
@@ -183,11 +205,15 @@ const TextStyle = StyleSheet.create({
   },
 
   report:{
-    fontSize:18,
+    fontSize:22,
   },
 
   min:{
     fontSize:16,
+    top:50
+  },
+
+  input:{
     top:50
   }
 })
@@ -195,13 +221,11 @@ const TextStyle = StyleSheet.create({
 const SliderStyle = StyleSheet.create({
   cont:{
     position:"relative",
-    width:"100%",
-    justifyContent:"center",
-    alignItems:"center",
-    top:25
+    width:"80%",
+    top:10
   },
   slider:{
-    height:5
+    width:"50%"
   }
 })
 
@@ -243,7 +267,7 @@ const ImageStyle = StyleSheet.create({
     flexDirection:"row",
     justifyContent: "space-between",
     width:"90%",
-    top:55    
+    top:101  
   }
 })
 

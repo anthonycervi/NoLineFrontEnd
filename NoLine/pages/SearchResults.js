@@ -18,7 +18,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import axios from 'axios';
-import {Link, useHistory} from "react-router-native";
+import {Link, useHistory, useParams} from "react-router-native";
 import SearchBar from '../comps/SearchBar';
 import Button from '../comps/Button';
 import SearchResult from '../comps/SearchResult'
@@ -64,7 +64,7 @@ const SearchResultPage = () => {
   //grab name, icon, user_rating_total, rating under getRestaurantsAroundUser function
   //grab formatted_address under searchLocation
   //photo_reference??
-
+  const {keyword} = useParams();
   const [restaurant, setRestaurant] = useState([])
   const [coordinates, setCoordinates] = useState([])
   const [count, setCount] = React.useState(0);
@@ -75,7 +75,7 @@ const SearchResultPage = () => {
   
   const getAllRestaurantsDetails = async() => {
     try {
-      setRestaurant(await getAllRestaurants("sushi"));
+      setRestaurant(await getAllRestaurants(keyword || "sushi"));
     } catch (err) {
       console.log(err);
     }
@@ -120,7 +120,10 @@ const SearchResultPage = () => {
             </View>
             <ScrollView>
         {
-          restaurant.map(item => <SearchResult key={item.waitTime} name={item.name} IImage={item.photos} revnum={"(" + item.user_ratings_total + " reviews)"} stars={item.rating + "/5"} textWait={(item.waitTime) + " min"}></SearchResult>)
+          restaurant.map((item,i) => {
+            console.log("restaurant", item.place_id);
+            return <SearchResult key={i} id={item.place_id} name={item.name} IImage={item.photos} revnum={"(" + item.user_ratings_total + " reviews)"} stars={item.rating + "/5"} textWait={(item.waitTime) + " min"}></SearchResult>
+          })
         }
      </ScrollView>
      <View style={Nav.nav}>

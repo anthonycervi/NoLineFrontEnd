@@ -205,7 +205,7 @@ const RevText = styled.Text`
 
 `;
 
-const SearchResult = ({ IImage, textDistance, color, width, height, stars, name, username, time, revnum, textWait }) => {
+const SearchResult = ({ IImage, textDistance, color, width, height, stars, name, username, time, revnum, textWait, id }) => {
    
    const [photo, setPhoto] = useState('');
    useEffect(() => {
@@ -217,7 +217,7 @@ const SearchResult = ({ IImage, textDistance, color, width, height, stars, name,
    }, [])
 
    return <View><Main>
-      <Link to = "/restauranttitle">
+      <Link to = {"/restauranttitle/"+id}>
       <OverlayDiv>
      <Text>{
       photo && <SearchImg color={color}><IconImage source={{uri:(photo)}}/></SearchImg>  
@@ -274,7 +274,8 @@ SearchResult.defaultProps= {
    time:"30m",
    revnum:null,
    IImage: '../../public/NoLine_Logo_Final.png',
-   stars:"4"
+   stars:"4",
+   id:""
  }
 
 export default SearchResult

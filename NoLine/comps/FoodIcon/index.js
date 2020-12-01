@@ -16,6 +16,7 @@ import Seafood from '../../public/Seafood.png';
 import Sushi from '../../public/Sushi.png';
 import Thai from '../../public/Thai.png';
 import Vietnamese from '../../public/Vietnamese.png';
+import CheckImage from '../../public/check.png'
 
 
 const Container = styled.View`
@@ -27,11 +28,12 @@ const Container = styled.View`
     justify-content: center;
 `;
 
-const FlexItem = styled.View`
+const FlexItem = styled.TouchableOpacity`
     width: 100px;
     margin: 10px;
     align-items: center;
     justify-content: center;
+    position:relative;
 `;
 
 const FoodImage = styled.Image`
@@ -40,6 +42,15 @@ const FoodImage = styled.Image`
     resize-mode: contain;
     align-items: center;
     justify-content: center;
+    
+`;
+
+const CheckMark = styled.Image`
+position:absolute;
+    top:0;
+    left:0;
+    width:20px;
+    height:20px;
 `;
 
 const Label = styled.Text`
@@ -100,78 +111,124 @@ const VietnamesePNG = {
     src: Vietnamese
 }
 
+const CheckPNG = {
+    src: CheckImage
+}
 
-const FoodIcon = ({ image, text }) => {
-    const[checked, setChecked] = useState(false);
+const FoodIcon = ({ image, text, onPress }) => {
+    const[checked, setChecked] = useState(0);
 
     return (
         <View>
             <Container>
-                <FlexItem >
-                    <FoodImage source={AmericanPNG.src}
-                    status={checked ? 'checked' : 'unchecked'}
-                    onPress={()=>{
-                    setChecked(!checked);
-                    }}
-                    />
+                <FlexItem onPress={() => {
+                    onPress("American Food")
+                    setChecked(1)
+                }}>
+                    <FoodImage source={AmericanPNG.src}/>
+                    {checked===1 ? <CheckMark source={CheckPNG.src}/> : null}
                     <Check>
-                        <CheckIcon checked={checked}/>
+                        <CheckIcon/>
                     </Check>
                     <Label>American</Label>
-                </FlexItem>
+                </FlexItem >
 
-                <FlexItem>
+                <FlexItem onPress={() => {
+                    onPress("Chinese Food")
+                    setChecked(2)
+                }}>
                     <FoodImage source={ChinesePNG.src}/>
+                    {checked===2 ? <CheckMark source={CheckPNG.src}/> : null}
                     <Label>Chinese</Label>
                 </FlexItem>
 
-                <FlexItem>
+                <FlexItem onPress={() => {
+                    onPress("French Food")
+                    setChecked(3)
+                }}>
                     <FoodImage source={FrenchPNG.src}/>
+                    {checked===3 ? <CheckMark source={CheckPNG.src}/> : null}
                     <Label>French</Label>
                 </FlexItem>
 
-                <FlexItem>
+                <FlexItem onPress={() => {
+                    onPress("Indian Food")
+                    setChecked(4)
+                }}>
                     <FoodImage source={IndianPNG.src}/>
+                    {checked===4 ? <CheckMark source={CheckPNG.src}/> : null}
                     <Label>Indian</Label>
                 </FlexItem>
 
-                <FlexItem>
+                <FlexItem onPress={() => {
+                    onPress("Italian Food")
+                    setChecked(5)
+                }}>
                     <FoodImage source={ItalianPNG.src}/>
+                    {checked===5 ? <CheckMark source={CheckPNG.src}/> : null}
                     <Label>Italian</Label>
                 </FlexItem>
 
-                <FlexItem>
+                <FlexItem onPress={() => {
+                    onPress("Mexican Food")
+                    setChecked(6)
+                }}>
                     <FoodImage source={MexicanPNG.src}/>
+                    {checked===6 ? <CheckMark source={CheckPNG.src}/> : null}
                     <Label>Mexican</Label>
                 </FlexItem>
 
-                <FlexItem>
+                <FlexItem onPress={() => {
+                    onPress("Arabic Food")
+                    setChecked(7)
+                }}>
                     <FoodImage source={MiddleEastPNG.src}/>
+                    {checked===7 ? <CheckMark source={CheckPNG.src}/> : null}
                     <Label>Middle East</Label>
                 </FlexItem>
 
-                <FlexItem>
+                <FlexItem onPress={() => {
+                    onPress("Pizza Food")
+                    setChecked(8)
+                }}>
                     <FoodImage source={PizzaPNG.src}/>
+                    {checked===8 ? <CheckMark source={CheckPNG.src}/> : null}
                     <Label>Pizza</Label>
                 </FlexItem>
 
-                <FlexItem>
+                <FlexItem onPress={() => {
+                    onPress("Seafood Food")
+                    setChecked(9)
+                }}>
                     <FoodImage source={SeafoodPNG.src}/>
+                    {checked===9 ? <CheckMark source={CheckPNG.src}/> : null}
                     <Label>Seafood</Label>
                 </FlexItem>
 
-                <FlexItem>
+                <FlexItem onPress={() => {
+                    onPress("Sushi Food")
+                    setChecked(10)
+                }}>
                     <FoodImage source={SushiPNG.src}/>
+                    {checked===10 ? <CheckMark source={CheckPNG.src}/> : null}
                     <Label>Sushi</Label>
                 </FlexItem>
 
-                <FlexItem>
+                <FlexItem onPress={() => {
+                    onPress("Thai Food")
+                    setChecked(11)
+                }}>
                     <FoodImage source={ThaiPNG.src}/>
+                    {checked===11 ? <CheckMark source={CheckPNG.src}/> : null}
                     <Label>Thai</Label>
                 </FlexItem>
 
-                <FlexItem>
+                <FlexItem onPress={() => {
+                    onPress("Vietnamese Food")
+                    setChecked(12)
+                }}>
                     <FoodImage source={VietnamesePNG.src}/>
+                    {checked===12 ? <CheckMark source={CheckPNG.src}/> : null}
                     <Label>Vietnamese</Label>
                 </FlexItem>
                 
@@ -183,6 +240,7 @@ const FoodIcon = ({ image, text }) => {
 FoodIcon.defaultProps = {
     text: "American",
     image: "/American.svg",
+    onPress:() => {}
 };
 
 export default FoodIcon;

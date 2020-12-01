@@ -113,6 +113,9 @@ const styles = StyleSheet.create({
 export default function SearchFilters() {
     const [sliderValue, setSliderValue] = useState(0);
     const history = useHistory();
+
+    const [keyword, setKeyword] = useState("")
+
     return <View styles={styles.page}>
         <ScrollView>
             <View style={styles.ContentContainer}>
@@ -172,6 +175,7 @@ export default function SearchFilters() {
                     </View>
 
 
+<<<<<<< Updated upstream
                     <View>
                         <View style={styles.distanceslider}>
                             <SliderText
@@ -188,6 +192,19 @@ export default function SearchFilters() {
                                 maximumValueLabel="50km"
                             />
 
+=======
+                        <View>
+                            <View style={styles.sliderFlex}>
+                                <FilterSlider text="Distance" slidenumber="10 km" number="50 km"/>
+                            </View>
+                        </View>
+                        
+                        <View style={styles.filterItem}>
+                            <Text style={styles.filterHeading}>Food{"\n"}</Text>
+                            <FoodIcon onPress={(word)=> {
+                            setKeyword(word)
+                            }} />
+>>>>>>> Stashed changes
                         </View>
                     </View>
 
@@ -196,10 +213,18 @@ export default function SearchFilters() {
                         <FoodIcon />
                     </View>
 
+<<<<<<< Updated upstream
                     <View style={styles.buttonCenter}>
                         <Button onPress={() => {
                             history.push("/signinbutton")
                         }} text="SAVE CHANGES" buttonfontsize={24} />
+=======
+                        <View style={styles.buttonCenter}>
+                            <Button onPress={() => {
+                            history.push("/savechanges/" + keyword)
+                        }}text="SAVE CHANGES" buttonfontsize={24}/>
+                        </View>
+>>>>>>> Stashed changes
                     </View>
                 </View>
             </View>

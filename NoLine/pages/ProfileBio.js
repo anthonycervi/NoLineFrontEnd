@@ -54,7 +54,7 @@ import {
 } from '../database/functions';
   
 
-
+import {useInfo} from '../context/provider'
 
 
 const styles = StyleSheet.create({
@@ -151,17 +151,25 @@ const styles = StyleSheet.create({
 
 export default function ProfileBio({ onPress }) {
     const [fullname, setFullname] = useState("");
+    const {user, setUser} = useInfo();
+    console.log(user);
 
     const getUserName = async() => {
     try {
-        const user= await getUserWithUid();
-        setFullname(user.firstname);
+        //const user= await getUserWithUid();
+        //setFullname(user.firstname);
     } catch (err) {
         console.log(err);
     }
 }
 
-
+    const UpdateName = async()=>{
+        //await update db
+        setUser({
+            ...user,
+            firstname:"whatever you typed"
+        })
+    }
     const history = useHistory();
     return <View style={styles.PageCont}>
          
@@ -176,9 +184,10 @@ export default function ProfileBio({ onPress }) {
         </TouchableOpacity>
 
         <View style={styles.profileComp}>
-            {/* {
-                (<Profile key={user.firstname} profilename={(user.firstname)}></Profile>)
-            } */}
+            {
+                (<Profile key={user.firstname} profilename={(user.firstname)}
+                ></Profile>)
+            }
         </View>
 
         <View style={styles.profAwards}>

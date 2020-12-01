@@ -11,7 +11,7 @@ import Button from '../comps/Button';
 import InputBox from '../comps/InputBox';
 import AccountText from '../comps/AccountText';
 import LogoOnly from "../comps/LogoOnly";
-
+import {useInfo} from '../context/provider'
 import {
   SafeAreaView,
   StyleSheet,
@@ -77,12 +77,13 @@ const signIn = () => {
   const [pass, setPass] = useState("");
 
   const history = useHistory();
-
+  const {setUser} = useInfo();
   const handleLogIn = () => {
     console.log(email,pass);
     login(email,pass)
       .then(user=>{
         console.log('login success', user);
+        setUser({...user})
         history.push("/signinbutton");
       })
       .catch(err=>{

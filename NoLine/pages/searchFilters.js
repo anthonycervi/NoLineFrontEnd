@@ -6,6 +6,7 @@ import Button from '../comps/Button';
 import CheckIcon from '../comps/CheckIcon';
 import { View, Text, StyleSheet, ScrollView, onPress, TouchableOpacity } from 'react-native';
 import { useHistory } from "react-router-native";
+import SliderText from 'react-native-slider-text';
 
 
 const styles = StyleSheet.create({
@@ -30,14 +31,16 @@ const styles = StyleSheet.create({
         top:40
     },
 
-    filterHeading:{
-        fontSize: 16,
+    waittimeheader:{
+        fontSize: 20,
+        top:40,
+        left:20
     },
 
-    sliderFlex: {
+    waittimeslider: {
         display: 'flex',
         flexDirection: 'column',
-        top:10
+        bottom:30
     },
 
     buttonCenter:{
@@ -47,7 +50,7 @@ const styles = StyleSheet.create({
     },
 
     filterItem:{
-        bottom:70
+        bottom:40
     },
 
     greenBar:{
@@ -85,10 +88,24 @@ const styles = StyleSheet.create({
         alignItems: "center",
         alignContent: "center",
     },
+
+    distanceheading:{
+        bottom:20,
+        fontSize:20
+    },
+
+    distanceslider:{
+        bottom:40
+    },
+
+    foodheader:{
+        fontSize:20
+    }
 })
 
 
 export default function SearchFilters() {
+    const [sliderValue, setSliderValue] = useState(0);
     const history = useHistory();
     return <View styles={styles.page}>
         <ScrollView>

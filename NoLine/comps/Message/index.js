@@ -5,7 +5,6 @@ import { View, Text, Image } from 'react-native';
 import ProfilePic from '../../public/MessageProfile.png';
 
 const MessageContainer = styled.View`
-
     font-family: Montserrat;
     font-style: normal;
 `;
@@ -28,7 +27,7 @@ const MessageHeading = styled.Text`
 
     font-weight: normal;
     font-size: 16px;
-    line-height: 16px;
+    line-height: 22px;
 `;
 
 const Review = styled.View`

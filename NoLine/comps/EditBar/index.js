@@ -1,20 +1,20 @@
 import React from 'react';
 import styled, {css} from 'styled-components/native';
-import {View, Text} from 'react-native';
-import {Link} from "react-router-native";
+import {View, Text, TouchableOpacity} from 'react-native';
+import {Link, useHistory} from "react-router-native";
 const BarContainer = styled.View`
     display: flex;
-    
+    width: 100%;
     flex-direction:row;
     
     
 `;
 
 const BarItem = styled.Text`
-    background-color: #00000000;
+    background-color: blue;
     color: #9D9D9D;
     text-align: center;
-    width: 165px;
+    width: 100%;
     font-style: normal;
     font-weight: 500;
     line-height: 16px;
@@ -31,7 +31,8 @@ const HeadingMiddle = styled.Text`
 const Left = styled.Text`
     color: #9D9D9D;
     font-weight: 500;
-    font-size: 12;
+    font-size: 20;
+    
 `;
 
 const PCont = styled.View``;
@@ -39,23 +40,35 @@ const PText = styled.Text``;
 const Right = styled.Text`
     color: #8486D1;;
     font-weight: 500;
-    font-size: 12;
+    font-size:20;
 `;
 
 const EditBar = ({left, middle, right}) => {
+    const history = useHistory();
     return <BarContainer>
         <BarItem>
-            <Link to="profilebio">
+
+        <TouchableOpacity  
+        onPress={() => {
+            history.push("/profilebio")
+          }}>  
             <Left>{left}</Left>
-            </Link>
+            </TouchableOpacity>
+
+
         </BarItem>
         <BarItem><HeadingMiddle>{middle}</HeadingMiddle></BarItem>
         <BarItem>
-            <Link to="profilebio">
-            <Right>{right}</Right>
-            </Link>
-            </BarItem>
 
+        <TouchableOpacity  
+        onPress={() => {
+            history.push("/profilebio")
+          }}>              
+            <Right>{right}</Right>            
+            </TouchableOpacity>
+
+
+            </BarItem>
     </BarContainer>
 }
 

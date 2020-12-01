@@ -8,12 +8,15 @@
 
 import React from 'react';
 import Navigator from '../comps/Navigator';
-import InputIconBar from '../comps/InputIconBar';
+import SearchBar from '../comps/SearchBar';
+// import InputIconBar from '../comps/InputIconBar';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
  import MapImg from '../public/map.png'
  import styled, {css} from 'styled-components/native';
 import MapOverlay from '../comps/MapOverlay';
 import searchIconPNG from '../public/searchIcon.png';
+import Search from '../public/Search_White.png';
+
 
 
 import {
@@ -23,7 +26,8 @@ import {
   View,
   Text,
   StatusBar,
-  Image
+  Image,
+  TouchableOpacity
 } from 'react-native';
 
 // THE FOLLOWING IS COMMENTED OUT UNTIL ADRIAN PROVIDES US THE INFO TO PULL FROM :)
@@ -75,9 +79,12 @@ const Map = () =>{
      </MapView>
      </View>
      
-     <View style={SearchContainer.cont}>
-      <InputIconBar image={searchIconPNG}/>
-      </View>
+     <View style={SearchInput.cont}>
+          <SearchBar text=" Search" style={SearchBarInput.cont}/>
+          <TouchableOpacity style={SearchButton.cont}>
+          <SearchImage source={SearchPNG.src}/> 
+          </TouchableOpacity>
+     </View>
 
     <View style={NavContainer.cont}>
       <Navigator />
@@ -88,7 +95,17 @@ const Map = () =>{
   )
 }
 
+const SearchPNG = {
+  src: Search
+}
 
+const SearchImage = styled.Image`
+    width: 30px;
+    height: 30px;
+    resize-mode: contain;
+    align-items: center;
+    justify-content: center;
+`;
 
 const MainContainer = StyleSheet.create({
   cont:{
@@ -157,6 +174,46 @@ const SearchContainer = StyleSheet.create({
         left:0,
         backgroundColor: "white"  
       }
+      })
+
+
+      const SearchInput = StyleSheet.create({
+        cont:{
+        // flex:1,
+        flexDirection: "row",
+        width:"90%",
+        // backgroundColor: "pink",
+        overflow: "hidden",
+        // marginBottom: 15,
+        // top:-750,
+        marginTop:10,
+        position:"absolute",
+        
+        }
+      })
+      
+      const SearchBarInput = StyleSheet.create({
+        cont:{
+          // flex: 2,
+          alignSelf:"stretch",
+          display: "flex",
+          width:250,
+        }
+      })
+      
+      const SearchButton = StyleSheet.create({
+        cont:{
+          width: 49,
+          height: 49,
+          backgroundColor: "#FFD25B",
+          borderBottomEndRadius: 5,
+          borderTopEndRadius: 5,
+          display:"flex",
+          justifyContent: "center",
+          alignItems: "center",
+          // alignItems:"flex-end",
+          // flex: 1,
+        }
       })
 
       

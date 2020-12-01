@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, {css} from 'styled-components/native';
-import {View,Text,TextInput,Image} from 'react-native';
-import {NativeRouter, Route, Link} from "react-router-native";
+import {View,Text,TextInput,Image, TouchableOpacity} from 'react-native';
+import {NativeRouter, Route, Link, useHistory} from "react-router-native";
 
 
 const TopDiv = styled.View`
@@ -43,19 +43,38 @@ position:relative;
 left:60px;
 `;
 
-const UserPage = ({width,height,award,profile}) => {
+const UserPage = ({width,height, award, profile, onPress}) => {
+   const history = useHistory();
    return <View><TopDiv>
        <ProfileText>
-          <Link to="profilebio">
+
+
+
+       <TouchableOpacity  
+        onPress={() => {
+            history.push("/profilebio")
+          }}>       
           <Text>{profile}</Text>
-          </Link>
+          </TouchableOpacity>
+
+
+
       </ProfileText>
 <GreyDiv></GreyDiv>
 <MainDiv>
 <AwardsText>
-   <Link to="profileawards">
+
+
+
+<TouchableOpacity 
+        onPress={() => {
+            history.push("/profileawards")
+          }}> 
    <Text>{award}</Text>
-   </Link>
+   </TouchableOpacity>
+
+
+
 </AwardsText>
 <YellowDiv></YellowDiv>
 </MainDiv>

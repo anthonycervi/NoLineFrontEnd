@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components/native";
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 
 import Search from '../../public/Search.png';
 import LocationPin from '../../public/LocationPin.png';
@@ -11,7 +11,7 @@ import CheckedLocationPin from '../../public/LocationPin_Checked.png';
 import CheckedProfile from '../../public/Profile_Checked.png';
 
 
-import {NativeRouter, Route, Link} from "react-router-native";
+import {NativeRouter, Route, Link, useHistory} from "react-router-native";
 
 const NavContainer = styled.View`
   height: 87px;
@@ -49,19 +49,36 @@ const Navigator = () => {
 
 const [image, setImg] = useState(null);
 
-
+const history = useHistory();
   return (
     <View>
       <NavContainer>
-        <Link to="/searchicon">
+
+
+      <TouchableOpacity  
+        onPress={() => {
+            history.push("/searchicon")
+          }}>  
            <NavImage onPress={()=>{setImg(image.CheckedSearch);}} source={SearchPNG.src}/> 
-        </Link>
-        <Link to="/map1">
+        </TouchableOpacity>
+
+
+        <TouchableOpacity 
+        onPress={() => {
+            history.push("/map1")
+          }}>
           <NavImage source={LocationPNG.src}/> 
-        </Link>
-        <Link to="/profilenav">
+          </TouchableOpacity>
+
+
+          <TouchableOpacity  
+        onPress={() => {
+            history.push("/profilenav")
+          }}>
           <NavImage source={UserPNG.src}/> 
-        </Link>
+          </TouchableOpacity>
+
+
       </NavContainer>
     </View>
   );

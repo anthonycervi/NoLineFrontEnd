@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {View,Image} from "react-native";
-import {Link} from "react-router-native";
+import {View,Image, TouchableOpacity} from "react-native";
+import {Link, useHistory} from "react-router-native";
 
 const FilterContainer = styled.View`
     width: 30;
@@ -22,10 +22,14 @@ height:30;
 
 
  const Filter = ({}) => {
+  const history = useHistory();
        return <View><FilterContainer style ={{}}>
-            <Link to ="/filterpage">
+            <TouchableOpacity  
+                            onPress={() => {
+                                history.push("/filterpage")
+                            }}>
               <FilterImage source={require('../../public/Filter.png')}/>
-              </Link>
+              </TouchableOpacity>
               </FilterContainer>
               
               </View>

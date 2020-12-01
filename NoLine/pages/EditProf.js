@@ -28,6 +28,14 @@ const styles = StyleSheet.create({
         // backgroundColor:"blue",
     },
 
+    allContent: {
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+        // backgroundColor:'blue',
+        width:"100%",
+    },
+
     inputs: {
         display:'flex',
         alignItems:'center',
@@ -38,14 +46,15 @@ const styles = StyleSheet.create({
         borderRightWidth:0,
         borderLeftWidth:0,
         borderBottomWidth:0,
+        marginTop:6,
         // width: "70%",
     },
 
     buttons: {
         display:'flex',
         alignItems:'center',
-        margin:60,
-        marginBottom:90,
+        // margin:60,
+        // marginBottom:90,
     },
 
     space:{
@@ -72,6 +81,16 @@ const styles = StyleSheet.create({
         color:"#9D9D9D",
     },
 
+    buttonArea:{
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+        // backgroundColor:'green',
+        // height:100,
+        marginTop:50,
+        width:"100%",
+    },
+
     edittextCont:{
         width: 61,
         justifyContent:"center",
@@ -79,9 +98,7 @@ const styles = StyleSheet.create({
         top: 30,
         color:"#9D9D9D",
         
-    },
-
-    
+    }, 
 
 })
 
@@ -90,8 +107,7 @@ const ButtonStyles = StyleSheet.create({
         display:'flex',
         alignItems:'center',
         margin:60,
-        marginBottom:90,
-      
+        marginBottom:90, 
     }
     })
 
@@ -105,69 +121,60 @@ const ButtonStyles = StyleSheet.create({
 export default function EditProf() {
     const history = useHistory();
     return <View style={styles.pagespace}>
+                <View style={styles.allContent}>
+                    <ScrollView>
 
-{/* <KeyboardAvoidingView
-   behavior= "padding" "height"
-   style={styles.container} > */}
+                    <TouchableOpacity style={styles.edittextCont}
+                    onPress={() => {
+                        history.push("/profilebio")
+                    }}>
+                            <Text style={styles.edittext}>
+                            Cancel
+                            </Text>            
+                    </TouchableOpacity>
 
-            <ScrollView>
+                
 
-            <TouchableOpacity style={styles.edittextCont}
-            onPress={() => {
-                history.push("/profilebio")
-              }}>
-                {/* <Link to="/profilebio">            */}
-                    <Text style={styles.edittext}>
-                    Cancel
-                    </Text>     
-                {/* </Link> */}
-            </TouchableOpacity>
+                    <View style={styles.profileComp}>
+                        <EditProfile/>
+                    </View>
 
-            {/* <View style={styles.bar}>
-                <EditBar />
-            </View> */}
+                    <View style={styles.inputs}>
+                        <View style={styles.space}>
+                            <InputComp text="Name"/>
+                        </View>
 
-            <View style={styles.profileComp}>
-                <EditProfile/>
-            </View>
+                        {/* <View style={styles.space}>
+                            <InputComp text="Email"/>
+                        </View >
 
-            <View style={styles.inputs}>
-                <View style={styles.space}>
-                    <InputComp text="Name"/>
-                </View>
+                        <View style={styles.space}>
+                            <InputComp text="Password" width="100px"/>
+                        </View>
 
-                <View style={styles.space}>
-                    <InputComp text="Email"/>
-                </View >
+                        <View style={styles.space}>
+                            <InputComp text="Confirm Password"/>
+                        </View> */}
 
-                <View style={styles.space}>
-                    <InputComp text="Password" width="100px"/>
-                </View>
+                        <View style={styles.space}>
+                            <InputComp text="Location"/>
+                        </View>
+       
+                        <View style={styles.space}>
+                            <InputComp text="Bio" height="130"/>
+                        </View>
+        
+                    </View>
 
-                <View style={styles.space}>
-                    <InputComp text="Confirm Password"/>
-                </View>
-
-                <View style={styles.space}>
-                    <InputComp text="Location"/>
-                </View>
-{/* <KeyboardAvoidingView> */}
-                <View style={styles.space}>
-                    <InputComp text="Bio" height="130"/>
-                </View>
-{/* </KeyboardAvoidingView> */}
-            </View>
-
-            
-                {/* <Link to="/profilebio"> */}
-                    <Button  style={ButtonStyles.cont} onPress={() => {
-                history.push("/profilebio")
-              }} text="SAVE CHANGES" buttoncolor="white" buttonfontsize={24}/>
-                {/* </Link> */}
-            
-            </ScrollView>
-
-            {/* </KeyboardAvoidingView> */}
+                    <View style={styles.buttonArea}>
+        
+                            <Button  style={ButtonStyles.cont} onPress={() => {
+                        history.push("/profilebio")
+                    }} text="SAVE CHANGES" buttoncolor="white" buttonfontsize={24}/>
+                        </View>
+                    
+                    </ScrollView>
+            </View>           
     </View>
 
 }

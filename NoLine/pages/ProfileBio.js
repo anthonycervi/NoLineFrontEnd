@@ -182,9 +182,9 @@ export default function ProfileBio({ onPress }) {
         </View>
 
         <View style={styles.profAwards}>
-        <Link to="/profileawards">
+        
             <UserPage />
-        </Link>
+        
         </View>
 
         <View style={styles.inputs}>

@@ -2,8 +2,6 @@ const axios = require("axios");
 import config from "../database/firebase.config.json";
 const apiKey = config.apiKey;
 
-//Places api
-
 /**
  * Search location
  * @date 2020-11-12
@@ -16,9 +14,11 @@ export async function searchLocation(place, apiKey) {
     return axios.get(url).then((data) => {
         //random value function for wait time
         for (let i = 0 ; i < data.data.results.length ; i++){
-            data.data.results[i].waitTime = Math.floor((Math.random() * 40) + 5);
+            data.data.results[i].waitTime = (Math.floor((Math.random() * 40) + 5));
         }
-        return data.data.results
+        return data.data.results.sort((a, b) => {
+            return a.waitTime - b.waitTime;
+        });
     })
 }
 
@@ -40,7 +40,7 @@ export async function getRestaurantsAroundUser(type, keyword, lat, long, apiKey)
 
 
 
-// Testing
+//Testing
 // (async () => {
 //     const result = await searchLocation('restaurant', apiKey);
 //     console.log(result)

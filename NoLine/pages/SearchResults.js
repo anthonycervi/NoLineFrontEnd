@@ -47,6 +47,8 @@ import {
   getAllRestaurantByWaitTime,
   getAllRestaurants,
   getAllPhotos,
+  getDistanceFromLatLonInKm,
+  deg2rad,
 } from '../database/functions';
 
 import {
@@ -54,105 +56,55 @@ import {
   searchLocation
 } from '../mapAPI/apiConnect';
 
+import {
+  setFullname
+} from './signUp'
+
 const SearchResultPage = () => {
   //grab name, icon, user_rating_total, rating under getRestaurantsAroundUser function
   //grab formatted_address under searchLocation
   //photo_reference??
 
   const [restaurant, setRestaurant] = useState([])
+  const [coordinates, setCoordinates] = useState([])
+  const [count, setCount] = React.useState(0);
+  const [fullname, setFullname] = useState("");
+
   //create input state for places so its not hardcoded and then use state on the function variable.
+
   
   const getAllRestaurantsDetails = async() => {
     try {
       setRestaurant(await getAllRestaurants("sushi"));
-      console.log(getAllRestaurants);
     } catch (err) {
       console.log(err);
     }
   }
-    
-  // return <View>
-  //   <ScrollView>
-  //           <View style={SearchInput.cont}>
-  //           <InputIconBar text="Search" image={searchIconPNG}/>
-  //       </View>
-        
-const getAllRestaurantsNames = async () => {
-  try {
-    const res = await searchLocation(place, apiKey);
-    const restaurantNameArr = [];
-    res.forEach(data => {
-      restaurantNameArr.push(data.name);
-    });
-    console.log(restaurantNameArr)
-    setName(restaurantNameArr)
-  } catch (err) {
-    console.log(err);
-  }
-  }
-  
-  //need to work on this
-  const getAllRestaurantsphotos = async () => {
-    try {
-      const res = await searchLocation(place, apiKey);
-      const arr = []
-      res.forEach(photos => {
-        const PhotoRef = ((photos.photos[0].photo_reference));
-        const url = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${PhotoRef}&key=${apiKey}`;
-        arr.push(url);
-        setPhoto(arr);
-      });
-      console.log(arr);
-    } catch (err) {
-      console.log(err);
-    }
-    }
+  // const getDistance = async () => {
+  //   try {
+  //     lat1 = "49.27966";
+  //     lon1 = "-123.11993";
+  //     restaurant.map(item => {
+  //       const container = {};
+  //       container[item.geometry];
+  //       console.log(container); 
+  //     } );
+  //     // setCoordinates(await getgetDistanceFromLatLonInKm(lat1, lon1, lat2, lon2));
+  //   } catch (err) {
+  //      console.log(err);
+  //   }
+  // } 
+  useEffect(() => {
+    getAllRestaurantsDetails();
+    console.log('Run useeffect');
+    setCount(100);
+    }, []);
 
-    // const getAllRestaurantsRating = async () => {
-    //   try {
-    //     const res = await searchLocation(place, apiKey);
-    //     const arr = []
-    //     res.forEach(rating => {
-    //       const userRating = (rating.rating);
-    //     });
-    //     arr.push(userRating);
-
-    //   } catch (err) {
-    //     console.log(err);
-    //   }
-    //   }
-     
-      const getAllRestaurantsUserRatingTotal = async () => {
-        try {
-          const res = await searchLocation(place, apiKey);
-          const userRatingArr = []
-          res.forEach(user_ratings_total => {
-            userRatingArr.push(user_ratings_total.user_ratings_total);
-          });
-          setRatingTotal(userRatingArr);
-          console.log(userRatingArr);
-        } catch (err) {
-          console.log(err);
-        }
-        }
-     
-        const getAllRestaurantsFormattedAddress = async () => {
-          try {
-            const res = await searchLocation(place, apiKey);
-            res.forEach(formatted_address => {
-              console.log(formatted_address.formatted_address);
-            });
-          } catch (err) {
-            console.log(err);
-          }
-          }
-    
   return <View style={PageContainer.cont}>
             <View style={SearchInput.cont}>
               <SearchBar text=" Search" style={SearchBarInput.cont}/>
               <TouchableOpacity style={SearchButton.cont}></TouchableOpacity>
             </View>
-        {/* <Button text="Get All Recipes" onPress={getAllRestaurantDetails} /> */}
             <View style={BothButtonStyles.cont}>
 
                 <View style={ButtonStyles.cont}>
@@ -168,7 +120,7 @@ const getAllRestaurantsNames = async () => {
             </View>
             <ScrollView>
         {
-          restaurant.map(item => <SearchResult key={item.name} name={item.name} IImage={item.photos} revnum={"(" + item.user_ratings_total + " reviews)"} stars={"4" + "/5"}></SearchResult> )
+          restaurant.map(item => <SearchResult key={item.waitTime} name={item.name} IImage={item.photos} revnum={"(" + item.user_ratings_total + " reviews)"} stars={item.rating + "/5"} textWait={(item.waitTime) + " min"}></SearchResult>)
         }
      </ScrollView>
      <View style={Nav.nav}>
@@ -177,7 +129,7 @@ const getAllRestaurantsNames = async () => {
        
       
       <View style={Nav.nav}>
-        <Button onPress={getAllRestaurantsDetails}></Button>
+       
       <Navigator ></Navigator>
        </View>
       

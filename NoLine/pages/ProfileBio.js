@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Profile from '../comps/Profile';
 import InputComp from '../comps/InputComp';
 import UserPage from '../comps/UserPage';
@@ -29,6 +29,33 @@ import axios from 'axios';
 //     setReviewwritten([...resp.data]);
 //     setBio([...resp.data]);
 // }
+
+import {
+    addUser,
+    addRating,
+    getUserWithUid,
+    registerUser,
+    addReview,
+    login,
+    getReviewsByRestaurant,
+    getUserFirstname,
+    logout,
+    addComment,
+    getCommentsByRestaurant,
+    addWaitTime,
+    getWaitTime,
+    addPoints,
+    getAllPoints,
+    getAllRestaurantByWaitTime,
+    getAllRestaurants,
+    getAllPhotos,
+    getDistanceFromLatLonInKm,
+    deg2rad,
+} from '../database/functions';
+  
+
+
+
 
 const styles = StyleSheet.create({
     profileComp: {
@@ -122,10 +149,22 @@ const styles = StyleSheet.create({
 
 })
 
-export default function ProfileBio({onPress}) {
+export default function ProfileBio({ onPress }) {
+    const [fullname, setFullname] = useState("");
+
+    const getUserName = async() => {
+    try {
+        const user= await getUserWithUid();
+        setFullname(user.firstname);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+
     const history = useHistory();
     return <View style={styles.PageCont}>
-        
+         
         <TouchableOpacity style={styles.edittextCont} 
         onPress={() => {
             history.push("/editprofile")
@@ -137,7 +176,9 @@ export default function ProfileBio({onPress}) {
         </TouchableOpacity>
 
         <View style={styles.profileComp}>
-            <Profile />
+            {/* {
+                (<Profile key={user.firstname} profilename={(user.firstname)}></Profile>)
+            } */}
         </View>
 
         <View style={styles.profAwards}>

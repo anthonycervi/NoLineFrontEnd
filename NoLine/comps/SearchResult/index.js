@@ -83,7 +83,7 @@ const ReviewNumber = styled.Text`
 color: ${props => props.color ? props.color : "#999999" };
 position:relative;
 top:-57px;
-left:140px;
+left:155px;
 `;
 
 const HeaderDiv = styled.View`
@@ -259,6 +259,8 @@ const SearchResult = ({ IImage, textDistance, color, width, height, stars, name,
    
 }
 
+import '../../public/NoLine_Logo_Final.png'
+
 SearchResult.defaultProps= {
    textWait:"10 min",
    textDistance:"1.5 km",
@@ -271,7 +273,7 @@ SearchResult.defaultProps= {
    username:"user123",
    time:"30m",
    revnum:null,
-   IImage: null,
+   IImage: '../../public/NoLine_Logo_Final.png',
    stars:"4"
  }
 

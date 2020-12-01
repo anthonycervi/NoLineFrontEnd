@@ -61,11 +61,115 @@ import ProfileBioPage from './pages/ProfileBio'
 import startScreen from './pages/startScreen';
 import SearchResult from './comps/SearchResult';
 
+//Adrian Testing backend functions
+ //test Add User
+  // useEffect( ()=> {
+  //   console.log("app loading");
+  //   const newUser = addUser(user);
+  //   console.log(newUser);
+  // }, []);
 
+  //test user with UID
+  // useEffect(() => {
+  //   (async()=>{
+  //     const oldUser = await getUserWithUid("bM9KctEvqZMIvq4j0RC9hCduQEx1");
+  //     setUser(oldUser);
+  //     console.log(oldUser);
+  //   })()
+  // }, [setUser]);
+
+  // test login
+  //   useEffect(() => {
+  //   (async()=>{
+  //     const oldUser = await login("test123@gmail.com", "test123");
+  //     setUser(oldUser);
+  //     // console.log(oldUser);
+  //     console.log("hi")
+  //   })()
+  // }, [setUser]);
+
+  //test create review
+  // useEffect(()=>{
+  // (async ()=>{
+  //   await login("test123@gmail.com", "test123");
+  //   const add  = await addReview("ChIJq2tI6HtxhlQRBaKUv59cS9E","it is bad really bad");
+  // })()
+  // },[])
+
+  //test get review
+  // useEffect(()=>{
+  //   (async ()=>{
+  //       const reviews = await getReviewsByRestaurant("ChIJq2tI6HtxhlQRBaKUv59cS9E");
+  //       console.log(reviews[0]);
+  //     })()
+  // }, [])
+  
+
+  //test create comment
+  // useEffect(()=>{
+  // (async ()=>{
+  //   await login("test123@gmail.com", "test123");
+  //   const add = await addComment("ChIJq2tI6HtxhlQRBaKUv59cS9E","wait time is good");
+  //   console.log(add);
+  // })()
+  // }, [])
+  
+  //test get comment
+  //   useEffect(()=>{
+  //   (async ()=>{
+  //       const comments = await getCommentsByRestaurant("ChIJq2tI6HtxhlQRBaKUv59cS9E");
+  //       console.log(comments[0]);
+  //     })()
+  // }, [])
+
+  //test addWaitTimme
+  // useEffect(()=>{
+  // (async ()=>{
+  //   await login("test123@gmail.com", "test123");
+  //   const add = await addWaitTime("ChIJq2tI6HtxhlQRBaKUv59cS9E", 5);
+  //   console.log(add);
+  // })()
+  // }, [])
+  
+  //test get waittime
+  //   useEffect(()=>{
+  //   (async ()=>{
+  //       const waittime = await getWaitTime("ChIJq2tI6HtxhlQRBaKUv59cS9E");
+  //       console.log(waittime[0]);
+  //     })()
+  // }, [])
+
+  //test add points
+  // useEffect(() => {
+  //   (async () => {
+  //     await login("test123@gmail.com", "test123");
+  //     const add = await addPoints(600);
+  //     console.log(add);
+  //   })()
+  // }, [])
+
+  //test get sum of points based on user
+  // useEffect(() => {
+  //   (async () => {
+  //     await login("test123@gmail.com", "test123");
+  //     const add = await getAllPoints();
+  //     console.log(add);
+  //   })()
+  // }, [])
+
+
+  //test get all restaurant by wait time
+  // useEffect(() => {
+  //   (async () => {
+  //     await login("test123@gmail.com", "test123");
+  //     const results = await getAllRestaurantByWaitTime();
+  //     console.log(results)
+  //   })()
+  // }, [])
 
 const App = () => {
   return <NativeRouter><View style={styles.cont}>
-    <Route exact path="/" component={SearchTitlePage} />
+    <Route exact path="/" component={startScreen} />
     <Route exact path="/signup" component={SignUpPage} />
     <Route exact path="/signin" component={SignInPage} />
     <Route exact path="/signupbutton" component={SearchResultPage} />

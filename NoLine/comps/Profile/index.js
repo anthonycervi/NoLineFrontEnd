@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled, {css} from 'styled-components/native';
 import {View, Text, Image} from 'react-native';
 import ProfilePic from '../../public/ProfilePic.png';
@@ -41,18 +41,31 @@ const ProfileSVG = {
     src: ProfilePic
 }
 
-const Profile = ({fname, lname, city, province, score}) => {
+const Profile = ({ profilename, city, province, score }) => {
+
+    const [firstname, setFirstname] = useState('');
+    
+    useEffect(() => {
+        const fetch = async () => {
+           const newName = await getUserWithUid(profilename);
+           setFirstname(newName);
+        }
+        fetch();
+     }, [])
+
+
     return <ProfileContainer>
         <Image source={ProfileSVG.src}/>
-        <HeadingTwo>{fname} {lname}</HeadingTwo>
+        <HeadingTwo>
+            {profilename}
+            </HeadingTwo>
         <Paragraph>{city}, {province}</Paragraph>
         <HeadingOne>{score} Points</HeadingOne>
     </ProfileContainer>
 }
 
 Profile.defaultProps = {
-    fname: "First",
-    lname: "Last",
+    profilename: "Default Name",
     city: "City",
     province: "Province",
     score: "0"

@@ -87,13 +87,22 @@ width:25px;
 height:25px;
 `;
 
+const StarText = styled.Text`
+position:relative;
+right:0px;
+left:4px;
+bottom:0px;
+font-size:16px;
+color: #38383F;
+`;
+
 const SearchTitle = ({text,color,width,height,stars,h1text,username,time,revnum}) => {
    return <View><SearchDiv>
        <HeaderDiv>
 <SearchImg color={color}><Image source={require('../../public/RestImg.png')}/></SearchImg>
 <Header>{h1text}</Header>
 <StarDiv>
-<Star><StarImg source={require('../../public/Star.png')}/></Star>
+<Star><StarImg source={require('../../public/Star.png')}/><StarText>{stars}</StarText></Star>
 </StarDiv>
 <ReviewNumber>({revnum})</ReviewNumber>
 </HeaderDiv>
@@ -115,7 +124,8 @@ SearchTitle.defaultProps= {
    h1text:"Chronic Tacos",
    username:"@user",
    time:"30m",
-   revnum:"16"
+   revnum:"16",
+   stars:"4"
  }
 
 export default SearchTitle

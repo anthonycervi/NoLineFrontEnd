@@ -8,7 +8,7 @@
 
 
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -21,7 +21,7 @@ import {
 import SliderText from 'react-native-slider-text';
 import Slider from '@react-native-community/slider';
 import axios from 'axios';
-import {NativeRouter, Route, Link} from "react-router-native";
+import {NativeRouter, Route, Link, useParams} from "react-router-native";
 // import Slider from '../comps/Slider';
 import Button from '../comps/Button';
 import Navigator from '../comps/Navigator';
@@ -34,6 +34,7 @@ import MapOverlay from '../comps/MapOverlay';
 import PlusPNG from '../public/plus.png';
 import MinusPNG from '../public/minus.png';
 
+import {getRestaurant} from '../database/functions';
 import '../public/down.png'
 import '../public/minus.png';
 import '../public/plus.png';
@@ -62,11 +63,25 @@ import '../public/plus.png';
 
 const SearchTitlePage = () =>{
   const [sliderValue, setSliderValue] = useState(0);
+  const [searchText, setSearchText] = useState("5 min wait");
+  const [name, setName] = useState("")
+const {id} = useParams();
 
+const RestaurantDetail = async() =>{
+  if(id){
+    var details = await getRestaurant(id);
+    console.log("details", JSON.stringify(details.result, null, 2));
+    setName(details.result.name);
+
+  }
+}
+useEffect(()=>{
+  RestaurantDetail()
+}, [id]);
 return   <ScrollView>
   <View style={styles.cont}>
     <View style={title.cont}>
- <SearchTitle></SearchTitle>
+ <SearchTitle h1text={name} text={searchText}></SearchTitle>
  </View>
  
  {/* <Link to="/submitting"> */}
@@ -116,7 +131,9 @@ return   <ScrollView>
 
 <View style={ButtonStyle.cont}>
   <Link to="/map1">
- <Button style = {ButtonStyle.cont} text="Submit" buttonwidth={135} buttonheight={35}></Button> 
+ <Button style = {ButtonStyle.cont} text="Submit" buttonwidth={135} buttonheight={35} onPress={()=>{
+   setSearchText(`${sliderValue} min wait`)
+ }}></Button> 
  </Link>
  </View>
  {/* </Link> */}

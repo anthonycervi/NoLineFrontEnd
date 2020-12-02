@@ -9,7 +9,7 @@ const Comments = db.collection("comments");
 const WaitTime = db.collection("waittime"); //make an average function
 
 import config from './firebase.config.json';
-import { searchLocation, getRestaurantsAroundUser } from '../mapAPI/apiConnect';
+import { searchLocation, getRestaurantsAroundUser, getRestaurantsById } from '../mapAPI/apiConnect';
 
 /**
  * get user info with UID
@@ -396,6 +396,15 @@ export const getAllRestaurants = async(place) => {
     try {
       const res = await searchLocation(place, config.apiKey);
         return res;
+    } catch (err) {
+      console.log(err);
+    }
+}
+
+export const getRestaurant = async(id) => {
+    try {
+      const res = await getRestaurantsById(id, config.apiKey);
+    return res;
     } catch (err) {
       console.log(err);
     }

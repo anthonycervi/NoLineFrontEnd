@@ -60,7 +60,7 @@ import EditProfPage from './pages/EditProf'
 import ProfileBioPage from './pages/ProfileBio'
 import startScreen from './pages/startScreen';
 import SearchResult from './comps/SearchResult';
-
+import AppProvider from './context/provider'
 //Adrian Testing backend functions
  //test Add User
   // useEffect( ()=> {
@@ -168,7 +168,7 @@ import SearchResult from './comps/SearchResult';
   // }, [])
 
 const App = () => {
-  return <NativeRouter><View style={styles.cont}>
+  return <AppProvider><NativeRouter><View style={styles.cont}>
     <Route exact path="/" component={startScreen} />
     <Route exact path="/signup" component={SignUpPage} />
     <Route exact path="/signin" component={SignInPage} />
@@ -177,17 +177,21 @@ const App = () => {
     <Route exact path="/searchicon" component={SearchResultPage} />
     <Route exact path="/map1" component={Map1Page} />
     <Route exact path="/profilenav" component={ProfilePage} />
-    <Route exact path="/restauranttitle" component={SearchTitlePage} />
+
+    <Route path="/restauranttitle/:id" component={SearchTitlePage} />
+
     <Route exact path="/profileawards" component={ProfileAwardsPage} />
     <Route exact path="/editprofile" component={EditProfPage} />
     <Route exact path="/profilebio" component={ProfileBioPage} />
     <Route exact path="/filterpage" component={SearchFiltersPage} />
+    <Route path="/savechanges/:keyword" component={SearchResultPage} />
 
     {/* <Route exact path="/submitting" component={SignInPage}/> */}
 
 
   </View>
   </NativeRouter>
+  </AppProvider>
 }
 
 const styles = StyleSheet.create({

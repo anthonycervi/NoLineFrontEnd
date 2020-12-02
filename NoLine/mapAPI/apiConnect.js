@@ -38,6 +38,13 @@ export async function getRestaurantsAroundUser(type, keyword, lat, long, apiKey)
     // return await (await axios.get(url));
 }
 
+export async function getRestaurantsById(id, apiKey){
+    const url = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${id}&key=${apiKey}`;
+    console.log("url", url)
+    const resp = await axios.get(url);
+    return resp.data;
+}
+
 
 
 //Testing

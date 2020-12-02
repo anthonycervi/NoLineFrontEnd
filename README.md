@@ -47,7 +47,7 @@ Requirement
 To run our program simply type (in terminal):
 
 ```
-npm
+npx react-native start [OR] npm android start
 ```
 
 or visit this link:

@@ -1,5 +1,3 @@
-# NoLineFrontEnd
-
 <h1 align="center"> Team NoLine </h1>
 
 ## 📝 Table of Contents

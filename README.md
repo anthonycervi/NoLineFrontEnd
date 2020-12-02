@@ -24,7 +24,15 @@ Here is a list of dependencies installed in our program:
 
 ```
   "dependencies": {
-
+      "@react-native-community/slider": "^3.0.3",
+      "axios": "^0.21.0",
+      "firebase": "^8.1.1",
+      "react": "16.13.1",
+      "react-native": "0.63.3",
+      "react-native-maps": "^0.27.1",
+      "react-native-slider-text": "0.0.9",
+      "react-router-native": "^5.2.0",
+      "styled-components": "^5.2.1"
   }
 ```
 
@@ -47,7 +55,7 @@ Requirement
 To run our program simply type (in terminal):
 
 ```
-npx react-native start [OR] npm android start
+npm
 ```
 
 or visit this link:

@@ -46,9 +46,7 @@ npm i
 
 Requirement
 
-- [test]()
-- [test]()
-- [test]()
+- [Firebase](https://firebase.google.com/)
 
 ## 🚀 Deployment <a name= "deployment"></a>
 

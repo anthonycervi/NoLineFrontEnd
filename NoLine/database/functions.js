@@ -85,7 +85,6 @@ export async function registerUser(email, password, confirmPassword, data, fulln
         .createUserWithEmailAndPassword(email, password)
         .then(async (response) => {
             const uid = response.user.uid;
-           
             const currentTime = firebase.firestore.FieldValue.serverTimestamp();
 			data.createdTime = currentTime;
             data.id = uid;
@@ -98,11 +97,11 @@ export async function registerUser(email, password, confirmPassword, data, fulln
                     console.log("error", error.message)
 					throw error.message;
                 });
-                const userRef = db.collection('users').doc(uid);
-                userRef.update({ name: fullname })
-                    .then(function () {
-                        (console.log("fullname inserted"))
-                    })
+            const userRef = db.collection('users').doc(uid);
+            userRef.update({ name: fullname })
+                .then(function () {
+                    (console.log("fullname inserted"))
+                })
 		})
 		.catch((error) => {
 			throw error.message;
@@ -198,7 +197,7 @@ export async function addReview(restaurant,review) {
  * @param {string} fullname
  * @returns {object}
  */
-export async function addWaitTime(restaurant, waitTime, fullname) {
+export async function addWaitTime(restaurant, waitTime) {
     const current = await getUserWithUid();
     const data = {
         createdBy: { name: current.name, id: current.id },

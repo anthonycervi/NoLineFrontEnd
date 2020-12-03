@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import styled, {css} from 'styled-components/native';
 import {View, Text, Image} from 'react-native';
-import ProfilePic from '../../public/ProfilePic.png';
+import ProfilePic from '../../public/joshprofile.jpg';
 
 const ProfileContainer = styled.View`
     text-align: center;
@@ -23,7 +23,7 @@ const Paragraph = styled.Text`
     height: 13px;
     font-weight: normal;
     font-size: 14px;
-    line-height: 13px;
+    line-height: 16px;
     color: #ccc;
     margin-top: 4px;
     top:7px;
@@ -41,6 +41,12 @@ const ProfileSVG = {
     src: ProfilePic
 }
 
+const ProfileImg = styled.Image`
+width:150px;
+height:150px;
+border-radius:100px
+`;
+
 const Profile = ({ profilename, city, province, score }) => {
 
     const [firstname, setFirstname] = useState('');
@@ -55,7 +61,7 @@ const Profile = ({ profilename, city, province, score }) => {
 
 
     return <ProfileContainer>
-        <Image source={ProfileSVG.src}/>
+        <ProfileImg source={ProfileSVG.src}/>
         <HeadingTwo>
             {profilename}
             </HeadingTwo>
@@ -65,10 +71,10 @@ const Profile = ({ profilename, city, province, score }) => {
 }
 
 Profile.defaultProps = {
-    profilename: "Default Name",
-    city: "City",
-    province: "Province",
-    score: "0"
+    profilename: "Josh Mountain",
+    city: "New Westminister",
+    province: "BC",
+    score: "250"
 }
 
 export default Profile;

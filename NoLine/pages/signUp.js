@@ -52,7 +52,7 @@ const signUp = () => {
       example: "idk"
     }
     try {
-      const res = await registerUser(email, pass, confirmPassword, data);
+      const res = await registerUser(email, pass, confirmPassword, data, fullname);
       // console.log('Sign Up success', res);
       history.push("/signupbutton");
     } catch (err) {
@@ -86,7 +86,7 @@ const signUp = () => {
             </View>
 
             <View style={InputStyles.cont}>
-            <InputBox text=" ConfirmPassword" onChangeText={(text) => {
+            <InputBox text=" Confirm Password" onChangeText={(text) => {
                   setConfirmPassword(text)
                 }}/>
             </View>

@@ -33,7 +33,7 @@ import sendIconPNG from '../public/sendIcon.png';
 import MapOverlay from '../comps/MapOverlay';
 import PlusPNG from '../public/plus.png';
 import MinusPNG from '../public/minus.png';
-
+import { fullname } from './signUp';
 import { getAllPhotos, addWaitTime, getRestaurant } from '../database/functions';
 import config from '../database/firebase.config.json';
 
@@ -70,35 +70,43 @@ import '../public/plus.png';
 
 const SearchTitlePage = () =>{
   const [sliderValue, setSliderValue] = useState(0);
-  const [searchText, setSearchText] = useState("5 min wait");
+  const [searchText, setSearchText] = useState("10 min wait");
   const [name, setName] = useState("")
-
   const [revnum, setRevnum] = useState("")
   const [rating, setRating] = useState("")
   const [photo, setPhoto] = useState("")
   const [lat, setLat] = useState(0)
   const [long, setLong] = useState(0)
-const {id} = useParams();
+  const [waitnum, setWaitnum] = useState(0);
+  const [username, setUsername] = useState("")
+  
+  const {id} = useParams();
 
- const RestaurantDetail = async() =>{
-  if(id){
-    var details = await getRestaurant(id);
-    // console.log("details", JSON.stringify(details.result, null, 2));
-    setName(details.result.name);
-    console.log(details.result)
-    setRevnum(details.result.user_ratings_total);
-    setRating(details.result.rating);
-    setLong(details.result.geometry.location.lng);
-    setLat(details.result.geometry.location.lat);
-    setPhoto(details.result.photos[0].photo_reference);
-
-    //Review Stars / 5 = "rating", Image = "icon",location: lat / lng, user_ratings_total
-
+  const RestaurantDetail = async() =>{
+    if(id){
+      var details = await getRestaurant(id);
+      setName(details.result.name);
+      console.log(details.result)
+      setRevnum(details.result.user_ratings_total);
+      setRating(details.result.rating);
+      setLong(details.result.geometry.location.lng);
+      setLat(details.result.geometry.location.lat);
+      setPhoto(details.result.photos[0].photo_reference);
+    }
   }
-}
-useEffect(()=>{
-  RestaurantDetail()
-}, [id]);
+
+  useEffect(()=>{
+    RestaurantDetail()
+  }, [id]);
+
+  const submitWaitTime = async (fullname) => {
+    if (id) {
+      const details = await addWaitTime(id, sliderValue);
+      setSearchText(sliderValue + " min wait");
+      // setUsername(fullname);
+    }
+    console.log(fullname);
+  } 
 
 
 //COORDINATES
@@ -114,10 +122,9 @@ var markers = [
   }
 ]
 
-return   <ScrollView>
-  <View style={styles.cont}>
+return  <View style={styles.cont}>
     <View style={title.cont}>
- <SearchTitle h1text={name} revnum={revnum} text={searchText} stars={rating + "/5"} photourl={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photo}&key=${config.apiKey}`}></SearchTitle>
+ <SearchTitle h1text={name} text={searchText + "min wait"} username={username}revnum={revnum} text={searchText} stars={rating + "/5"} photourl={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photo}&key=${config.apiKey}`}></SearchTitle>
  </View>
  {/* <Link to="/submitting"> */}
 
@@ -145,14 +152,7 @@ return   <ScrollView>
          <Text style={TextStyle.report}>Report the Current Wait Time!</Text>
        </View>
 
-  <View style={ImageStyle.cont}>
-    <Image 
-    style={ImageStyle.image}
-    source={require('../public/minus.png')} />
-    <Image 
-    style={ImageStyle.image}
-    source={require('../public/plus.png')}/>
-  </View>
+
 
  <View style={SliderStyle.cont}>
  <SliderText style={SliderStyle.slider}
@@ -165,22 +165,30 @@ return   <ScrollView>
     minimumTrackTintColor="#FFD25B"
     maximumTrackTintColor="#C4C4C4"
     thumbTintColor="#FFD25B"
-    minimumValueLabel="0 min"
-    maximumValueLabel="2+ hours"  
+    minimumValueLabel=" "
+    maximumValueLabel=" "  
   />
  </View>
 
+ <View style={styles.Values}>
+                    <View style={styles.ValueLeft}>
+                            <Text style={styles.TextStyles}>0 mins</Text>                     
+                                </View>
+
+                                <View style={styles.ValueRight}>
+                            <Text style={styles.TextStyles}>2 hrs +</Text>                    
+                    </View>
+                </View>
+
 <View style={ButtonStyle.cont}>
   <Link to="/map1">
- <Button style = {ButtonStyle.cont} text="Submit" buttonwidth={135} buttonheight={35} onPress={()=>{
-   setSearchText(`${sliderValue} min wait`)
- }}></Button> 
+  <Button style = {ButtonStyle.cont} text="Submit" buttonwidth={135} buttonheight={35} onPress={async ()=>{submitWaitTime(sliderValue)}}></Button> 
  </Link>
  </View>
  {/* </Link> */}
 
 
- <ScrollView>
+ {/* <ScrollView>
  <View style={Comment.space}>
    <Text style={TextStyle.report}>Comments</Text>
    <InputIconBar style={TextStyle.input} text="Add a Comment..." width="331" image={sendIconPNG.src}/>
@@ -192,14 +200,13 @@ return   <ScrollView>
 
    </View>
  </View>
- </ScrollView>
+ </ScrollView> */}
 
 
 <View style={Nav.cont}>
 <Navigator image1={CheckedSearch}></Navigator>
 </View>
   </View>
-  </ScrollView>
 }
 
 const styles = StyleSheet.create({
@@ -207,7 +214,42 @@ cont:{
  flex:1,
   justifyContent:"center",
   alignItems:"center"
-}
+},
+
+Values:{
+  width: "87%",
+  height: 10,
+  position: "relative",
+  justifyContent: "center",
+  display: "flex",
+  alignItems: "center",
+  alignContent: "center",
+  flexDirection: "row",
+  flex: 1,
+  // marginTop: 15,
+  // backgroundColor:"red",
+  position:"absolute",
+  left:26,
+  top:579,
+
+},
+
+ValueLeft:{
+  flex: 1,
+},
+
+ValueRight:{
+  alignItems: 'flex-end',
+  flex: 1,
+  color: "#9D9D9D",
+  fontSize: 20,
+},
+
+TextStyles:{
+  color: "#9D9D9D",
+  fontSize: 14,
+},
+
 })
 
 const title= StyleSheet.create({
@@ -220,7 +262,7 @@ const Nav = StyleSheet.create({
   cont:{
     position:"relative",
     flex:1,
-    bottom:0
+    top:-5
   }
 })
 
@@ -246,13 +288,13 @@ const ButtonStyle = StyleSheet.create({
   display:"flex",
   justifyContent:"center",
   alignItems:"center",
-  bottom:25
+  bottom:0
   }
 })
 
 const TextStyle = StyleSheet.create({
   text:{
-    top:40
+    top:50
   },
 
   number:{
@@ -282,7 +324,7 @@ const SliderStyle = StyleSheet.create({
   cont:{
     position:"relative",
     width:"80%",
-    top:10
+    top:45
   },
   slider:{
     width:"50%"
@@ -292,19 +334,20 @@ const SliderStyle = StyleSheet.create({
 const MapContainer = StyleSheet.create({
   container: {
     //...StyleSheet.absoluteFillObject,
-    height: 220,
+    height: 285,
     width: 340,
     alignContent: 'center',
     justifyContent: 'center',
     display: "flex",
     top:30,
-    borderWidth:5,
+    borderWidth:2,
     borderColor:"#FFD25B",
+    borderRadius:5
   },
   map: {
     flex:1,
     width:"100%",
-    height:210.5,
+    height:280,
     top:100,
     alignContent: 'center',
     justifyContent: 'center',

@@ -5,8 +5,7 @@ import { auth, db, firebase} from './firebase';
 const Users = db.collection("users");
 const Reviews = db.collection("reviews");
 const Comments = db.collection("comments");
-// const Points = db.collection("points"); 
-const WaitTime = db.collection("waittime"); //make an average function
+const WaitTime = db.collection("waittime");
 
 import config from './firebase.config.json';
 import { searchLocation, getRestaurantsAroundUser, getRestaurantsById } from '../mapAPI/apiConnect';
@@ -75,20 +74,22 @@ export async function logout() {
  * @param {string} password
  * @param {string} confirmPassword
  * @param {object} data user information
+ * @param {string} fullname
  * @returns {object}
  */
-export async function registerUser(email, password, confirmPassword, data) {
+export async function registerUser(email, password, confirmPassword, data, fullname) {
     if (password !== confirmPassword) {
 		throw "Passwords don't match.";
 	}
-	return firebase.auth()
-		.createUserWithEmailAndPassword(email, password)
-		.then(async (response) => {
-			const uid = response.user.uid;
-			const currentTime = firebase.firestore.FieldValue.serverTimestamp();
+    return firebase.auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then(async (response) => {
+            const uid = response.user.uid;
+           
+            const currentTime = firebase.firestore.FieldValue.serverTimestamp();
 			data.createdTime = currentTime;
             data.id = uid;
-			db.collection("users").doc(uid).set(data).then(async () => {
+            db.collection("users").doc(uid).set(data).then(async () => {
                     // console.log("firestore collection")
                     const user = await getUserWithUid(uid);
                     // console.log("get user", user);
@@ -96,7 +97,12 @@ export async function registerUser(email, password, confirmPassword, data) {
 				}).catch((error) => {
                     console.log("error", error.message)
 					throw error.message;
-				});
+                });
+                const userRef = db.collection('users').doc(uid);
+                userRef.update({ name: fullname })
+                    .then(function () {
+                        (console.log("fullname inserted"))
+                    })
 		})
 		.catch((error) => {
 			throw error.message;
@@ -113,7 +119,7 @@ export function addUser(obj) {
     const userRef = Users.doc();
     return userRef
         .set({
-            name: obj.name, 
+            fullname: obj.fullname, 
             email: obj.email,
             password: obj.password,
             createdAt: obj.createdAt
@@ -136,30 +142,6 @@ export async function getCurrentUser() {
     const user = auth.currentUser.uid;
     return await getUserWithUid(user);
 }
-
-
-/**
- * 
- * @date 2020-11-15
- * @param {string} firstname
- * @returns {object}
- */
-// export async function getUserFirstname(firstname) {
-    
-//     return await Users.where("firstname", "==", firstname)
-//         .get()
-//         .then(function(data) {
-//             console.log("User successfully added!");
-//             let user;
-//             data.forEach((doc) => {
-//                 user = { ...doc.data() };
-//             })
-//             return user;
-//         })
-//         .catch(function(error) {
-//             console.error("Error: ", error);
-//         })
-// }
 
 /**
  * get reviews by restaurant 
@@ -213,12 +195,13 @@ export async function addReview(restaurant,review) {
  * @date 2020-11-21
  * @param {string} restaurant
  * @param {integer} waitTime
+ * @param {string} fullname
  * @returns {object}
  */
-export async function addWaitTime(restaurant, waitTime) {
-    const current = await getCurrentUser();
+export async function addWaitTime(restaurant, waitTime, fullname) {
+    const current = await getUserWithUid();
     const data = {
-        createdBy: { name: `${current.firstname} ${current.lastname}`, id: current.id },
+        createdBy: { name: current.name, id: current.id },
         restaurant,
         waitTime,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
@@ -233,6 +216,7 @@ export async function addWaitTime(restaurant, waitTime) {
             return error.message;
     })
 }
+
 
 /**
  * Get wait time

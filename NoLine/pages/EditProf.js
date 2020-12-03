@@ -163,7 +163,7 @@ export default function EditProf() {
                         </View>
        
                         <View style={styles.space}>
-                            <InputComp text="Bio" height={200}/>
+                            <InputComp width={100} text="Bio" height={200}/>
                         </View>
         
                     </View>

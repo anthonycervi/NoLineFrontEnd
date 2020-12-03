@@ -39,7 +39,7 @@ InputComp.defaultProps= {
    text:"Default",
    color:"#686868",
    width:"384%",
-   height:"45px"
+   height:"45px",
    //TEST
  }
 

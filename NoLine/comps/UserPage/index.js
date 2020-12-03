@@ -46,11 +46,9 @@ right:110px;
 `;
 
 const YellowLineDiv = styled.Image`
-position:absolute;
-    top:0;
-    left:0;
-    width:20px;
-    height:20px;
+    width:175px;
+    height:4px;
+    right:58px;
 `;
 
 const YellowLinePNG = {
@@ -70,13 +68,13 @@ const UserPage = ({width,height, award, profile, onPress}) => {
       <TouchableOpacity 
         onPress={() => {
         onPress("Profile")
-        isEnabled(1)
+        setIsEnabled(1)
         }} 
         onPress={() => {
             history.push("/profilebio")
           }}>     
           <Text>{profile}</Text>
-          {setIsEnabled===1 ? <YellowLineDiv source={YellowLinePNG.src}/> : null}
+          {isEnabled===1 ? <YellowLineDiv source={YellowLinePNG.src}/> : null}
           </TouchableOpacity>
 
 
@@ -90,13 +88,13 @@ const UserPage = ({width,height, award, profile, onPress}) => {
 
 <TouchableOpacity onPress={() => {
         onPress("Awards")
-        isEnabled(2)
+        setIsEnabled(0)
         }} 
         onPress={() => {
             history.push("/profileawards")
           }}> 
    <Text>{award}</Text>
-   {setIsEnabled===2 ? <YellowLineDiv source={YellowLinePNG.src}/> : null}
+   {isEnabled===0 ? <YellowLineDiv source={YellowLinePNG.src}/> : null}
 
    </TouchableOpacity>
 

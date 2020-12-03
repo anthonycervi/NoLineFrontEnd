@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import styled, {css} from 'styled-components/native';
-import {View,Text,TextInput,Image} from 'react-native';
+import {View,Text,TextInput,Image, TouchableOpacity} from 'react-native';
 import '../../public/Star.png';
-import { Link } from "react-router-native";
+import { Link, useHistory } from "react-router-native";
 import { getAllPhotos } from '../../database/functions';
 
 const OverlayDiv = styled.View`
@@ -217,8 +217,13 @@ const SearchResult = ({ IImage, textDistance, color, width, height, stars, name,
       }
       fetch();
    }, [])
-
+   const history = useHistory();
    return <View><Main>
+
+{/* <TouchableOpacity
+        onPress={() => {
+            history.push("/restauranttitle"+id)
+          }}> */}
       <Link to = {"/restauranttitle/"+id}>
       <OverlayDiv>
      <Text>{
@@ -255,6 +260,7 @@ const SearchResult = ({ IImage, textDistance, color, width, height, stars, name,
 <SeperatingDiv></SeperatingDiv>
 </OverlayDiv>
 </Link>
+{/* </TouchableOpacity> */}
    </Main>
   
    </View>

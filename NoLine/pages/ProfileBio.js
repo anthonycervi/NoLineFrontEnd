@@ -6,7 +6,7 @@ import Navigator from '../comps/Navigator';
 import {View, Text, StyleSheet, TouchableOpacity, } from 'react-native';
 import {NativeRouter, Route, Link, useHistory} from "react-router-native";
 import axios from 'axios';
-import CheckedProfile from '../public/Profile_Checked.png';
+import CheckedProfile from '../public/Profile_Checked_New.png';
 
 
 // const [backend, setBackend] = useState(null);
@@ -144,8 +144,8 @@ const styles = StyleSheet.create({
     },
 
     InsertText:{
-        fontSize: 22,
-        color: "#8486D1",
+        fontSize: 16,
+        color: "#A9A9A9",
         fontWeight: "bold",       
     },
 
@@ -203,21 +203,21 @@ export default function ProfileBio({ onPress }) {
             <View style={styles.space}>
                 <Text style={styles.TitleText}>Wait Times Reported</Text>
                 <View style={styles.TextDisplay}>
-                <Text style={styles.InsertText}>test</Text>
+                <Text style={styles.InsertText}>14</Text>
                 </View>
             </View>
 
             <View style={styles.space}>
                 <Text style={styles.TitleText}>Reviews Written</Text>
                 <View style={styles.TextDisplay}>
-                <Text style={styles.InsertText}>test</Text>
+                <Text style={styles.InsertText}>4</Text>
                 </View>
             </View>
 
             <View style={styles.space}>
                 <Text style={styles.TitleText}>Bio</Text>
                 <View style={styles.TextDisplay}>
-                <Text style={styles.InsertText}>test</Text>
+                <Text style={styles.InsertText}>I love going out but not when I have to wait in long lines!</Text>
                 </View>
             </View>
         </View>

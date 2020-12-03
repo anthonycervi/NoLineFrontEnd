@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, {css} from 'styled-components/native';
 import {View, Text, Image} from 'react-native';
-import ProfilePic from '../../public/ProfilePic.png';
+import ProfilePic from '../../public/joshprofile.jpg';
 
 const ProfileContainer = styled.View`
     text-align: center;
@@ -18,6 +18,11 @@ const HeadingTwo = styled.Text`
     color:#8486D1;
 `;
 
+const ProfileImg = styled.Image`
+width:150px;
+height:150px;
+border-radius:100px
+`;
 
 const ProfileSVG = {
     src: ProfilePic
@@ -25,7 +30,7 @@ const ProfileSVG = {
 
 const EditProfile = () => {
     return <ProfileContainer>
-        <Image source={ProfileSVG.src}/>
+        <ProfileImg source={ProfileSVG.src}/>
         <HeadingTwo>Change Profile Picture</HeadingTwo>
     </ProfileContainer>
 }

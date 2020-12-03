@@ -5,7 +5,7 @@ import UserPage from '../comps/UserPage';
 import Navigator from '../comps/Navigator';
 import { View, Text, StyleSheet } from 'react-native';
 import { NativeRouter, Route, Link } from "react-router-native";
-import CheckedProfile from '../public/Profile_Checked.png';
+import CheckedProfile from '../public/Profile_Checked_New.png';
 
 
 // import axios from 'axios';

@@ -6,9 +6,9 @@ import Search from '../../public/Search.png';
 import LocationPin from '../../public/LocationPin.png';
 import Profile from '../../public/Profile.png';
 
-import CheckedSearch from '../../public/Search_Checked.png';
+import CheckedSearch from '../../public/Search_Checked_New.png';
 import CheckedLocationPin from '../../public/LocationPin_Checked.png';
-import CheckedProfile from '../../public/Profile_Checked.png';
+import CheckedProfile from '../../public/Profile_Checked_New.png';
 
 import {NativeRouter, Route, Link, useHistory} from "react-router-native";
 

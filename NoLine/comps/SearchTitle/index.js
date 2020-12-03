@@ -68,7 +68,7 @@ font-weight:bold;
 const RecentUpdate = styled.Text`
 color: ${props => props.color ? props.color : "#999999" };
 position:relative;
-left:160px;
+left:145px;
 bottom:4px;
 
 `;
@@ -99,6 +99,8 @@ width:70px;
 height:70px;
 margin-top:10px;
 border-radius:10px;
+position:relative;
+bottom:5px;
 `;
 
 const SearchTitle = ({photourl, text,color,width,height,stars,h1text,username,time,revnum}) => {
@@ -115,7 +117,7 @@ const SearchTitle = ({photourl, text,color,width,height,stars,h1text,username,ti
 </HeaderDiv>
 <WaitDiv>
 <WaitTime>{text}</WaitTime>
-<RecentUpdate>Last updated by {username} {time} ago</RecentUpdate>
+<RecentUpdate>Updated by {username} {time} ago</RecentUpdate>
 </WaitDiv>
    </SearchDiv>
    </View> 

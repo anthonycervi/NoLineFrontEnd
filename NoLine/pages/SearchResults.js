@@ -26,7 +26,8 @@ import Navigator from '../comps/Navigator'
 import Filter from '../comps/Filter';
 import searchIconPNG from '../public/searchIcon.png';
 import styled, {css} from 'styled-components/native';
-import CheckedSearch from '../public/Search_Checked.png';
+import CheckedSearch from '../public/Search_Checked_New.png';
+import Search from '../public/Search_White.png';
 
 
 import {
@@ -83,7 +84,7 @@ const SearchResultPage = () => {
     try {
       // const details = await getAllRestaurants(keyword || "sushi");
       // console.log(details.result.geometry.location.lat);
-      setRestaurant(await getAllRestaurants(keyword || "sushi", lat, long));
+      setRestaurant(await getAllRestaurants(keyword || "Food Restaurants", lat, long));
     } catch (err) {
       console.log(err);
     }
@@ -100,7 +101,8 @@ const SearchResultPage = () => {
   return <View style={PageContainer.cont}>
             <View style={SearchInput.cont}>
               <SearchBar text=" Search" style={SearchBarInput.cont}/>
-              <TouchableOpacity style={SearchButton.cont}></TouchableOpacity>
+              <SearchImage source={SearchPNG.src}/> 
+              <TouchableOpacity></TouchableOpacity>
             </View>
             <View style={BothButtonStyles.cont}>
 
@@ -168,6 +170,19 @@ const PageContainer = StyleSheet.create({
   }
 })
 
+const SearchPNG = {
+  src: Search
+}
+
+const SearchImage = styled.Image`
+    width: 30px;
+    height: 30px;
+    resize-mode: contain;
+    align-items: center;
+    justify-content: center;
+    top:10;
+    left:9
+`;
 
 const SearchInput = StyleSheet.create({
   cont:{
@@ -179,7 +194,7 @@ const SearchInput = StyleSheet.create({
   // marginBottom: 15,
   position: "absolute",
   top: -80,
-  
+  backgroundColor:"#FFD25B"
   }
 })
 
@@ -189,6 +204,8 @@ const SearchBarInput = StyleSheet.create({
     alignSelf:"stretch",
     display: "flex",
     width:250,
+    position:"absolute",
+    flexDirection: "row",
   }
 })
 
@@ -215,7 +232,7 @@ const TopContentContainer = StyleSheet.create({
 const Nav = StyleSheet.create({
   nav:{
     position: "absolute",
-    bottom: -106,
+    bottom: -113,
     
   }
 })

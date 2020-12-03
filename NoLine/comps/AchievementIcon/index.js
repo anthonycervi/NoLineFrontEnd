@@ -128,7 +128,7 @@ const AchievementIcon = ({ image, text, text2, }) => {
               </Icon>
               <TextCont>
                 <TextContainer>Report a Wait Time</TextContainer>
-                <TextContainer2>+2000</TextContainer2>
+                <TextContainer2>+250</TextContainer2>
               </TextCont>
               </IconCont>
             </IconRow>

@@ -71,10 +71,10 @@ const Profile = ({ profilename, city, province, score }) => {
 }
 
 Profile.defaultProps = {
-    profilename: "Josh Mountain",
+    profilename: "Josh M",
     city: "New Westminister",
     province: "BC",
-    score: "250"
+    score: "3,500"
 }
 
 export default Profile;

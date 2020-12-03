@@ -117,7 +117,7 @@ const SearchTitle = ({photourl, text,color,width,height,stars,h1text,username,ti
 </HeaderDiv>
 <WaitDiv>
 <WaitTime>{text}</WaitTime>
-<RecentUpdate>Updated by {username} {time} ago</RecentUpdate>
+<RecentUpdate>Updated by {username} at {time}</RecentUpdate>
 </WaitDiv>
    </SearchDiv>
    </View> 
@@ -130,8 +130,8 @@ SearchTitle.defaultProps= {
    height:"69px",
    stars:"5",
    h1text:"Chronic Tacos",
-   username:"@user",
-   time:"30m",
+   username:"farhazl",
+   time:"12:00 PM",
    revnum:"16",
    stars:"4",
    photourl:"null"

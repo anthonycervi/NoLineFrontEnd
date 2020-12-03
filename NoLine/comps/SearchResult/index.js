@@ -140,7 +140,7 @@ const TimeDiv = styled.View`
 color: ${props => props.color ? props.color : "#c4c4c4" };
 position:relative;
 flexDirection:row;
-left:65px;
+left:55px;
 
 `;
 
@@ -254,7 +254,7 @@ const SearchResult = ({ IImage, textDistance, color, width, height, stars, name,
 <Image source={require('../../public/mapoverlayprofile.png')}/>
 </ProfileImageIcon>
 <RecentUpdate> <Usernametext>{username}</Usernametext></RecentUpdate>
-<TimeDiv><TimeText>{time} ago</TimeText></TimeDiv>
+<TimeDiv><TimeText>at {time}</TimeText></TimeDiv>
 </UserDiv>
 </InfoDiv>
 <SeperatingDiv></SeperatingDiv>
@@ -278,8 +278,8 @@ SearchResult.defaultProps= {
    backgroundColor:"#fafafa",
    stars:"5",
    name:null,
-   username:"user123",
-   time:"30m",
+   username:"farhazl",
+   time:"12:00 PM",
    revnum:null,
    IImage: '../../public/NoLine_Logo_Final.png',
    stars:"4",

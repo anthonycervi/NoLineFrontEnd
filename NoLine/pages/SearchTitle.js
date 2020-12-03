@@ -102,10 +102,10 @@ const SearchTitlePage = () =>{
   const submitWaitTime = async () => {
     if (id) {
       const res = await addWaitTime(id, sliderValue, fullname);
+      // console.log(res)
       const getUser = await getUserWithUid();
       setSearchText(sliderValue + " min wait");
       setUsername(getUser.name);
-
     }
   } 
 

@@ -185,6 +185,7 @@ const IconImage = styled.Image`
 width:70px;
 height:70px;
 margin-top:10px;
+border-radius:10px;
 `;
 
 const StarText = styled.Text`
@@ -212,6 +213,7 @@ const SearchResult = ({ IImage, textDistance, color, width, height, stars, name,
       const fetch = async () => {
          const newPhoto = await getAllPhotos(IImage[0].photo_reference);
          setPhoto(newPhoto);
+         console.log(newPhoto);
       }
       fetch();
    }, [])

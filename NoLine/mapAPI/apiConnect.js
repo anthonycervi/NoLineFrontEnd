@@ -1,6 +1,7 @@
 const axios = require("axios");
 import config from "../database/firebase.config.json";
 const apiKey = config.apiKey;
+import { waitTime } from '../database/functions';
 
 /**
  * Search location

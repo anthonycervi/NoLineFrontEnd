@@ -12,7 +12,7 @@
 
 ## 🤔 About <a name = "about"></a>
 
-We are going to develop an app that saves time for our users by displaying restaurant capacity and estimated wait times live based on data input from the community.
+This is an app that saves time for our users by displaying restaurant capacity and estimated wait times live based on data input from the community.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 

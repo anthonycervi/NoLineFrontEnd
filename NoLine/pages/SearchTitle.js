@@ -33,8 +33,7 @@ import sendIconPNG from '../public/sendIcon.png';
 import MapOverlay from '../comps/MapOverlay';
 import PlusPNG from '../public/plus.png';
 import MinusPNG from '../public/minus.png';
-import { getAllPhotos } from '../database/functions';
-import {getRestaurant} from '../database/functions';
+import { getAllPhotos, addWaitTime, getRestaurant } from '../database/functions';
 import config from '../database/firebase.config.json';
 import '../public/down.png'
 import '../public/minus.png';
@@ -81,11 +80,8 @@ const {id} = useParams();
     console.log(details.result)
     setRevnum(details.result.user_ratings_total);
     setRating(details.result.rating);
-    // setLat(details.results.lat);
-    // setLong(details.results.lng);
     setLong(details.result.geometry.location.lng);
     setLat(details.result.geometry.location.lat);
-    // console.log(details.result.geometry.location.lat);
     setPhoto(details.result.photos[0].photo_reference);
 
     //Review Stars / 5 = "rating", Image = "icon",location: lat / lng, user_ratings_total
@@ -169,9 +165,7 @@ return   <ScrollView>
 
 <View style={ButtonStyle.cont}>
   <Link to="/map1">
- <Button style = {ButtonStyle.cont} text="Submit" buttonwidth={135} buttonheight={35} onPress={()=>{
-   setSearchText(`${sliderValue} min wait`)
- }}></Button> 
+ <Button style = {ButtonStyle.cont} text="Submit" buttonwidth={135} buttonheight={35} onPress={() => {setSearchText(`${sliderValue} min wait`)}}></Button> 
  </Link>
  </View>
  {/* </Link> */}

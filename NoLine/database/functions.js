@@ -197,7 +197,7 @@ export async function addReview(restaurant,review) {
  * @param {string} fullname
  * @returns {object}
  */
-export async function addWaitTime(restaurant, waitTime, fullname) {
+export async function addWaitTime(restaurant, waitTime) {
     const current = await getUserWithUid();
     const data = {
         createdBy: { name: current.name, id: current.id },

@@ -34,7 +34,7 @@ import MapOverlay from '../comps/MapOverlay';
 import PlusPNG from '../public/plus.png';
 import MinusPNG from '../public/minus.png';
 import { fullname } from './signUp';
-import { getAllPhotos, addWaitTime, getRestaurant, registerUser} from '../database/functions';
+import { getAllPhotos, addWaitTime, getRestaurant, getUserWithUid} from '../database/functions';
 import config from '../database/firebase.config.json';
 
 import CheckedSearch from '../public/Search_Checked.png';
@@ -102,9 +102,10 @@ const SearchTitlePage = () =>{
   const submitWaitTime = async () => {
     if (id) {
       const res = await addWaitTime(id, sliderValue, fullname);
+      const getUser = await getUserWithUid();
       setSearchText(sliderValue + " min wait");
-      // setUsername(fullname);
-      // console.log(fullname);
+      setUsername(getUser.name);
+
     }
   } 
 

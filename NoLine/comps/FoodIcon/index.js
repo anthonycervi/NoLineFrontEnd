@@ -16,7 +16,7 @@ import Seafood from '../../public/Seafood.png';
 import Sushi from '../../public/Sushi.png';
 import Thai from '../../public/Thai.png';
 import Vietnamese from '../../public/Vietnamese.png';
-import CheckImage from '../../public/check.png'
+import CheckImage from '../../public/check1.png'
 
 
 const Container = styled.View`
@@ -47,8 +47,8 @@ const FoodImage = styled.Image`
 
 const CheckMark = styled.Image`
 position:absolute;
-    top:0;
-    left:0;
+    top:-10;
+    right:15;
     width:20px;
     height:20px;
 `;

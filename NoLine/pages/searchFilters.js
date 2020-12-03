@@ -38,19 +38,23 @@ const styles = StyleSheet.create({
     },
 
     waittimeslider: {
-        display: 'flex',
-        flexDirection: 'column',
-        bottom: 30
+        // display: 'flex',
+        // flexDirection: 'column',
+        bottom: 30,
+        // width: "50%",
+        // right: -170,
     },
 
     buttonCenter: {
         alignItems: 'center',
-        bottom: 75,
+        bottom: 65,
 
     },
 
     filterItem: {
-        bottom: 40
+        bottom: 40,
+        left: -9,
+        marginTop: 40,
     },
 
     greenBar: {
@@ -106,7 +110,7 @@ const styles = StyleSheet.create({
         fontSize:20,
         right:130,
         top:30
-    }
+    },
 })
 
 
@@ -122,6 +126,12 @@ export default function SearchFilters() {
                 {/* <View style={styles.topBar}>
                         <EditBar left="Cancel" middle="Search Filters" right="Clear Filters" />
                     </View> */}
+
+
+
+
+
+
 
                 <View style={styles.greenBar}>
                     <View style={styles.cancelLeft}>
@@ -144,16 +154,28 @@ export default function SearchFilters() {
                     </View>
                 </View>
 
+
+
+
+
+
+
+
+
+
+
+
+
                 <View>
                     <Text style={styles.waittimeheader}>Wait Time</Text>
                 </View>
 
 
                 <View style={styles.filters}>
-                    <View>
+                    {/* <View> */}
                         <View style={styles.waittimeslider}>
-                            <SliderText
-                                style={{ width: 200, height: 40 }}
+                            <SliderText 
+                                style={{ width: 200, height: 40, justifyContent: "center",}}
                                 stepValue={5}
                                 minimumValue={0}
                                 maximumValue={120}
@@ -167,7 +189,17 @@ export default function SearchFilters() {
                             />
 
                         </View>
-                    </View>
+                    {/* </View> */}
+
+
+
+
+
+
+
+
+
+
 
 
                     <View>
@@ -175,9 +207,9 @@ export default function SearchFilters() {
                     </View>
 
 
-                        <View>
-                            <View style={styles.sliderFlex}>
-                            <View>
+                        {/* <View> */}
+                            {/* <View style={styles.sliderFlex}> */}
+                            {/* <View> */}
                         <View style={styles.distanceslider}>
                             <SliderText
                                 style={{ width: 200, height: 40 }}
@@ -193,24 +225,32 @@ export default function SearchFilters() {
                                 maximumValueLabel="50km"
                             />
                             </View>
-                        </View>
+                        {/* </View> */}
                         
                         <View style={styles.filterItem}>
-                            <Text style={styles.filterHeading}>Food{"\n"}</Text>
+                            {/* <Text style={styles.filterHeading}>Food{"\n"}</Text> */}
                             <FoodIcon onPress={(word)=> {
                             setKeyword(word)
                             }} />
                         </View>
-                    </View>
+                    {/* </View> */}
 
                    
+
+
+
+
+
+
+
+
 
                         <View style={styles.buttonCenter}>
                             <Button onPress={() => {
                             history.push("/savechanges/" + keyword)
                         }}text="SAVE CHANGES" buttonfontsize={24}/>
                         </View>
-                    </View>
+                    {/* </View> */}
                 </View>
             </View>
         </ScrollView>

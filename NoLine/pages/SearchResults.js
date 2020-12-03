@@ -103,17 +103,18 @@ const SearchResultPage = () => {
             </View>
             <View style={BothButtonStyles.cont}>
 
-                <View style={ButtonStyles.cont}>
+                {/* <View style={ButtonStyles.cont}>
                    
                 </View>
               
                 <View style={ButtonStyles.cont}>
                
-                </View>
+                </View> */}
                 <View style={FilterStyles.cont}>
                   <Filter/>
                 </View>
             </View>
+            <View style={ScrollContainer.cont}>
             <ScrollView>
         {
           restaurant.map((item,i) => {
@@ -139,6 +140,7 @@ const SearchResultPage = () => {
           })
         }
      </ScrollView>
+     </View>
      <View style={Nav.nav}>
        
        </View> 
@@ -173,7 +175,9 @@ const SearchInput = StyleSheet.create({
   width:"90%",
   // backgroundColor: "pink",
   overflow: "hidden",
-  marginBottom: 15,
+  // marginBottom: 15,
+  position: "absolute",
+  top: -80,
   
   }
 })
@@ -209,7 +213,8 @@ const TopContentContainer = StyleSheet.create({
 
 const Nav = StyleSheet.create({
   nav:{
-    
+    position: "absolute",
+    bottom: -106,
     
   }
 })
@@ -221,6 +226,19 @@ const ButtonStyles = StyleSheet.create({
 
   }
 })
+
+const ScrollContainer = StyleSheet.create({
+  cont:{
+  // marginRight:10,
+  backgroundColor:'#00000000',
+  width:"100%",
+  height:530,
+  bottom: -20,
+  position: "relative",
+
+  }
+})
+
 
 const BothButtonStyles = StyleSheet.create({
   cont:{
@@ -249,7 +267,10 @@ const FilterStyles = StyleSheet.create({
   alignContent:"center",
   alignItems:"flex-end",
   flexDirection:"column",
+  position:"absolute",
   flex: 1,
+  top: -15,
+  right:2,
 
   }
 })

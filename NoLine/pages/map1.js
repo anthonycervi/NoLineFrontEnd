@@ -182,6 +182,7 @@ const SearchContainer = StyleSheet.create({
         // flex:1,
         flexDirection: "row",
         width:"90%",
+        top:12,
         // backgroundColor: "pink",
         overflow: "hidden",
         // marginBottom: 15,

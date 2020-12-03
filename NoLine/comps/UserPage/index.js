@@ -45,11 +45,11 @@ position:relative;
 right:110px;
 `;
 
-const YellowLineDiv = styled.Image`
-    width:175px;
-    height:4px;
-    right:58px;
-`;
+// const YellowLineDiv = styled.Image`
+//     width:175px;
+//     height:4px;
+//     right:58px;
+// `;
 
 const YellowLinePNG = {
   src: YellowLine
@@ -74,7 +74,7 @@ const UserPage = ({width,height, award, profile, onPress}) => {
             history.push("/profilebio")
           }}>     
           <Text>{profile}</Text>
-          {isEnabled===1 ? <YellowLineDiv source={YellowLinePNG.src}/> : null}
+          {/* {isEnabled===1 ? <YellowLineDiv source={YellowLinePNG.src}/> : null} */}
           </TouchableOpacity>
 
 
@@ -94,7 +94,7 @@ const UserPage = ({width,height, award, profile, onPress}) => {
             history.push("/profileawards")
           }}> 
    <Text>{award}</Text>
-   {isEnabled===0 ? <YellowLineDiv source={YellowLinePNG.src}/> : null}
+   {/* {isEnabled===0 ? <YellowLineDiv source={YellowLinePNG.src}/> : null} */}
 
    </TouchableOpacity>
 

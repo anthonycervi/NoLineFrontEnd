@@ -99,11 +99,20 @@ const SearchResultPage = () => {
     }, []);
 
   return <View style={PageContainer.cont}>
-            <View style={SearchInput.cont}>
+            {/* <View style={SearchInput.cont}>
               <SearchBar text=" Search" style={SearchBarInput.cont}/>
+              
               <SearchImage source={SearchPNG.src}/> 
               <TouchableOpacity></TouchableOpacity>
-            </View>
+            </View> */}
+
+            <View style={SearchInput.cont}>
+          <SearchBar text=" Search" style={SearchBarInput.cont}/>
+          <TouchableOpacity style={SearchButton.cont}>
+          <SearchImage source={SearchPNG.src}/> 
+          </TouchableOpacity>
+     </View>
+
             <View style={BothButtonStyles.cont}>
 
                 {/* <View style={ButtonStyles.cont}>
@@ -194,7 +203,8 @@ const SearchInput = StyleSheet.create({
   // marginBottom: 15,
   position: "absolute",
   top: -80,
-  backgroundColor:"#FFD25B"
+  // backgroundColor:"#FFD25B",
+  
   }
 })
 
@@ -216,7 +226,7 @@ const SearchButton = StyleSheet.create({
     backgroundColor: "#FFD25B",
     borderBottomEndRadius: 5,
     borderTopEndRadius: 5,
-    alignItems:"flex-end",
+    // alignItems:"flex-end",
     // flex: 1,
   }
 })

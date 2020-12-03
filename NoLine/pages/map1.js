@@ -90,7 +90,7 @@ const Map = () =>{
     <View style={NavContainer.cont}>
       <Navigator image2={CheckedLocationPin}/>
     </View>
-
+<View style={WhiteBox.cont}></View>
  </View>
 //  </View>
   )
@@ -114,6 +114,17 @@ const MainContainer = StyleSheet.create({
     alignItems: "center"
    
     
+  }
+})
+
+const WhiteBox = StyleSheet.create({
+  cont:{
+    position: "absolute",
+    height:77,
+    width:15,
+    backgroundColor:"white",
+    bottom:0,
+    left:0,
   }
 })
 

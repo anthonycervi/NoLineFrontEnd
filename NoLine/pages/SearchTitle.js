@@ -37,7 +37,7 @@ import { fullname } from './signUp';
 import { getAllPhotos, addWaitTime, getRestaurant } from '../database/functions';
 import config from '../database/firebase.config.json';
 
-import CheckedSearch from '../public/Search_Checked.png';
+import CheckedSearch from '../public/Search_Checked_New.png';
 
 
 

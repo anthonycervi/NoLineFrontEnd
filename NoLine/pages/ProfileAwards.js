@@ -89,6 +89,15 @@ const styles = StyleSheet.create({
         bottom: 6,
 
     },
+
+    YellowBox:{
+        position:"absolute",
+        height:5,
+        width:175,
+        backgroundColor:"#FFD25B",
+        top:271,
+        right:14,       
+    },
 })
 
 export default function ProfileBio() {
@@ -111,7 +120,7 @@ export default function ProfileBio() {
             <View style={styles.profAwards}>
                 <UserPage />
             </View>
-
+            <View style={styles.YellowBox}></View>
             <View>
                 <View style={styles.achievements}>
                     <AchievementIcon />

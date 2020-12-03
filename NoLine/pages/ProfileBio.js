@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     nav:{
         display:'flex',
         position:'relative',
-        bottom:-20,
+        bottom:-12,
     },
 
     edittext:{
@@ -127,6 +127,8 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         flexDirection:'column',
         color:'grey',
+        fontWeight: "bold",
+        
         // backgroundColor: "green",
         
     },
@@ -141,12 +143,22 @@ const styles = StyleSheet.create({
         borderBottomWidth: 2,
         fontSize: 30,
         
+        
     },
 
     InsertText:{
         fontSize: 16,
         color: "#A9A9A9",
-        fontWeight: "bold",       
+        // fontWeight: "bold",       
+    },
+
+    YellowBox:{
+        position:"absolute",
+        height:5,
+        width:175,
+        backgroundColor:"#FFD25B",
+        top:326,
+        right:198,       
     },
 
 
@@ -198,7 +210,7 @@ export default function ProfileBio({ onPress }) {
             <UserPage />
         
         </View>
-
+        <View style={styles.YellowBox}></View>
         <View style={styles.inputs}>
             <View style={styles.space}>
                 <Text style={styles.TitleText}>Wait Times Reported</Text>

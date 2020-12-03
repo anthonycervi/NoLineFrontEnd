@@ -66,14 +66,14 @@ color: ${props => props.color ? props.color : "black" };
 position:relative;
 font-size:20px;
 margin-left:10px;
-left:280px;
+left:273px;
 top:-143px;
 `;
 
 const RecentUpdate = styled.Text`
 color: ${props => props.color ? props.color : "#999999" };
 position:relative;
-left:43px;
+left:56px;
 top:-9.5px;
 padding-left:-4px;
 
@@ -140,7 +140,7 @@ const TimeDiv = styled.View`
 color: ${props => props.color ? props.color : "#c4c4c4" };
 position:relative;
 flexDirection:row;
-left:60px;
+left:65px;
 
 `;
 
@@ -170,7 +170,7 @@ color:grey
 
 const ProfileImageIcon = styled.View`
 position:relative;
-left:35px;
+left:47px;
 top:5px;
 `;
 

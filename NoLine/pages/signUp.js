@@ -19,6 +19,7 @@ import {
   View,
   Text,
   StatusBar,
+  TouchableOpacity,
 } from 'react-native';
 
 import {
@@ -59,7 +60,7 @@ const signUp = () => {
       console.log(err)
     }
   }
-
+  // const history = useHistory();
   return <View style={MainContainer.cont}>
 
           <View style={LogoStyles.cont}>
@@ -104,9 +105,14 @@ const signUp = () => {
           </View>
 
           <View style={AccountTextStyles.cont}>
-            <Link to="signin">
+          <TouchableOpacity 
+        onPress={() => {
+            history.push("/signin")
+          }}>
+            {/* <Link to="signin"> */}
             <AccountText text="Have an account? &nbsp;" text2=" Sign In"/>
-            </Link>
+            {/* </Link> */}
+            </TouchableOpacity>
           </View>
         </View>
 }

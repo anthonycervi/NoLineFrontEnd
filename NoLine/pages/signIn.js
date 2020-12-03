@@ -6,6 +6,7 @@
  * @flow strict-local
  */
 import { NativeRouter, Route, Link, useHistory } from "react-router-native";
+
 import React, {useState} from 'react';
 import Button from '../comps/Button';
 import InputBox from '../comps/InputBox';
@@ -19,6 +20,7 @@ import {
   View,
   Text,
   StatusBar,
+  TouchableOpacity
 } from 'react-native';
 
 import {
@@ -92,7 +94,7 @@ const signIn = () => {
   }
 
 
-
+  // const history = useHistory();
   return <View style={MainContainer.cont}>
 
             <View style={LogoStyles.cont}>
@@ -122,6 +124,18 @@ const signIn = () => {
                 />
               </View>
             </View>
+
+            <View style={AccountTextStyles.cont}>
+            <TouchableOpacity 
+        onPress={() => {
+            history.push("/signup")
+          }}>
+            {/* <Link to="signup"> */}
+            <AccountText text="Don't have an account? &nbsp;" text2=" Sign In"/>
+            {/* </Link> */}
+            </TouchableOpacity>
+          </View>
+
           </View>
 }
 
@@ -189,6 +203,19 @@ const ButtonStyles = StyleSheet.create({
         bottom: -128,
       }
       })
+
+      // const AccountTextStyles = StyleSheet.create({
+      //   cont:{
+      //     position: "absolute",
+      //     alignContent: 'center',
+      //     justifyContent: 'center',
+      //     display: "flex",
+      //     margin: 10,
+      //     bottom: -59,
+          
+          
+      //   }
+      //   })
 
 export default signIn;
 // export {default} from './storybook';

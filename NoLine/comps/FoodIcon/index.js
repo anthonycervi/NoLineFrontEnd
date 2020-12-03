@@ -16,7 +16,7 @@ import Seafood from '../../public/Seafood.png';
 import Sushi from '../../public/Sushi.png';
 import Thai from '../../public/Thai.png';
 import Vietnamese from '../../public/Vietnamese.png';
-import CheckImage from '../../public/check.png'
+import CheckImage from '../../public/check1.png'
 
 
 const Container = styled.View`

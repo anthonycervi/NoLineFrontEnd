@@ -33,19 +33,15 @@ import sendIconPNG from '../public/sendIcon.png';
 import MapOverlay from '../comps/MapOverlay';
 import PlusPNG from '../public/plus.png';
 import MinusPNG from '../public/minus.png';
-<<<<<<< Updated upstream
+
 import { getAllPhotos, addWaitTime, getRestaurant } from '../database/functions';
 import config from '../database/firebase.config.json';
-=======
+
 import CheckedSearch from '../public/Search_Checked.png';
 
-<<<<<<< Updated upstream
 
-import {getRestaurant} from '../database/functions';
->>>>>>> Stashed changes
-=======
-import {getRestaurant} from '../database/functions';
->>>>>>> Stashed changes
+
+
 import '../public/down.png'
 import '../public/minus.png';
 import '../public/plus.png';
@@ -76,7 +72,7 @@ const SearchTitlePage = () =>{
   const [sliderValue, setSliderValue] = useState(0);
   const [searchText, setSearchText] = useState("5 min wait");
   const [name, setName] = useState("")
-<<<<<<< Updated upstream
+
   const [revnum, setRevnum] = useState("")
   const [rating, setRating] = useState("")
   const [photo, setPhoto] = useState("")
@@ -118,29 +114,10 @@ var markers = [
   }
 ]
 
-=======
-const {id} = useParams();
->>>>>>> Stashed changes
-
-const RestaurantDetail = async() =>{
-  if(id){
-    var details = await getRestaurant(id);
-    console.log("details", JSON.stringify(details.result, null, 2));
-    setName(details.result.name);
-
-  }
-}
-useEffect(()=>{
-  RestaurantDetail()
-}, [id]);
 return   <ScrollView>
   <View style={styles.cont}>
     <View style={title.cont}>
-<<<<<<< Updated upstream
  <SearchTitle h1text={name} revnum={revnum} text={searchText} stars={rating + "/5"} photourl={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photo}&key=${config.apiKey}`}></SearchTitle>
-=======
- <SearchTitle h1text={name} text={searchText}></SearchTitle>
->>>>>>> Stashed changes
  </View>
  {/* <Link to="/submitting"> */}
 
@@ -195,13 +172,9 @@ return   <ScrollView>
 
 <View style={ButtonStyle.cont}>
   <Link to="/map1">
-<<<<<<< Updated upstream
- <Button style = {ButtonStyle.cont} text="Submit" buttonwidth={135} buttonheight={35} onPress={() => {setSearchText(`${addWaitTime(waitTime)} min wait`)}}></Button> 
-=======
  <Button style = {ButtonStyle.cont} text="Submit" buttonwidth={135} buttonheight={35} onPress={()=>{
    setSearchText(`${sliderValue} min wait`)
  }}></Button> 
->>>>>>> Stashed changes
  </Link>
  </View>
  {/* </Link> */}

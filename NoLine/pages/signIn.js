@@ -82,11 +82,7 @@ const signIn = () => {
     // console.log(email,pass);
     login(email,pass)
       .then(user=>{
-<<<<<<< Updated upstream
         // console.log('login success', user);
-=======
-        console.log('login success', user);
->>>>>>> Stashed changes
         setUser({...user})
         history.push("/signinbutton");
       })

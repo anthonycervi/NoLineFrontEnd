@@ -26,6 +26,7 @@ import Navigator from '../comps/Navigator'
 import Filter from '../comps/Filter';
 import searchIconPNG from '../public/searchIcon.png';
 import styled, {css} from 'styled-components/native';
+import CheckedSearch from '../public/Search_Checked.png';
 
 
 import {
@@ -148,7 +149,7 @@ const SearchResultPage = () => {
       
       <View style={Nav.nav}>
        
-      <Navigator ></Navigator>
+      <Navigator image1={CheckedSearch}></Navigator>
        </View>
       
      </View>

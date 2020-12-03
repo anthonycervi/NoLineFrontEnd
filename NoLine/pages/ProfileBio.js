@@ -6,6 +6,7 @@ import Navigator from '../comps/Navigator';
 import {View, Text, StyleSheet, TouchableOpacity, } from 'react-native';
 import {NativeRouter, Route, Link, useHistory} from "react-router-native";
 import axios from 'axios';
+import CheckedProfile from '../public/Profile_Checked.png';
 
 
 // const [backend, setBackend] = useState(null);
@@ -70,6 +71,7 @@ const styles = StyleSheet.create({
     profAwards: {
         display:'flex',
         marginBottom:35,
+        top:15
     },
 
     inputs: {
@@ -78,13 +80,14 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         flexDirection:'column',
         marginLeft:4,
+        top:15
         // width:"50%",
     },
 
     nav:{
         display:'flex',
         position:'relative',
-        bottom:-27,
+        bottom:-20,
     },
 
     edittext:{
@@ -220,7 +223,7 @@ export default function ProfileBio({ onPress }) {
         </View>
 
         <View style={styles.nav}>
-            <Navigator />
+            <Navigator image3={CheckedProfile}/>
         </View>  
 
     </View>

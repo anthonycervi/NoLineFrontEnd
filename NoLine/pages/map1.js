@@ -16,6 +16,7 @@ import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import MapOverlay from '../comps/MapOverlay';
 import searchIconPNG from '../public/searchIcon.png';
 import Search from '../public/Search_White.png';
+import CheckedLocationPin from '../public/LocationPin_Checked.png';
 
 
 
@@ -87,7 +88,7 @@ const Map = () =>{
      </View>
 
     <View style={NavContainer.cont}>
-      <Navigator />
+      <Navigator image2={CheckedLocationPin}/>
     </View>
 
  </View>
@@ -170,8 +171,8 @@ const SearchContainer = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         display: "flex",
-        bottom:0,  
-        left:0,
+        bottom:-10,  
+        left:4,
         backgroundColor: "white"  
       }
       })

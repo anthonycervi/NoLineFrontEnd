@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         display:'flex',
         alignItems:'center',
         justifyContent:'center',
-        top: 27,
+        top: 10,
         margin: 10,
         marginBottom:50,
         // backgroundColor:"blue",
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         // backgroundColor:'blue',
         width:"100%",
+        bottom:49
     },
 
     inputs: {
@@ -77,7 +78,7 @@ const styles = StyleSheet.create({
     edittext:{
         fontSize:20,
         justifyContent:"center",
-        
+        bottom:15,
         color:"#9D9D9D",
     },
 
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
     edittextCont:{
         width: 61,
         justifyContent:"center",
-        left:28,
+        left:13,
         top: 30,
         color:"#9D9D9D",
         
@@ -108,6 +109,7 @@ const ButtonStyles = StyleSheet.create({
         alignItems:'center',
         margin:60,
         marginBottom:90, 
+        
     }
     })
 
@@ -120,7 +122,7 @@ const ButtonStyles = StyleSheet.create({
 
 export default function EditProf() {
     const history = useHistory();
-    return <View style={styles.pagespace}>
+    return <View>
                 <View style={styles.allContent}>
                     <ScrollView>
 
@@ -161,7 +163,7 @@ export default function EditProf() {
                         </View>
        
                         <View style={styles.space}>
-                            <InputComp text="Bio" height="130"/>
+                            <InputComp text="Bio" height={200}/>
                         </View>
         
                     </View>

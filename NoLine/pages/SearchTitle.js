@@ -33,8 +33,15 @@ import sendIconPNG from '../public/sendIcon.png';
 import MapOverlay from '../comps/MapOverlay';
 import PlusPNG from '../public/plus.png';
 import MinusPNG from '../public/minus.png';
+<<<<<<< Updated upstream
 import { getAllPhotos, addWaitTime, getRestaurant } from '../database/functions';
 import config from '../database/firebase.config.json';
+=======
+import CheckedSearch from '../public/Search_Checked.png';
+
+
+import {getRestaurant} from '../database/functions';
+>>>>>>> Stashed changes
 import '../public/down.png'
 import '../public/minus.png';
 import '../public/plus.png';
@@ -187,7 +194,7 @@ return   <ScrollView>
 
 
 <View style={Nav.cont}>
-<Navigator></Navigator>
+<Navigator image1={CheckedSearch}></Navigator>
 </View>
   </View>
   </ScrollView>

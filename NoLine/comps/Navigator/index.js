@@ -10,7 +10,6 @@ import CheckedSearch from '../../public/Search_Checked.png';
 import CheckedLocationPin from '../../public/LocationPin_Checked.png';
 import CheckedProfile from '../../public/Profile_Checked.png';
 
-
 import {NativeRouter, Route, Link, useHistory} from "react-router-native";
 
 const NavContainer = styled.View`
@@ -45,7 +44,19 @@ const NavImage = styled.Image`
     justify-content: center;
 `;
 
-const Navigator = () => {
+const CheckedSearchPNG={
+  src:CheckedSearch
+}
+
+const CheckedLocationPinPNG={
+  src:CheckedLocationPin
+}
+const CheckedProfilePNG={
+  src:CheckedProfile
+}
+
+
+const Navigator = ({image1, image2, image3}) => {
 
 const [image, setImg] = useState(null);
 
@@ -59,7 +70,7 @@ const history = useHistory();
         onPress={() => {
             history.push("/searchicon")
           }}>  
-           <NavImage onPress={()=>{setImg(image.CheckedSearch);}} source={SearchPNG.src}/> 
+           <NavImage source={image1}/> 
         </TouchableOpacity>
 
 
@@ -67,7 +78,7 @@ const history = useHistory();
         onPress={() => {
             history.push("/map1")
           }}>
-          <NavImage source={LocationPNG.src}/> 
+          <NavImage source={image2}/> 
           </TouchableOpacity>
 
 
@@ -75,7 +86,7 @@ const history = useHistory();
         onPress={() => {
             history.push("/profilenav")
           }}>
-          <NavImage source={UserPNG.src}/> 
+          <NavImage source={image3}/> 
           </TouchableOpacity>
 
 
@@ -83,5 +94,11 @@ const history = useHistory();
     </View>
   );
 };
+
+Navigator.defaultProps = {
+  image1: SearchPNG.src,
+  image2: LocationPNG.src,
+  image3: UserPNG.src,
+}
 
 export default Navigator;

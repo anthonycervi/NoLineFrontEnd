@@ -62,19 +62,15 @@ or visit this link:
 
 - CSS Framework
 
-  - TBD
+  - CSS
 
 - Frontend JavaScript Library
 
-  - TBD
+  - React Native
 
 - Backend language
 
   - JavaScript
-
-- Backend HTTP Framework
-
-  - TBD
 
 - Database
 

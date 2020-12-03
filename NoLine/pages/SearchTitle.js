@@ -172,7 +172,7 @@ return   <ScrollView>
 
 <View style={ButtonStyle.cont}>
   <Link to="/map1">
- <Button style = {ButtonStyle.cont} text="Submit" buttonwidth={135} buttonheight={35} onPress={() => {setSearchText(`${sliderValue} min wait`)}}></Button> 
+ <Button style = {ButtonStyle.cont} text="Submit" buttonwidth={135} buttonheight={35} onPress={() => {setSearchText(`${addWaitTime(waitTime)} min wait`)}}></Button> 
  </Link>
  </View>
  {/* </Link> */}

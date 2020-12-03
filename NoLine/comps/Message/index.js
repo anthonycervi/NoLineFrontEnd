@@ -7,6 +7,7 @@ import ProfilePic from '../../public/MessageProfile.png';
 const MessageContainer = styled.View`
     font-family: Montserrat;
     font-style: normal;
+    width: 100%;
 `;
 
 const Row = styled.View`
@@ -24,7 +25,7 @@ const Column = styled.View`
 `;
 
 const MessageHeading = styled.Text`
-
+    text-align: left;
     font-weight: normal;
     font-size: 16px;
     line-height: 22px;
@@ -81,11 +82,11 @@ const Message = ({ title, messageBody, timestamp, username }) => {
             </MessageHeading>
         </Column>
 
-        <Column>
+        {/* <Column>
             <Review>
                 <SpannedView><Text>&#9733;&#9733;&#9733;&#9733;&#9733;</Text></SpannedView>
             </Review>
-        </Column>
+        </Column> */}
     </Row>
 
     <Row>

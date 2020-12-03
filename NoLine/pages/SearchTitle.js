@@ -27,14 +27,15 @@ import Button from '../comps/Button';
 import Navigator from '../comps/Navigator';
 import Message from '../comps/Message';
 import SearchTitle from '../comps/SearchTitle';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE, AnimatedRegion } from 'react-native-maps';
 import InputIconBar from '../comps/InputIconBar';
 import sendIconPNG from '../public/sendIcon.png';
 import MapOverlay from '../comps/MapOverlay';
 import PlusPNG from '../public/plus.png';
 import MinusPNG from '../public/minus.png';
-
+import { getAllPhotos } from '../database/functions';
 import {getRestaurant} from '../database/functions';
+import config from '../database/firebase.config.json';
 import '../public/down.png'
 import '../public/minus.png';
 import '../public/plus.png';
@@ -65,37 +66,74 @@ const SearchTitlePage = () =>{
   const [sliderValue, setSliderValue] = useState(0);
   const [searchText, setSearchText] = useState("5 min wait");
   const [name, setName] = useState("")
+  const [revnum, setRevnum] = useState("")
+  const [rating, setRating] = useState("")
+  const [photo, setPhoto] = useState("")
+  const [lat, setLat] = useState(0)
+  const [long, setLong] = useState(0)
 const {id} = useParams();
 
-const RestaurantDetail = async() =>{
+ const RestaurantDetail = async() =>{
   if(id){
     var details = await getRestaurant(id);
-    console.log("details", JSON.stringify(details.result, null, 2));
+    // console.log("details", JSON.stringify(details.result, null, 2));
     setName(details.result.name);
+    console.log(details.result)
+    setRevnum(details.result.user_ratings_total);
+    setRating(details.result.rating);
+    // setLat(details.results.lat);
+    // setLong(details.results.lng);
+    setLong(details.result.geometry.location.lng);
+    setLat(details.result.geometry.location.lat);
+    // console.log(details.result.geometry.location.lat);
+    setPhoto(details.result.photos[0].photo_reference);
+
+    //Review Stars / 5 = "rating", Image = "icon",location: lat / lng, user_ratings_total
 
   }
 }
 useEffect(()=>{
   RestaurantDetail()
 }, [id]);
+
+
+//COORDINATES
+
+const MyLatLng = {lat: lat, lng: long};
+var markers = [
+  {
+    id: String,
+  coordinate: MyLatLng,
+  title: "String",
+  description: String
+        
+  }
+]
+
+
 return   <ScrollView>
   <View style={styles.cont}>
     <View style={title.cont}>
- <SearchTitle h1text={name} text={searchText}></SearchTitle>
+ <SearchTitle h1text={name} revnum={revnum} text={searchText} stars={rating + "/5"} photourl={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photo}&key=${config.apiKey}`}></SearchTitle>
  </View>
- 
  {/* <Link to="/submitting"> */}
 
  <View style={MapContainer.container}>
+
+      
+
       <MapView
        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
        style={MapContainer.map}
+      annotations={markers}
        region={{
-        latitude: 49.27966,
-        longitude: -123.11993,
-        latitudeDelta: 0.055,
-        longitudeDelta: 0.055,
+        latitude: lat,
+        longitude: long,
+        latitudeDelta: 0.002,
+        longitudeDelta: 0.002,
+        
        }}
+       
      >
      </MapView>
      </View>
@@ -144,10 +182,10 @@ return   <ScrollView>
    <Text style={TextStyle.report}>Comments</Text>
    <InputIconBar style={TextStyle.input} text="Add a Comment..." width="331" image={sendIconPNG.src}/>
   <View style={Comment.message}>
-    <Message title="False Wait Time" messageBody="This restaurant currently has 30minutes of wait time, not 10minute." timestamp="10min" username="BogaXD12"/>
-    <Message title="Amazing Place" messageBody="Of course one expects really fresh sushi in Vancouver.  Restaurant sushi is not only fresh but well portioned and presented." timestamp="1hour" username="Antony" />
-    <Message title="Huge line up" messageBody="This restaurant has a huge line up right now." timestamp="2hour" username="farhazzz"/>
-    <Message title="Huge line up" messageBody="This restaurant has a huge line up right now." timestamp="2hour" username="farhazzz"/>
+    <Message title="Long Wait Time" messageBody="This restaurant currently has 30minutes of wait time, not 10minute." timestamp="1m" username="BogaXD12"/>
+    <Message title="Amazing Place" messageBody="Of course one expects really fresh sushi in Vancouver.  Restaurant sushi is not only fresh but well portioned and presented." timestamp="32m" username="Antony" />
+    <Message title="Very busy" messageBody="Been waiting for a table for an hour." timestamp="58m" username="farhazzz"/>
+    <Message title="Huge line up" messageBody="Very busy right now, huge line up here right now." timestamp="2h" username="farhazzz"/>
 
    </View>
  </View>
@@ -186,11 +224,13 @@ const Nav = StyleSheet.create({
 const Comment = StyleSheet.create({
   space:{
     height:"100%",
+    width:"100%",
     top:10
   },
   
   message:{
     height:"100%",
+    width:"100%",
     display:'flex',
     justifyContent:"space-around",
   }

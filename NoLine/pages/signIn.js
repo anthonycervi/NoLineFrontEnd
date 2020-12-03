@@ -79,10 +79,10 @@ const signIn = () => {
   const history = useHistory();
   const {setUser} = useInfo();
   const handleLogIn = () => {
-    console.log(email,pass);
+    // console.log(email,pass);
     login(email,pass)
       .then(user=>{
-        console.log('login success', user);
+        // console.log('login success', user);
         setUser({...user})
         history.push("/signinbutton");
       })

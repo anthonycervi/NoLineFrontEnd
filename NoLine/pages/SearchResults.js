@@ -46,9 +46,8 @@ import {
   getAllPoints,
   getAllRestaurantByWaitTime,
   getAllRestaurants,
-  getAllPhotos,
-  getDistanceFromLatLonInKm,
-  deg2rad,
+  getAllPhotos, 
+  getRestaurant
 } from '../database/functions';
 
 import {
@@ -60,6 +59,10 @@ import {
   setFullname
 } from './signUp'
 
+import {
+  RestaurantDetail
+} from '../pages/SearchTitle'
+
 const SearchResultPage = () => {
   //grab name, icon, user_rating_total, rating under getRestaurantsAroundUser function
   //grab formatted_address under searchLocation
@@ -69,34 +72,27 @@ const SearchResultPage = () => {
   const [coordinates, setCoordinates] = useState([])
   const [count, setCount] = React.useState(0);
   const [fullname, setFullname] = useState("");
+  const [lat, setLat] = useState(0);
+  const [long, setLong] = useState(0);
 
   //create input state for places so its not hardcoded and then use state on the function variable.
 
   
   const getAllRestaurantsDetails = async() => {
     try {
-      setRestaurant(await getAllRestaurants(keyword || "sushi"));
+      // const details = await getAllRestaurants(keyword || "sushi");
+      // console.log(details.result.geometry.location.lat);
+      setRestaurant(await getAllRestaurants(keyword || "sushi", lat, long));
     } catch (err) {
       console.log(err);
     }
   }
-  // const getDistance = async () => {
-  //   try {
-  //     lat1 = "49.27966";
-  //     lon1 = "-123.11993";
-  //     restaurant.map(item => {
-  //       const container = {};
-  //       container[item.geometry];
-  //       console.log(container); 
-  //     } );
-  //     // setCoordinates(await getgetDistanceFromLatLonInKm(lat1, lon1, lat2, lon2));
-  //   } catch (err) {
-  //      console.log(err);
-  //   }
-  // } 
+
+  
+  
   useEffect(() => {
     getAllRestaurantsDetails();
-    console.log('Run useeffect');
+    // console.log('Run useeffect');
     setCount(100);
     }, []);
 
@@ -121,8 +117,25 @@ const SearchResultPage = () => {
             <ScrollView>
         {
           restaurant.map((item,i) => {
-            console.log("restaurant", item.place_id);
-            return <SearchResult key={i} id={item.place_id} name={item.name} IImage={item.photos} revnum={"(" + item.user_ratings_total + " reviews)"} stars={item.rating + "/5"} textWait={(item.waitTime) + " min"}></SearchResult>
+            
+            const lat1 = 49.205440;
+            const lon1 = -122.944100;
+            const lon2 = item.geometry.location.lng;
+            const lat2 = item.geometry.location.lat;
+            
+          function distance() {
+            var p = 0.017453292519943295;    // Math.PI / 180
+            var c = Math.cos;
+            var a = 0.5 - c((lat2 - lat1) * p)/2 + 
+                    c(lat1 * p) * c(lat2 * p) * 
+                    (1 - c((lon2 - lon1) * p))/2;
+          
+            return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
+          }
+
+          const distanceValue = distance()
+          const roundDistanceValue = Math.round(distanceValue * 10) / 10
+            return <SearchResult key={i} id={item.place_id} name={item.name} IImage={item.photos} revnum={"(" + item.user_ratings_total + " reviews)"} stars={item.rating + "/5"} textWait={(item.waitTime) + " min"}textDistance={roundDistanceValue + " km"}></SearchResult>
           })
         }
      </ScrollView>

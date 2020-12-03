@@ -53,7 +53,7 @@ const signUp = () => {
     }
     try {
       const res = await registerUser(email, pass, confirmPassword, data);
-      console.log('Sign Up success', res);
+      // console.log('Sign Up success', res);
       history.push("/signupbutton");
     } catch (err) {
       console.log(err)
